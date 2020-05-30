@@ -27,5 +27,10 @@ namespace ProjetoCrudPacientes
             frmCadPacientes frm = new frmCadPacientes();
             frm.ShowDialog();
         }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tel: " + "\n" + "\n" + "josehvvn@gmail.com" + "\n" + "\n" + "raphaelacacio84@gmail.com", "Ajuda?" );
+        }
     }
 }

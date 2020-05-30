@@ -197,28 +197,38 @@ namespace ProjetoCrudPacientes
         //excluir dados no banco de dados
         public void Excluir()
         {
-            try
-            {    //excluir dados no banco de dados
-                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
-                objcon.Open();
-                MySqlCommand objCmd = new MySqlCommand("delete from tb_paciente where cpf = ?", objcon);
-                objCmd.Parameters.Clear();
-                objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf.Text;
-
-
-                //comando para executar query
-                objCmd.CommandType = CommandType.Text;
-                objCmd.ExecuteNonQuery();
-                //mensagem
-                MessageBox.Show("Exclusão Realizada com Sucesso !!!");
-
-                //fecha o banco de dados
-                objcon.Close();
-            }
-            catch (Exception erro)
+            //verificar campo vazio
+            if (txtNome.Text == "" || txtDataNasc.Text == "" || txtCpf.Text == "" || txtCns.Text == "" ||
+                txtMae.Text == "" || txtTel1.Text == "" || txtCep.Text == "" || txtRua.Text == "" ||
+                txtNum.Text == "" || txtBairro.Text == "" || txtCidade.Text == "" || txtUf.Text == "")
             {
-                MessageBox.Show("Dados não Excluidos !!!" + erro);
+                MessageBox.Show("Campo Obrigatório Vazio");
+            }
+            else
+            {
+                try
+                {    //excluir dados no banco de dados
+                    MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
+                    objcon.Open();
+                    MySqlCommand objCmd = new MySqlCommand("delete from tb_paciente where cpf = ?", objcon);
+                    objCmd.Parameters.Clear();
+                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf.Text;
 
+
+                    //comando para executar query
+                    objCmd.CommandType = CommandType.Text;
+                    objCmd.ExecuteNonQuery();
+                    //mensagem
+                    MessageBox.Show("Exclusão Realizada com Sucesso !!!");
+
+                    //fecha o banco de dados
+                    objcon.Close();
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Dados não Excluidos !!!" + erro);
+
+                }
             }
         }
 
@@ -243,6 +253,14 @@ namespace ProjetoCrudPacientes
             txtUf.Text = (" ");
             txtObservacoes.Text = (" ");
             txtProntuario.Text = (" ");
+        }
+        //limpar todos os txt box dos campos de pesquisa
+        public void LimparBox2()
+        {
+            txtNome1.Text = (" ");
+            txtDataNasc1.Text = (" ");
+            txtCpf1.Text = (" ");
+            txtProntuario1.Text = (" ");
         }
 
 
@@ -271,12 +289,17 @@ namespace ProjetoCrudPacientes
         private void btnBuscar1_Click(object sender, EventArgs e)
         {
             Selecionar();
+            LimparBox2();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
             LimparBox();
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = false;
+            btnExcluir.Enabled = false;
+            checkBoxIncluirCadastro.Focus();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -293,11 +316,240 @@ namespace ProjetoCrudPacientes
 
         private void checkBoxIncluirCadastro_CheckedChanged(object sender, EventArgs e)
         {
+            txtProntuario.ReadOnly = true;
             btnSalvar.Enabled = true;
             btnAtualizar.Enabled = false;
             btnExcluir.Enabled = false;
-
             LimparBox();
+            txtNome.BackColor = Color.DeepSkyBlue;
+            txtNome.TextAlign = HorizontalAlignment.Left;
+            txtNome.Focus();
+        }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tel: " + "\n" + "\n" + "josehvvn@gmail.com" + "\n" + "\n" + "raphaelacacio84@gmail.com", "Ajuda?");
+        }
+
+        private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == 13)
+            {
+                txtDataNasc.BackColor = Color.DeepSkyBlue;
+                txtDataNasc.TextAlign = HorizontalAlignment.Left;
+                txtDataNasc.Focus();
+            }
+        }
+
+        private void txtDataNasc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == 13)
+            {
+                txtCpf.BackColor = Color.DeepSkyBlue;
+                txtCpf.TextAlign = HorizontalAlignment.Left;
+                txtCpf.Focus();
+            }
+        }
+
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == 13)
+            {
+                txtRg.BackColor = Color.DeepSkyBlue;
+                txtRg.TextAlign = HorizontalAlignment.Left;
+                txtRg.Focus();
+            }
+        }
+
+        private void txtRg_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtCns.BackColor = Color.DeepSkyBlue;
+                txtCns.TextAlign = HorizontalAlignment.Left;
+                txtCns.Focus();
+            }
+        }
+
+        private void txtCns_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtMae.BackColor = Color.DeepSkyBlue;
+                txtMae.TextAlign = HorizontalAlignment.Left;
+                txtMae.Focus();
+            }
+        }
+
+        private void txtMae_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtPai.BackColor = Color.DeepSkyBlue;
+                txtPai.TextAlign = HorizontalAlignment.Left;
+                txtPai.Focus();
+            }
+        }
+
+        private void txtPai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtTel1.BackColor = Color.DeepSkyBlue;
+                txtTel1.TextAlign = HorizontalAlignment.Left;
+                txtTel1.Focus();
+            }
+        }
+
+        private void txtTel1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtTel2.BackColor = Color.DeepSkyBlue;
+                txtTel2.TextAlign = HorizontalAlignment.Left;
+                txtTel2.Focus();
+            }
+        }
+
+        private void txtTel2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtEmail.BackColor = Color.DeepSkyBlue;
+                txtEmail.TextAlign = HorizontalAlignment.Left;
+                txtEmail.Focus();
+            }
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtCep.BackColor = Color.DeepSkyBlue;
+                txtCep.TextAlign = HorizontalAlignment.Left;
+                txtCep.Focus();
+            }
+        }
+
+        private void txtCep_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtRua.BackColor = Color.DeepSkyBlue;
+                txtRua.TextAlign = HorizontalAlignment.Left;
+                txtRua.Focus();
+            }
+        }
+
+        private void txtRua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtNum.BackColor = Color.DeepSkyBlue;
+                txtNum.TextAlign = HorizontalAlignment.Right;
+                txtNum.Focus();
+            }
+        }
+
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtBairro.BackColor = Color.DeepSkyBlue;
+                txtBairro.TextAlign = HorizontalAlignment.Left;
+                txtBairro.Focus();
+            }
+        }
+
+        private void txtBairro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtCidade.BackColor = Color.DeepSkyBlue;
+                txtCidade.TextAlign = HorizontalAlignment.Left;
+                txtCidade.Focus();
+            }
+        }
+
+        private void txtCidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtUf.BackColor = Color.DeepSkyBlue;
+                txtUf.TextAlign = HorizontalAlignment.Left;
+                txtUf.Focus();
+            }
+        }
+
+        private void txtUf_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtObservacoes.BackColor = Color.DeepSkyBlue;
+                txtObservacoes.TextAlign = HorizontalAlignment.Left;
+                txtObservacoes.Focus();
+            }
+        }
+
+        private void txtObservacoes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnSalvar.Focus();
+            }
+        }
+
+        private void btnSalvar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Cadastrar();
+                LimparBox();
+                btnSalvar.Enabled = false;
+                btnAtualizar.Enabled = false;
+                btnExcluir.Enabled = false;
+                checkBoxIncluirCadastro.Focus();
+            }
+        }
+
+        private void txtCpf1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Selecionar();
+            }
+        }
+
+        private void txtNome1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Selecionar();
+            }
+        }
+
+        private void txtDataNasc1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Selecionar();
+            }
+        }
+
+        private void txtProntuario1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Selecionar();
+            }
+        }
+
+        private void txtProntuario_TextChanged(object sender, EventArgs e)
+        {
+            txtProntuario.ReadOnly = true;
         }
     }
 }

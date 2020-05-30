@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadPacientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle265 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle266 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle267 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle268 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle269 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle270 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle271 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle272 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle273 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle274 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle275 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle276 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,6 +87,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtProntuario1 = new System.Windows.Forms.TextBox();
             this.txtDataNasc1 = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf1 = new System.Windows.Forms.MaskedTextBox();
             this.txtNome1 = new System.Windows.Forms.TextBox();
@@ -108,8 +110,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtProntuario1 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -144,6 +144,7 @@
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
             this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
+            this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -202,6 +203,7 @@
             this.txtProntuario.Name = "txtProntuario";
             this.txtProntuario.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario.TabIndex = 87;
+            this.txtProntuario.TextChanged += new System.EventHandler(this.txtProntuario_TextChanged);
             // 
             // label23
             // 
@@ -232,6 +234,7 @@
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.Size = new System.Drawing.Size(895, 24);
             this.txtObservacoes.TabIndex = 84;
+            this.txtObservacoes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtObservacoes_KeyPress);
             // 
             // txtDataNasc
             // 
@@ -241,6 +244,7 @@
             this.txtDataNasc.Name = "txtDataNasc";
             this.txtDataNasc.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc.TabIndex = 83;
+            this.txtDataNasc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataNasc_KeyPress);
             // 
             // txtCpf
             // 
@@ -250,6 +254,7 @@
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(169, 24);
             this.txtCpf.TabIndex = 82;
+            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // txtPai
             // 
@@ -258,6 +263,7 @@
             this.txtPai.Name = "txtPai";
             this.txtPai.Size = new System.Drawing.Size(406, 24);
             this.txtPai.TabIndex = 81;
+            this.txtPai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPai_KeyPress);
             // 
             // label21
             // 
@@ -277,6 +283,7 @@
             this.txtMae.Name = "txtMae";
             this.txtMae.Size = new System.Drawing.Size(406, 24);
             this.txtMae.TabIndex = 79;
+            this.txtMae.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMae_KeyPress);
             // 
             // label20
             // 
@@ -311,6 +318,7 @@
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(43, 24);
             this.txtUf.TabIndex = 76;
+            this.txtUf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUf_KeyPress);
             // 
             // txtCidade
             // 
@@ -319,6 +327,7 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(227, 24);
             this.txtCidade.TabIndex = 75;
+            this.txtCidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCidade_KeyPress);
             // 
             // txtBairro
             // 
@@ -327,6 +336,7 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(262, 24);
             this.txtBairro.TabIndex = 74;
+            this.txtBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBairro_KeyPress);
             // 
             // txtNum
             // 
@@ -335,6 +345,7 @@
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(86, 24);
             this.txtNum.TabIndex = 73;
+            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // txtRua
             // 
@@ -343,6 +354,7 @@
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(406, 24);
             this.txtRua.TabIndex = 72;
+            this.txtRua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRua_KeyPress);
             // 
             // txtCep
             // 
@@ -352,6 +364,7 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(119, 24);
             this.txtCep.TabIndex = 71;
+            this.txtCep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCep_KeyPress);
             // 
             // txtEmail
             // 
@@ -360,6 +373,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(361, 24);
             this.txtEmail.TabIndex = 70;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtTel2
             // 
@@ -369,6 +383,7 @@
             this.txtTel2.Name = "txtTel2";
             this.txtTel2.Size = new System.Drawing.Size(149, 24);
             this.txtTel2.TabIndex = 69;
+            this.txtTel2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel2_KeyPress);
             // 
             // txtTel1
             // 
@@ -378,6 +393,7 @@
             this.txtTel1.Name = "txtTel1";
             this.txtTel1.Size = new System.Drawing.Size(148, 24);
             this.txtTel1.TabIndex = 68;
+            this.txtTel1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel1_KeyPress);
             // 
             // txtRg
             // 
@@ -386,6 +402,7 @@
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(186, 24);
             this.txtRg.TabIndex = 67;
+            this.txtRg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRg_KeyPress);
             // 
             // label4
             // 
@@ -405,6 +422,7 @@
             this.txtCns.Name = "txtCns";
             this.txtCns.Size = new System.Drawing.Size(190, 24);
             this.txtCns.TabIndex = 65;
+            this.txtCns.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCns_KeyPress);
             // 
             // label2
             // 
@@ -424,6 +442,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(406, 24);
             this.txtNome.TabIndex = 61;
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // checkBoxIncluirCadastro
             // 
@@ -467,6 +486,7 @@
             this.btnSalvar.Text = "  SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnSalvar_KeyPress);
             // 
             // label16
             // 
@@ -631,6 +651,26 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label24.Location = new System.Drawing.Point(538, 16);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(95, 22);
+            this.label24.TabIndex = 89;
+            this.label24.Text = "Prontuario";
+            // 
+            // txtProntuario1
+            // 
+            this.txtProntuario1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProntuario1.Location = new System.Drawing.Point(633, 15);
+            this.txtProntuario1.Name = "txtProntuario1";
+            this.txtProntuario1.Size = new System.Drawing.Size(112, 24);
+            this.txtProntuario1.TabIndex = 88;
+            this.txtProntuario1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProntuario1_KeyPress);
+            // 
             // txtDataNasc1
             // 
             this.txtDataNasc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -639,6 +679,7 @@
             this.txtDataNasc1.Name = "txtDataNasc1";
             this.txtDataNasc1.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc1.TabIndex = 65;
+            this.txtDataNasc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataNasc1_KeyPress);
             // 
             // txtCpf1
             // 
@@ -648,6 +689,7 @@
             this.txtCpf1.Name = "txtCpf1";
             this.txtCpf1.Size = new System.Drawing.Size(169, 24);
             this.txtCpf1.TabIndex = 63;
+            this.txtCpf1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf1_KeyPress);
             // 
             // txtNome1
             // 
@@ -656,6 +698,7 @@
             this.txtNome1.Name = "txtNome1";
             this.txtNome1.Size = new System.Drawing.Size(415, 24);
             this.txtNome1.TabIndex = 62;
+            this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
             // 
             // tabeladeClientes
             // 
@@ -680,103 +723,103 @@
             // 
             // CPF
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.CPF.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle265.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle265.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.CPF.DefaultCellStyle = dataGridViewCellStyle265;
             this.CPF.HeaderText = "CPF";
             this.CPF.Name = "CPF";
             this.CPF.Width = 150;
             // 
             // Nome
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Nome.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle266.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle266.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle266;
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.Width = 250;
             // 
             // DatadedNasc
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.DatadedNasc.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle267.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle267.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.DatadedNasc.DefaultCellStyle = dataGridViewCellStyle267;
             this.DatadedNasc.HeaderText = "Data de Nasc.";
             this.DatadedNasc.Name = "DatadedNasc";
             // 
             // Telefone1
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Telefone1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle268.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle268.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Telefone1.DefaultCellStyle = dataGridViewCellStyle268;
             this.Telefone1.HeaderText = "Telefone";
             this.Telefone1.Name = "Telefone1";
             // 
             // Telefone2
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Telefone2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle269.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle269.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Telefone2.DefaultCellStyle = dataGridViewCellStyle269;
             this.Telefone2.HeaderText = "Telefone";
             this.Telefone2.Name = "Telefone2";
             // 
             // Email
             // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Email.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle270.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle270.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Email.DefaultCellStyle = dataGridViewCellStyle270;
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
             this.Email.Width = 250;
             // 
             // CEP
             // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.CEP.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle271.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle271.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.CEP.DefaultCellStyle = dataGridViewCellStyle271;
             this.CEP.HeaderText = "CEP";
             this.CEP.Name = "CEP";
             // 
             // Endereco
             // 
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Endereco.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle272.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle272.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Endereco.DefaultCellStyle = dataGridViewCellStyle272;
             this.Endereco.HeaderText = "Rua";
             this.Endereco.Name = "Endereco";
             this.Endereco.Width = 250;
             // 
             // Numero
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle273.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle273.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Numero.DefaultCellStyle = dataGridViewCellStyle273;
             this.Numero.HeaderText = "N°";
             this.Numero.Name = "Numero";
             this.Numero.Width = 50;
             // 
             // Bairro
             // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Bairro.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle274.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle274.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Bairro.DefaultCellStyle = dataGridViewCellStyle274;
             this.Bairro.HeaderText = "Bairro";
             this.Bairro.Name = "Bairro";
             this.Bairro.Width = 150;
             // 
             // Cidade
             // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Cidade.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle275.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle275.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Cidade.DefaultCellStyle = dataGridViewCellStyle275;
             this.Cidade.HeaderText = "Cidade";
             this.Cidade.Name = "Cidade";
             // 
             // UF
             // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.UF.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle276.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle276.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.UF.DefaultCellStyle = dataGridViewCellStyle276;
             this.UF.HeaderText = "UF";
             this.UF.Name = "UF";
             this.UF.Width = 50;
@@ -839,25 +882,6 @@
             this.label1.Size = new System.Drawing.Size(290, 41);
             this.label1.TabIndex = 21;
             this.label1.Text = "Pesquisar Pacientes";
-            // 
-            // txtProntuario1
-            // 
-            this.txtProntuario1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProntuario1.Location = new System.Drawing.Point(633, 15);
-            this.txtProntuario1.Name = "txtProntuario1";
-            this.txtProntuario1.Size = new System.Drawing.Size(112, 24);
-            this.txtProntuario1.TabIndex = 88;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(538, 16);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(95, 22);
-            this.label24.TabIndex = 89;
-            this.label24.Text = "Prontuario";
             // 
             // frmCadPacientes
             // 
