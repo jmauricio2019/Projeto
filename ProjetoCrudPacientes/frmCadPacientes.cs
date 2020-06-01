@@ -154,7 +154,9 @@ namespace ProjetoCrudPacientes
                 {    //atualizar dados no banco de dados
                     MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
                     objcon.Open();
-                    MySqlCommand objCmd = new MySqlCommand("update tb_paciente set nome = ?, datanasc = ?," +
+                    MySqlCommand objCmd = new MySqlCommand("update tb_paciente set nome = ?," +
+                        "" +
+                        " datanasc = ?," +
                         " rg = ?, cns = ?, mae = ?, pai = ?, tel1 = ?, tel2 = ?, email = ?, cep = ?, logadouro = ?," +
                         " num = ?, bairro = ?, cidade = ?, uf = ?, observacoes = ? where cpf = ?", objcon);
                     objCmd.Parameters.Clear();
@@ -357,9 +359,60 @@ namespace ProjetoCrudPacientes
             
             if (e.KeyChar == 13)
             {
-                txtRg.BackColor = Color.DeepSkyBlue;
-                txtRg.TextAlign = HorizontalAlignment.Left;
-                txtRg.Focus();
+                
+                
+                {
+                    int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                    int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                    string cpf = txtCpf.Text;
+                    cpf = cpf.Trim().Replace(".", "").Replace("-", "");
+                    char[] arr;
+
+                    arr = cpf.ToCharArray();
+                    int soma = 0;
+
+                    for (int i = 0; i < 9; i++)
+                        soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
+
+                    int resto = soma % 11;
+                    if (resto < 2)
+                        resto = 0;
+                    else
+                        resto = 11 - resto;
+
+
+
+                    soma = 0;
+                    for (int i = 0; i < 10; i++)
+                        soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
+
+                    int resto1 = soma % 11;
+                    if (resto1 < 2)
+                        resto1 = 0;
+                    else
+                        resto1 = 11 - resto1;
+
+                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                    {
+                        txtCpf.BackColor = Color.DeepSkyBlue;
+                        txtCpf.TextAlign = HorizontalAlignment.Left;
+                        txtCpf.Focus();
+                        txtRg.BackColor = Color.DeepSkyBlue;
+                        txtRg.TextAlign = HorizontalAlignment.Left;
+                        txtRg.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("CPF Inválido");
+
+                        txtCpf.BackColor = Color.Red;
+                        txtCpf.TextAlign = HorizontalAlignment.Left;
+                        txtCpf.Focus();
+                    }
+
+
+                }
+
             }
         }
 
@@ -518,8 +571,55 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                Selecionar();
+                int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                string cpf = txtCpf1.Text;
+                cpf = cpf.Trim().Replace(".", "").Replace("-", "");
+                char[] arr;
+
+                arr = cpf.ToCharArray();
+                int soma = 0;
+
+                for (int i = 0; i < 9; i++)
+                    soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
+
+                int resto = soma % 11;
+                if (resto < 2)
+                    resto = 0;
+                else
+                    resto = 11 - resto;
+
+
+
+                soma = 0;
+                for (int i = 0; i < 10; i++)
+                    soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
+
+                int resto1 = soma % 11;
+                if (resto1 < 2)
+                    resto1 = 0;
+                else
+                    resto1 = 11 - resto1;
+
+                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                {
+                    txtCpf1.BackColor = Color.DeepSkyBlue;
+                    txtCpf1.TextAlign = HorizontalAlignment.Left;
+                    
+                    Selecionar();
+                }
+                else
+                {
+                    MessageBox.Show("CPF Inválido");
+
+                    txtCpf1.BackColor = Color.Red;
+                    txtCpf1.TextAlign = HorizontalAlignment.Left;
+                    txtCpf1.Focus();
+                }
+
+
             }
+           
         }
 
         private void txtNome1_KeyPress(object sender, KeyPressEventArgs e)
