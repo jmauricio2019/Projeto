@@ -23,61 +23,108 @@ namespace ProjetoCrudPacientes
         public void Cadastrar()
         {
             //verificar campo vazio
-            if (txtNome.Text == "" || txtDataNasc.Text == "" || txtCpf.Text == "" || txtCns.Text == "" ||
-                txtMae.Text == "" || txtTel1.Text == "" || txtCep.Text == "" || txtRua.Text == "" ||
-                txtNum.Text == "" || txtBairro.Text == "" || txtCidade.Text == "" || txtUf.Text == "")
+            if (txtNome.Text == " " || txtDataNasc.Text == " " || txtCpf.Text == " " || txtCns.Text == " " ||
+                txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+                txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
                 MessageBox.Show("Campo Obrigatório Vazio");
             }
             else
             {
-                try
-                {    //inserir dados no banco de dados
-                    MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
-                    objcon.Open();
-                    MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (id, nome, datanasc, cpf, rg, cns, mae, \n" +
-                        " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
-                        " uf, observacoes) values( null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                string cpf = txtCpf.Text;
+                cpf = cpf.Trim().Replace(".", "").Replace("-", "");
+                char[] arr;
 
-                    //parametros do comando sql
-                    objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
-                    objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
-                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
-                    objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
-                    objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
-                    objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
-                    objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
-                    objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
-                    objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
-                    objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
-                    objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
-                    objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
-                    objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
-                    objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
-                    objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
-                    objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
-                    objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
+                arr = cpf.ToCharArray();
+                int soma = 0;
 
-                    //para colocar os estados no combo box
-                    //cmbestado.itens.add("sp");
+                for (int i = 0; i < 9; i++)
+                    soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
 
-                    //comando para executar query
-                    objCmd.ExecuteNonQuery();
+                int resto = soma % 11;
+                if (resto < 2)
+                    resto = 0;
+                else
+                    resto = 11 - resto;
 
-                    MessageBox.Show("Cadastrado com Sucesso!!!");
 
-                    //fecha o banco de dados
-                    objcon.Close();
-                }
-                catch (Exception erro)
+
+                soma = 0;
+                for (int i = 0; i < 10; i++)
+                    soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
+
+                int resto1 = soma % 11;
+                if (resto1 < 2)
+                    resto1 = 0;
+                else
+                    resto1 = 11 - resto1;
+
+                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
                 {
-                    MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
+                    txtCpf.BackColor = Color.DeepSkyBlue;
+                    txtCpf.TextAlign = HorizontalAlignment.Left;
+                    txtCpf.Focus();
+                    try
+                    {    //inserir dados no banco de dados
+                        MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
+                        objcon.Open();
+                        MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (id, nome, datanasc, cpf, rg, cns, mae, \n" +
+                            " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
+                            " uf, observacoes) values( null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+
+                        //parametros do comando sql
+                        objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+                        objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
+                        objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
+                        objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
+                        objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
+                        objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
+                        objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
+                        objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
+                        objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
+                        objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
+                        objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
+                        objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
+                        objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
+                        objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
+                        objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
+                        objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
+                        objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
+
+                        //para colocar os estados no combo box
+                        //cmbestado.itens.add("sp");
+
+                        //comando para executar query
+                        objCmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Cadastrado com Sucesso!!!");
+
+                        //fecha o banco de dados
+                        objcon.Close();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
+                    }
+
+
                 }
+                else
+                {
+                    MessageBox.Show("CPF Inválido");
+
+                    txtCpf.BackColor = Color.Red;
+                    txtCpf.TextAlign = HorizontalAlignment.Left;
+                    txtCpf.Focus();
+                }
+
 
             }
 
         }
-
+               
         //selecionar dados do banco de dados
         public void Selecionar()
         {
@@ -140,9 +187,9 @@ namespace ProjetoCrudPacientes
         //atualiar dados no banco de dados
         public void Atualizar()
         {
-            if (txtNome.Text == "" || txtDataNasc.Text == "" || txtCpf.Text == "" || txtCns.Text == "" ||
-               txtMae.Text == "" || txtTel1.Text == "" || txtCep.Text == "" || txtRua.Text == "" ||
-               txtNum.Text == "" || txtBairro.Text == "" || txtCidade.Text == "" || txtUf.Text == "")
+            if (txtNome.Text == " " || txtDataNasc.Text == " " || txtCpf.Text == " " || txtCns.Text == " " ||
+               txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+               txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
                 MessageBox.Show("Campo Obrigatório Vazio");
             }
@@ -194,14 +241,15 @@ namespace ProjetoCrudPacientes
                     MessageBox.Show("Não Atualizado !!!" + erro);
                 }
             }
+            LimparBox();
         }
         //excluir dados no banco de dados
         public void Excluir()
         {
             //verificar campo vazio
-            if (txtNome.Text == "" || txtDataNasc.Text == "" || txtCpf.Text == "" || txtCns.Text == "" ||
-                txtMae.Text == "" || txtTel1.Text == "" || txtCep.Text == "" || txtRua.Text == "" ||
-                txtNum.Text == "" || txtBairro.Text == "" || txtCidade.Text == "" || txtUf.Text == "")
+            if (txtNome.Text == " " || txtDataNasc.Text == " " || txtCpf.Text == " " || txtCns.Text == " " ||
+                txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+                txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
                 MessageBox.Show("Campo Obrigatório Vazio");
             }
@@ -231,6 +279,7 @@ namespace ProjetoCrudPacientes
 
                 }
             }
+            LimparBox();
         }
 
         //limpar todos os txt box
