@@ -136,63 +136,119 @@ namespace ProjetoCrudPacientes
         //selecionar dados do banco de dados
         public void Selecionar()
         {
-            try
-            {    //selecionar dados no banco de dados
-                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            string cpf = txtCpf1.Text;
+            cpf = cpf.Trim().Replace(".", "").Replace("-", "");
+            char[] arr;
 
-                objcon.Open();
-                //busca pelo cpf
-                MySqlCommand objCmd = new MySqlCommand("select nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
-                    "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where cpf = ?", objcon);
-
-                objCmd.Parameters.Clear();
-
-                objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf1.Text;
-
-                //comando para executar query
-                objCmd.CommandType = CommandType.Text;
-
-                //recebe conteudo do banco
-                MySqlDataReader dr;
-                dr = objCmd.ExecuteReader();
-
-                dr.Read();
-
-                txtNome.Text = dr.GetString(0);
-                txtDataNasc.Text = dr.GetString(1);
-                txtCpf.Text = dr.GetString(2);
-                txtRg.Text = dr.GetString(3);
-                txtCns.Text = dr.GetString(4);
-                txtMae.Text = dr.GetString(5);
-                txtPai.Text = dr.GetString(6);
-                txtTel1.Text = dr.GetString(7);
-                txtTel2.Text = dr.GetString(8);
-                txtEmail.Text = dr.GetString(9);
-                txtCep.Text = dr.GetString(10);
-                txtRua.Text = dr.GetString(11);
-                txtNum.Text = dr.GetString(12);
-                txtBairro.Text = dr.GetString(13);
-                txtCidade.Text = dr.GetString(14);
-                txtUf.Text = dr.GetString(15);
-                txtObservacoes.Text = dr.GetString(16);
-
-
-                //mensagem
-                MessageBox.Show("busca realizada com sucesso");
-
-                //fecha o banco de dados
-                txtCpf1.BackColor = Color.White;
-                txtCpf1.TextAlign = HorizontalAlignment.Left;
-                
-                objcon.Close();
-                btnSalvar.Enabled = false;
-                btnAtualizar.Enabled = true;
-            }
-            catch (Exception )
+            arr = cpf.ToCharArray();
+            if (arr.Length == 11)
             {
-                MessageBox.Show("Não existe cadastro");
+                int soma = 0;
+
+                for (int i = 0; i < 9; i++)
+                    soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
+
+                int resto = soma % 11;
+                if (resto < 2)
+                    resto = 0;
+                else
+                    resto = 11 - resto;
+
+
+
+                soma = 0;
+                for (int i = 0; i < 10; i++)
+                    soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
+
+                int resto1 = soma % 11;
+                if (resto1 < 2)
+                    resto1 = 0;
+                else
+                    resto1 = 11 - resto1;
+
+                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                {
+                    txtCpf1.BackColor = Color.White;
+                    txtCpf1.TextAlign = HorizontalAlignment.Left;
+                    try
+                    {    //selecionar dados no banco de dados
+                        MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+
+                        objcon.Open();
+                        //busca pelo cpf
+                        MySqlCommand objCmd = new MySqlCommand("select nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
+                            "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where cpf = ?", objcon);
+
+                        objCmd.Parameters.Clear();
+
+                        objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf1.Text;
+
+                        //comando para executar query
+                        objCmd.CommandType = CommandType.Text;
+
+                        //recebe conteudo do banco
+                        MySqlDataReader dr;
+                        dr = objCmd.ExecuteReader();
+
+                        dr.Read();
+
+                        txtNome.Text = dr.GetString(0);
+                        txtDataNasc.Text = dr.GetString(1);
+                        txtCpf.Text = dr.GetString(2);
+                        txtRg.Text = dr.GetString(3);
+                        txtCns.Text = dr.GetString(4);
+                        txtMae.Text = dr.GetString(5);
+                        txtPai.Text = dr.GetString(6);
+                        txtTel1.Text = dr.GetString(7);
+                        txtTel2.Text = dr.GetString(8);
+                        txtEmail.Text = dr.GetString(9);
+                        txtCep.Text = dr.GetString(10);
+                        txtRua.Text = dr.GetString(11);
+                        txtNum.Text = dr.GetString(12);
+                        txtBairro.Text = dr.GetString(13);
+                        txtCidade.Text = dr.GetString(14);
+                        txtUf.Text = dr.GetString(15);
+                        txtObservacoes.Text = dr.GetString(16);
+
+
+                        //mensagem
+                        MessageBox.Show("busca realizada com sucesso");
+
+                        //fecha o banco de dados
+                        txtCpf1.BackColor = Color.White;
+                        txtCpf1.TextAlign = HorizontalAlignment.Left;
+
+                        objcon.Close();
+                        btnSalvar.Enabled = false;
+                        btnAtualizar.Enabled = true;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Não existe cadastro");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("CPF Inválido");
+
+                    txtCpf1.BackColor = Color.Red;
+                    txtCpf1.TextAlign = HorizontalAlignment.Left;
+                    txtCpf1.Focus();
+                }
+
+
             }
+            else
+            {
+                MessageBox.Show(" Faltam números no CPF");
+            }
+
         }
+           
+        
 
         //atualiar dados no banco de dados
         public void Atualizar()
