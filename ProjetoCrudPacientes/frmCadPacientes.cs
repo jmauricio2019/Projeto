@@ -17,6 +17,7 @@ namespace ProjetoCrudPacientes
         public frmCadPacientes()
         {
             InitializeComponent();
+            LimparBox();//limpar campos ao iniciar o form
         }
 
         //inserir dados no banco de dados
@@ -38,6 +39,15 @@ namespace ProjetoCrudPacientes
                 char[] arr;
 
                 arr = cpf.ToCharArray();
+                //verifica se todos os números são iguais para validar cpf
+                int cont = 0;
+                for (int i = 0; i < arr.Length - 1; i++)
+                {
+                    if (arr[i] == arr[i + 1])
+                    {
+                        cont++;
+                    }
+                }
                 int soma = 0;
                 if(arr.Length==11)//verifica se tem a quantidade correta de numeros do cpf
                 {
@@ -62,7 +72,7 @@ namespace ProjetoCrudPacientes
                     else
                         resto1 = 11 - resto1;
 
-                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
                     {
                         txtCpf.BackColor = Color.DeepSkyBlue;
                         txtCpf.TextAlign = HorizontalAlignment.Left;
@@ -105,6 +115,10 @@ namespace ProjetoCrudPacientes
                             //fecha o banco de dados
                             objcon.Close();
                             LimparBox();
+                            btnSalvar.Enabled = false;
+                            btnAtualizar.Enabled = false;
+                            btnExcluir.Enabled = false;
+                            checkBoxIncluirCadastro.Focus();
                         }
                         catch (Exception erro)
                         {
@@ -141,9 +155,18 @@ namespace ProjetoCrudPacientes
             string cpf = txtCpf1.Text;
             cpf = cpf.Trim().Replace(".", "").Replace("-", "");
             char[] arr;
-
             arr = cpf.ToCharArray();
-            if (arr.Length == 11)
+            //verifica se todos os números são iguais para validar cpf
+            int cont = 0;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                if(arr[i] == arr[i + 1])
+                {
+                    cont++;
+                }
+            }
+            
+            if (arr.Length == 11 )
             {
                 int soma = 0;
 
@@ -168,7 +191,7 @@ namespace ProjetoCrudPacientes
                 else
                     resto1 = 11 - resto1;
 
-                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
                 {
                     txtCpf1.BackColor = Color.White;
                     txtCpf1.TextAlign = HorizontalAlignment.Left;
@@ -300,6 +323,7 @@ namespace ProjetoCrudPacientes
 
                     //mensagem
                     MessageBox.Show("Atualizado com Sucesso !!!");
+                    LimparBox();
 
                 }
                 catch (Exception erro)
@@ -307,7 +331,7 @@ namespace ProjetoCrudPacientes
                     MessageBox.Show("Não Atualizado !!!" + erro);
                 }
             }
-            LimparBox();
+            
         }
         //excluir dados no banco de dados
         public void Excluir()
@@ -411,10 +435,7 @@ namespace ProjetoCrudPacientes
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
-            btnSalvar.Enabled = false;
-            btnAtualizar.Enabled = false;
-            btnExcluir.Enabled = false;
-            checkBoxIncluirCadastro.Focus();
+            
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -481,9 +502,18 @@ namespace ProjetoCrudPacientes
                     string cpf = txtCpf.Text;
                     cpf = cpf.Trim().Replace(".", "").Replace("-", "");
                     char[] arr;
-
                     arr = cpf.ToCharArray();
-                    if(arr.Length == 11)//verifica quantidade de cpf
+
+                    //verifica se todos os números são iguais para validar cpf
+                    int cont = 0;
+                    for (int i = 0; i < arr.Length - 1; i++)
+                    {
+                        if (arr[i] == arr[i + 1])
+                        {
+                            cont++;
+                        }
+                    }
+                    if (arr.Length == 11)//verifica quantidade de cpf
                     {
                         int soma = 0;
 
@@ -508,7 +538,7 @@ namespace ProjetoCrudPacientes
                         else
                             resto1 = 11 - resto1;
 
-                        if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                        if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont !=10)
                         {
                             txtCpf.BackColor = Color.DeepSkyBlue;
                             txtCpf.TextAlign = HorizontalAlignment.Left;
@@ -699,7 +729,16 @@ namespace ProjetoCrudPacientes
                 char[] arr;
 
                 arr = cpf.ToCharArray();
-                if(arr.Length==11)
+                //verifica se todos os números são iguais para validar cpf
+                int cont = 0;
+                for (int i = 0; i < arr.Length - 1; i++)
+                {
+                    if (arr[i] == arr[i + 1])
+                    {
+                        cont++;
+                    }
+                }
+                if (arr.Length==11)
                 {
                     int soma = 0;
 
@@ -724,7 +763,7 @@ namespace ProjetoCrudPacientes
                     else
                         resto1 = 11 - resto1;
 
-                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
                     {
                         txtCpf1.BackColor = Color.White;
                         txtCpf1.TextAlign = HorizontalAlignment.Left;
