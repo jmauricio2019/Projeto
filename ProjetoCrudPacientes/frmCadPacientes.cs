@@ -154,15 +154,14 @@ namespace ProjetoCrudPacientes
                 {    //atualizar dados no banco de dados
                     MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
                     objcon.Open();
-                    MySqlCommand objCmd = new MySqlCommand("update tb_paciente set nome = ? datanasc = ?, cpf = ?," +
+                    MySqlCommand objCmd = new MySqlCommand("update tb_paciente set nome = ?, datanasc = ?," +
                         " rg = ?, cns = ?, mae = ?, pai = ?, tel1 = ?, tel2 = ?, email = ?, cep = ?, logadouro = ?," +
                         " num = ?, bairro = ?, cidade = ?, uf = ?, observacoes = ? where cpf = ?", objcon);
                     objCmd.Parameters.Clear();
 
                     //parametros do comando sql
                     objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
-                    objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
-                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
+                    objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;                  
                     objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
                     objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
                     objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
@@ -177,7 +176,7 @@ namespace ProjetoCrudPacientes
                     objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
                     objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
                     objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
-
+                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
                     //comando para executar query
                     objCmd.CommandType = CommandType.Text;
                     objCmd.ExecuteNonQuery();
