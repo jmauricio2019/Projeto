@@ -39,87 +39,95 @@ namespace ProjetoCrudPacientes
 
                 arr = cpf.ToCharArray();
                 int soma = 0;
-
-                for (int i = 0; i < 9; i++)
-                    soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
-
-                int resto = soma % 11;
-                if (resto < 2)
-                    resto = 0;
-                else
-                    resto = 11 - resto;
-
-
-
-                soma = 0;
-                for (int i = 0; i < 10; i++)
-                    soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
-
-                int resto1 = soma % 11;
-                if (resto1 < 2)
-                    resto1 = 0;
-                else
-                    resto1 = 11 - resto1;
-
-                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                if(arr.Length==11)//verifica se tem a quantidade correta de numeros do cpf
                 {
-                    txtCpf.BackColor = Color.DeepSkyBlue;
-                    txtCpf.TextAlign = HorizontalAlignment.Left;
-                    txtCpf.Focus();
-                    try
-                    {    //inserir dados no banco de dados
-                        MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
-                        objcon.Open();
-                        MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (id, nome, datanasc, cpf, rg, cns, mae, \n" +
-                            " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
-                            " uf, observacoes) values( null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                    for (int i = 0; i < 9; i++)
+                        soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
 
-                        //parametros do comando sql
-                        objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
-                        objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
-                        objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
-                        objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
-                        objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
-                        objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
-                        objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
-                        objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
-                        objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
-                        objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
-                        objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
-                        objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
-                        objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
-                        objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
-                        objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
-                        objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
-                        objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
+                    int resto = soma % 11;
+                    if (resto < 2)
+                        resto = 0;
+                    else
+                        resto = 11 - resto;
 
-                        //para colocar os estados no combo box
-                        //cmbestado.itens.add("sp");
 
-                        //comando para executar query
-                        objCmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Cadastrado com Sucesso!!!");
+                    soma = 0;
+                    for (int i = 0; i < 10; i++)
+                        soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
 
-                        //fecha o banco de dados
-                        objcon.Close();
-                    }
-                    catch (Exception erro)
+                    int resto1 = soma % 11;
+                    if (resto1 < 2)
+                        resto1 = 0;
+                    else
+                        resto1 = 11 - resto1;
+
+                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
                     {
-                        MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
+                        txtCpf.BackColor = Color.DeepSkyBlue;
+                        txtCpf.TextAlign = HorizontalAlignment.Left;
+                        txtCpf.Focus();
+                        try
+                        {    //inserir dados no banco de dados
+                            MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
+                            objcon.Open();
+                            MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (id, nome, datanasc, cpf, rg, cns, mae, \n" +
+                                " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
+                                " uf, observacoes) values( null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+
+                            //parametros do comando sql
+                            objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+                            objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
+                            objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
+                            objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
+                            objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
+                            objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
+                            objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
+                            objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
+                            objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
+                            objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
+                            objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
+                            objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
+                            objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
+                            objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
+                            objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
+                            objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
+                            objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
+
+                            //para colocar os estados no combo box
+                            //cmbestado.itens.add("sp");
+
+                            //comando para executar query
+                            objCmd.ExecuteNonQuery();
+
+                            MessageBox.Show("Cadastrado com Sucesso!!!");
+
+                            //fecha o banco de dados
+                            objcon.Close();
+                            LimparBox();
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
+                        }
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("CPF Inválido");
+
+                        txtCpf.BackColor = Color.Red;
+                        txtCpf.TextAlign = HorizontalAlignment.Left;
+                        txtCpf.Focus();
                     }
 
 
-                }
-                else
+                }else
                 {
-                    MessageBox.Show("CPF Inválido");
+                    MessageBox.Show("Faltam números no CPF");
 
-                    txtCpf.BackColor = Color.Red;
-                    txtCpf.TextAlign = HorizontalAlignment.Left;
-                    txtCpf.Focus();
                 }
-
 
             }
 
@@ -128,9 +136,6 @@ namespace ProjetoCrudPacientes
         //selecionar dados do banco de dados
         public void Selecionar()
         {
-            btnSalvar.Enabled = false;
-            btnAtualizar.Enabled = true;
-
             try
             {    //selecionar dados no banco de dados
                 MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
@@ -176,11 +181,16 @@ namespace ProjetoCrudPacientes
                 MessageBox.Show("busca realizada com sucesso");
 
                 //fecha o banco de dados
+                txtCpf1.BackColor = Color.White;
+                txtCpf1.TextAlign = HorizontalAlignment.Left;
+                
                 objcon.Close();
+                btnSalvar.Enabled = false;
+                btnAtualizar.Enabled = true;
             }
-            catch (Exception erro)
+            catch (Exception )
             {
-                MessageBox.Show("busca nao realizada" + erro);
+                MessageBox.Show("Não existe cadastro");
             }
         }
 
@@ -345,7 +355,6 @@ namespace ProjetoCrudPacientes
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
-            LimparBox();
             btnSalvar.Enabled = false;
             btnAtualizar.Enabled = false;
             btnExcluir.Enabled = false;
@@ -418,47 +427,54 @@ namespace ProjetoCrudPacientes
                     char[] arr;
 
                     arr = cpf.ToCharArray();
-                    int soma = 0;
-
-                    for (int i = 0; i < 9; i++)
-                        soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
-
-                    int resto = soma % 11;
-                    if (resto < 2)
-                        resto = 0;
-                    else
-                        resto = 11 - resto;
-
-
-
-                    soma = 0;
-                    for (int i = 0; i < 10; i++)
-                        soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
-
-                    int resto1 = soma % 11;
-                    if (resto1 < 2)
-                        resto1 = 0;
-                    else
-                        resto1 = 11 - resto1;
-
-                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                    if(arr.Length == 11)//verifica quantidade de cpf
                     {
-                        txtCpf.BackColor = Color.DeepSkyBlue;
-                        txtCpf.TextAlign = HorizontalAlignment.Left;
-                        txtCpf.Focus();
-                        txtRg.BackColor = Color.DeepSkyBlue;
-                        txtRg.TextAlign = HorizontalAlignment.Left;
-                        txtRg.Focus();
-                    }
-                    else
+                        int soma = 0;
+
+                        for (int i = 0; i < 9; i++)
+                            soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
+
+                        int resto = soma % 11;
+                        if (resto < 2)
+                            resto = 0;
+                        else
+                            resto = 11 - resto;
+
+
+
+                        soma = 0;
+                        for (int i = 0; i < 10; i++)
+                            soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
+
+                        int resto1 = soma % 11;
+                        if (resto1 < 2)
+                            resto1 = 0;
+                        else
+                            resto1 = 11 - resto1;
+
+                        if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                        {
+                            txtCpf.BackColor = Color.DeepSkyBlue;
+                            txtCpf.TextAlign = HorizontalAlignment.Left;
+                            txtCpf.Focus();
+                            txtRg.BackColor = Color.DeepSkyBlue;
+                            txtRg.TextAlign = HorizontalAlignment.Left;
+                            txtRg.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("CPF Inválido");
+
+                            txtCpf.BackColor = Color.Red;
+                            txtCpf.TextAlign = HorizontalAlignment.Left;
+                            txtCpf.Focus();
+                        }
+
+
+                    }else
                     {
-                        MessageBox.Show("CPF Inválido");
-
-                        txtCpf.BackColor = Color.Red;
-                        txtCpf.TextAlign = HorizontalAlignment.Left;
-                        txtCpf.Focus();
+                        MessageBox.Show("Faltam números no CPF");
                     }
-
 
                 }
 
@@ -627,46 +643,54 @@ namespace ProjetoCrudPacientes
                 char[] arr;
 
                 arr = cpf.ToCharArray();
-                int soma = 0;
-
-                for (int i = 0; i < 9; i++)
-                    soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
-
-                int resto = soma % 11;
-                if (resto < 2)
-                    resto = 0;
-                else
-                    resto = 11 - resto;
-
-
-
-                soma = 0;
-                for (int i = 0; i < 10; i++)
-                    soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
-
-                int resto1 = soma % 11;
-                if (resto1 < 2)
-                    resto1 = 0;
-                else
-                    resto1 = 11 - resto1;
-
-                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                if(arr.Length==11)
                 {
-                    txtCpf1.BackColor = Color.DeepSkyBlue;
-                    txtCpf1.TextAlign = HorizontalAlignment.Left;
-                    
-                    Selecionar();
+                    int soma = 0;
+
+                    for (int i = 0; i < 9; i++)
+                        soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
+
+                    int resto = soma % 11;
+                    if (resto < 2)
+                        resto = 0;
+                    else
+                        resto = 11 - resto;
+
+
+
+                    soma = 0;
+                    for (int i = 0; i < 10; i++)
+                        soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
+
+                    int resto1 = soma % 11;
+                    if (resto1 < 2)
+                        resto1 = 0;
+                    else
+                        resto1 = 11 - resto1;
+
+                    if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()))
+                    {
+                        txtCpf1.BackColor = Color.White;
+                        txtCpf1.TextAlign = HorizontalAlignment.Left;
+
+                        Selecionar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("CPF Inválido");
+
+                        txtCpf1.BackColor = Color.Red;
+                        txtCpf1.TextAlign = HorizontalAlignment.Left;
+                        txtCpf1.Focus();
+                    }
+
+
                 }
                 else
                 {
-                    MessageBox.Show("CPF Inválido");
-
-                    txtCpf1.BackColor = Color.Red;
-                    txtCpf1.TextAlign = HorizontalAlignment.Left;
-                    txtCpf1.Focus();
+                    MessageBox.Show(" Faltam números no CPF");
                 }
-
-
+                
             }
            
         }
