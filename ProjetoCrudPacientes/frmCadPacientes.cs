@@ -25,6 +25,8 @@ namespace ProjetoCrudPacientes
 
         public void ValidaCns()
         {
+            
+            cns = txtCns.Text;
             if (cns == null || cns.Trim().Length < 15)
             {
               MessageBox.Show("Número CNS inválido");
