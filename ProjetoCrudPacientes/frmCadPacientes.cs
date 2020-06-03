@@ -400,8 +400,53 @@ namespace ProjetoCrudPacientes
             }
 
         }
-           
-        
+
+        public void SelecionarDataGrewView()
+        {
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnExcluir.Enabled = true;
+
+            try
+            {    //selecionar dados no banco de dados
+                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+
+                objcon.Open();
+                //busca pelo cpf
+                MySqlCommand objCmd = new MySqlCommand("select nome, datanasc, cpf, rg, cns, mae from tb_paciente where cpf = ?", objcon);
+
+                objCmd.Parameters.Clear();
+
+                objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf1.Text;
+
+                //comando para executar query
+                objCmd.CommandType = CommandType.Text;
+
+                //recebe conteudo do banco
+                MySqlDataReader dr;
+                dr = objCmd.ExecuteReader();
+
+                dr.Read();
+
+                Nome.HeaderText = dr.GetString(0);
+                Nasc.HeaderText = dr.GetString(1);
+                Cpf.HeaderText = dr.GetString(2);
+                Rg.HeaderText = dr.GetString(3);
+                CardSus.HeaderText = dr.GetString(4);
+                Mae.HeaderText = dr.GetString(5);
+
+
+                //mensagem
+                // MessageBox.Show("busca realizada com sucesso");
+
+                //fecha o banco de dados
+                objcon.Close();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("busca nao realizada" + erro);
+            }
+        }
 
         //atualiar dados no banco de dados
         public void Atualizar()
@@ -558,6 +603,7 @@ namespace ProjetoCrudPacientes
 
         private void btnBuscar1_Click(object sender, EventArgs e)
         {
+            SelecionarDataGrewView();
             Selecionar();
             LimparBox2();
         }
@@ -875,7 +921,7 @@ namespace ProjetoCrudPacientes
                         cont++;
                     }
                 }
-                if (arr.Length==11)
+                if (arr.Length == 11)
                 {
                     int soma = 0;
 
@@ -905,7 +951,9 @@ namespace ProjetoCrudPacientes
                         txtCpf1.BackColor = Color.White;
                         txtCpf1.TextAlign = HorizontalAlignment.Left;
 
+                        SelecionarDataGrewView();
                         Selecionar();
+                        LimparBox2();
                     }
                     else
                     {
@@ -922,9 +970,9 @@ namespace ProjetoCrudPacientes
                 {
                     MessageBox.Show(" Faltam números no CPF");
                 }
-                
+
             }
-           
+
         }
 
         private void txtNome1_KeyPress(object sender, KeyPressEventArgs e)

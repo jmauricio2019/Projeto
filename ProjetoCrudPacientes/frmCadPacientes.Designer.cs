@@ -29,18 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadPacientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle265 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle266 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle267 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle268 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle269 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle270 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle271 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle272 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle273 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle274 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle275 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle276 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,23 +87,17 @@
             this.txtCpf1 = new System.Windows.Forms.MaskedTextBox();
             this.txtNome1 = new System.Windows.Forms.TextBox();
             this.tabeladeClientes = new System.Windows.Forms.DataGridView();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatadedNasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardSus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mae = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -702,127 +690,20 @@
             // 
             // tabeladeClientes
             // 
+            this.tabeladeClientes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.tabeladeClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabeladeClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabeladeClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CPF,
             this.Nome,
-            this.DatadedNasc,
-            this.Telefone1,
-            this.Telefone2,
-            this.Email,
-            this.CEP,
-            this.Endereco,
-            this.Numero,
-            this.Bairro,
-            this.Cidade,
-            this.UF});
+            this.Nasc,
+            this.Cpf,
+            this.Rg,
+            this.CardSus,
+            this.Mae});
             this.tabeladeClientes.Location = new System.Drawing.Point(16, 79);
             this.tabeladeClientes.Name = "tabeladeClientes";
             this.tabeladeClientes.Size = new System.Drawing.Size(1276, 220);
             this.tabeladeClientes.TabIndex = 57;
-            // 
-            // CPF
-            // 
-            dataGridViewCellStyle265.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle265.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.CPF.DefaultCellStyle = dataGridViewCellStyle265;
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            this.CPF.Width = 150;
-            // 
-            // Nome
-            // 
-            dataGridViewCellStyle266.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle266.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Nome.DefaultCellStyle = dataGridViewCellStyle266;
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 250;
-            // 
-            // DatadedNasc
-            // 
-            dataGridViewCellStyle267.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle267.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.DatadedNasc.DefaultCellStyle = dataGridViewCellStyle267;
-            this.DatadedNasc.HeaderText = "Data de Nasc.";
-            this.DatadedNasc.Name = "DatadedNasc";
-            // 
-            // Telefone1
-            // 
-            dataGridViewCellStyle268.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle268.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Telefone1.DefaultCellStyle = dataGridViewCellStyle268;
-            this.Telefone1.HeaderText = "Telefone";
-            this.Telefone1.Name = "Telefone1";
-            // 
-            // Telefone2
-            // 
-            dataGridViewCellStyle269.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle269.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Telefone2.DefaultCellStyle = dataGridViewCellStyle269;
-            this.Telefone2.HeaderText = "Telefone";
-            this.Telefone2.Name = "Telefone2";
-            // 
-            // Email
-            // 
-            dataGridViewCellStyle270.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle270.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Email.DefaultCellStyle = dataGridViewCellStyle270;
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.Width = 250;
-            // 
-            // CEP
-            // 
-            dataGridViewCellStyle271.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle271.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.CEP.DefaultCellStyle = dataGridViewCellStyle271;
-            this.CEP.HeaderText = "CEP";
-            this.CEP.Name = "CEP";
-            // 
-            // Endereco
-            // 
-            dataGridViewCellStyle272.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle272.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Endereco.DefaultCellStyle = dataGridViewCellStyle272;
-            this.Endereco.HeaderText = "Rua";
-            this.Endereco.Name = "Endereco";
-            this.Endereco.Width = 250;
-            // 
-            // Numero
-            // 
-            dataGridViewCellStyle273.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle273.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Numero.DefaultCellStyle = dataGridViewCellStyle273;
-            this.Numero.HeaderText = "N°";
-            this.Numero.Name = "Numero";
-            this.Numero.Width = 50;
-            // 
-            // Bairro
-            // 
-            dataGridViewCellStyle274.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle274.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Bairro.DefaultCellStyle = dataGridViewCellStyle274;
-            this.Bairro.HeaderText = "Bairro";
-            this.Bairro.Name = "Bairro";
-            this.Bairro.Width = 150;
-            // 
-            // Cidade
-            // 
-            dataGridViewCellStyle275.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle275.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Cidade.DefaultCellStyle = dataGridViewCellStyle275;
-            this.Cidade.HeaderText = "Cidade";
-            this.Cidade.Name = "Cidade";
-            // 
-            // UF
-            // 
-            dataGridViewCellStyle276.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle276.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.UF.DefaultCellStyle = dataGridViewCellStyle276;
-            this.UF.HeaderText = "UF";
-            this.UF.Name = "UF";
-            this.UF.Width = 50;
             // 
             // btnBuscar1
             // 
@@ -882,6 +763,60 @@
             this.label1.Size = new System.Drawing.Size(290, 41);
             this.label1.TabIndex = 21;
             this.label1.Text = "Pesquisar Pacientes";
+            // 
+            // Nome
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 250;
+            // 
+            // Nasc
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Nasc.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Nasc.HeaderText = "Data de Nasc.";
+            this.Nasc.Name = "Nasc";
+            this.Nasc.Width = 250;
+            // 
+            // Cpf
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Cpf.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Cpf.HeaderText = "CPF";
+            this.Cpf.Name = "Cpf";
+            this.Cpf.Width = 250;
+            // 
+            // Rg
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Rg.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Rg.HeaderText = "RG";
+            this.Rg.Name = "Rg";
+            this.Rg.Width = 250;
+            // 
+            // CardSus
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.CardSus.DefaultCellStyle = dataGridViewCellStyle5;
+            this.CardSus.HeaderText = "CNS";
+            this.CardSus.Name = "CardSus";
+            this.CardSus.Width = 250;
+            // 
+            // Mae
+            // 
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Mae.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Mae.HeaderText = "Mae";
+            this.Mae.Name = "Mae";
+            this.Mae.Width = 250;
             // 
             // frmCadPacientes
             // 
@@ -963,18 +898,6 @@
         private System.Windows.Forms.MaskedTextBox txtCpf1;
         private System.Windows.Forms.TextBox txtNome1;
         private System.Windows.Forms.DataGridView tabeladeClientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatadedNasc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefone2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CEP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Bairro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UF;
         private System.Windows.Forms.Button btnBuscar1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
@@ -982,5 +905,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtProntuario1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nasc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cpf;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardSus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mae;
     }
 }
