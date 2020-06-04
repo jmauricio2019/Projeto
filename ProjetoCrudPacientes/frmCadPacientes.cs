@@ -429,43 +429,100 @@ namespace ProjetoCrudPacientes
 
             try
             {    //selecionar dados no banco de dados
-                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
 
-                objcon.Open();
-                //busca pelo cpf
-                MySqlCommand objCmd = new MySqlCommand("select nome, datanasc, cpf, rg, cns, mae from tb_paciente where cpf = ?", objcon);
+                // define a string de conexao com provedor caminho e nome do banco de dados
+                string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
+                //define a instrução SQL
+                string strSql = "select * from tb_paciente ";
 
-                objCmd.Parameters.Clear();
-
-                objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf1.Text;
-
-                //comando para executar query
-                objCmd.CommandType = CommandType.Text;
-
-                //recebe conteudo do banco
-                MySqlDataReader dr;
-                dr = objCmd.ExecuteReader();
-
-                dr.Read();
-
-                Nome.HeaderText = dr.GetString(0);
-                Nasc.HeaderText = dr.GetString(1);
-                Cpf.HeaderText = dr.GetString(2);
-                Rg.HeaderText = dr.GetString(3);
-                CardSus.HeaderText = dr.GetString(4);
-                Mae.HeaderText = dr.GetString(5);
+                //cria a conexão com o banco de dados
+                MySqlConnection con = new MySqlConnection(strProvider);
+                //abre a conexao
+                con.Open();
+                //cria o objeto command para executar a instruçao sql
+                MySqlCommand cmd = new MySqlCommand(strSql, con);
 
 
-                //mensagem
-                // MessageBox.Show("busca realizada com sucesso");
 
-                //fecha o banco de dados
-                objcon.Close();
+
+                //define o tipo do comando
+                cmd.CommandType = CommandType.Text;
+                //cria um dataadapter
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+
+
+                //Obtem o número de colunas
+
+                int nColunas = dr.FieldCount;
+
+
+
+                //percorre as colunas obtendo o seu nome e incluindo no DataGridView
+
+                for (int i = 0; i < nColunas; i++)
+
+                {
+
+                    tabeladeClientes.Columns.Add(dr.GetName(i).ToString(), dr.GetName(i).ToString());
+
+                }
+                //define um array de strings com nCOlunas
+
+                string[] linhaDados = new string[nColunas];
+
+
+                //percorre o DataRead
+
+                while (dr.Read())
+
+                {
+
+                    //percorre cada uma das colunas
+
+                    for (int a = 0; a < nColunas; a++)
+
+                    {
+
+                        //verifica o tipo de dados da coluna
+
+                        if (dr.GetFieldType(a).ToString() == "System.Int32")
+
+                        {
+
+                            linhaDados[a] = dr.GetInt32(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.String")
+
+                        {
+
+                            linhaDados[a] = dr.GetString(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.DateTime")
+
+                        {
+
+                            linhaDados[a] = dr.GetDateTime(a).ToString();
+
+                        }
+
+                    }
+                    tabeladeClientes.Rows.Add(linhaDados);
+                }
+                con.Close();
+
             }
             catch (Exception erro)
             {
                 MessageBox.Show("busca nao realizada" + erro);
             }
+
         }
 
         //atualiar dados no banco de dados
@@ -1028,6 +1085,35 @@ namespace ProjetoCrudPacientes
         private void btnBuscarCep_Click(object sender, EventArgs e)
         {
             BuscarCep();
+        }
+
+        private void tabeladeClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtNome.Text = tabeladeClientes.CurrentRow.Cells[1].Value.ToString();
+                txtDataNasc.Text = tabeladeClientes.CurrentRow.Cells[2].Value.ToString();
+                txtCpf.Text = tabeladeClientes.CurrentRow.Cells[3].Value.ToString();
+                txtRg.Text = tabeladeClientes.CurrentRow.Cells[4].Value.ToString();
+                txtCns.Text = tabeladeClientes.CurrentRow.Cells[5].Value.ToString();
+                txtMae.Text = tabeladeClientes.CurrentRow.Cells[6].Value.ToString();
+                txtPai.Text = tabeladeClientes.CurrentRow.Cells[7].Value.ToString();
+                txtTel1.Text = tabeladeClientes.CurrentRow.Cells[8].Value.ToString();
+                txtTel2.Text = tabeladeClientes.CurrentRow.Cells[9].Value.ToString();
+                txtEmail.Text = tabeladeClientes.CurrentRow.Cells[10].Value.ToString();
+                txtCep.Text = tabeladeClientes.CurrentRow.Cells[11].Value.ToString();
+                txtRua.Text = tabeladeClientes.CurrentRow.Cells[12].Value.ToString();
+                txtNum.Text = tabeladeClientes.CurrentRow.Cells[13].Value.ToString();
+                txtBairro.Text = tabeladeClientes.CurrentRow.Cells[14].Value.ToString();
+                txtCidade.Text = tabeladeClientes.CurrentRow.Cells[15].Value.ToString();
+                txtUf.Text = tabeladeClientes.CurrentRow.Cells[16].Value.ToString();
+                txtObservacoes.Text = tabeladeClientes.CurrentRow.Cells[17].Value.ToString();
+            }
+            catch
+            {
+
+            }
+
         }
     }
 }
