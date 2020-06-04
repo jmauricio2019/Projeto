@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadPacientes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,17 +87,18 @@
             this.txtCpf1 = new System.Windows.Forms.MaskedTextBox();
             this.txtNome1 = new System.Windows.Forms.TextBox();
             this.tabeladeClientes = new System.Windows.Forms.DataGridView();
-            this.btnBuscar1 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardSus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mae = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBuscar1 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnBuscarCep = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -137,6 +138,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox2.Controls.Add(this.btnBuscarCep);
             this.groupBox2.Controls.Add(this.txtProntuario);
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label22);
@@ -329,7 +331,7 @@
             // txtNum
             // 
             this.txtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNum.Location = new System.Drawing.Point(773, 185);
+            this.txtNum.Location = new System.Drawing.Point(914, 185);
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(86, 24);
             this.txtNum.TabIndex = 73;
@@ -338,7 +340,7 @@
             // txtRua
             // 
             this.txtRua.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRua.Location = new System.Drawing.Point(313, 188);
+            this.txtRua.Location = new System.Drawing.Point(454, 188);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(406, 24);
             this.txtRua.TabIndex = 72;
@@ -503,7 +505,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(744, 185);
+            this.label14.Location = new System.Drawing.Point(885, 185);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(30, 22);
             this.label14.TabIndex = 32;
@@ -525,7 +527,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(217, 188);
+            this.label12.Location = new System.Drawing.Point(358, 188);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(95, 22);
             this.label12.TabIndex = 30;
@@ -705,6 +707,60 @@
             this.tabeladeClientes.Size = new System.Drawing.Size(1276, 220);
             this.tabeladeClientes.TabIndex = 57;
             // 
+            // Nome
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.Width = 250;
+            // 
+            // Nasc
+            // 
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Nasc.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Nasc.HeaderText = "Data de Nasc.";
+            this.Nasc.Name = "Nasc";
+            this.Nasc.Width = 250;
+            // 
+            // Cpf
+            // 
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Cpf.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Cpf.HeaderText = "CPF";
+            this.Cpf.Name = "Cpf";
+            this.Cpf.Width = 250;
+            // 
+            // Rg
+            // 
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Rg.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Rg.HeaderText = "RG";
+            this.Rg.Name = "Rg";
+            this.Rg.Width = 250;
+            // 
+            // CardSus
+            // 
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.CardSus.DefaultCellStyle = dataGridViewCellStyle11;
+            this.CardSus.HeaderText = "CNS";
+            this.CardSus.Name = "CardSus";
+            this.CardSus.Width = 250;
+            // 
+            // Mae
+            // 
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            this.Mae.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Mae.HeaderText = "Mae";
+            this.Mae.Name = "Mae";
+            this.Mae.Width = 250;
+            // 
             // btnBuscar1
             // 
             this.btnBuscar1.BackColor = System.Drawing.Color.DarkMagenta;
@@ -712,7 +768,7 @@
             this.btnBuscar1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnBuscar1.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar1.Image")));
             this.btnBuscar1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar1.Location = new System.Drawing.Point(788, 8);
+            this.btnBuscar1.Location = new System.Drawing.Point(769, 10);
             this.btnBuscar1.Name = "btnBuscar1";
             this.btnBuscar1.Size = new System.Drawing.Size(116, 37);
             this.btnBuscar1.TabIndex = 49;
@@ -764,59 +820,20 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Pesquisar Pacientes";
             // 
-            // Nome
+            // btnBuscarCep
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Nome.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.Width = 250;
-            // 
-            // Nasc
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Nasc.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Nasc.HeaderText = "Data de Nasc.";
-            this.Nasc.Name = "Nasc";
-            this.Nasc.Width = 250;
-            // 
-            // Cpf
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Cpf.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Cpf.HeaderText = "CPF";
-            this.Cpf.Name = "Cpf";
-            this.Cpf.Width = 250;
-            // 
-            // Rg
-            // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Rg.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Rg.HeaderText = "RG";
-            this.Rg.Name = "Rg";
-            this.Rg.Width = 250;
-            // 
-            // CardSus
-            // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.CardSus.DefaultCellStyle = dataGridViewCellStyle5;
-            this.CardSus.HeaderText = "CNS";
-            this.CardSus.Name = "CardSus";
-            this.CardSus.Width = 250;
-            // 
-            // Mae
-            // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            this.Mae.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Mae.HeaderText = "Mae";
-            this.Mae.Name = "Mae";
-            this.Mae.Width = 250;
+            this.btnBuscarCep.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnBuscarCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCep.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarCep.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCep.Image")));
+            this.btnBuscarCep.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCep.Location = new System.Drawing.Point(180, 183);
+            this.btnBuscarCep.Name = "btnBuscarCep";
+            this.btnBuscarCep.Size = new System.Drawing.Size(116, 37);
+            this.btnBuscarCep.TabIndex = 88;
+            this.btnBuscarCep.Text = "     BUSCAR";
+            this.btnBuscarCep.UseVisualStyleBackColor = false;
+            this.btnBuscarCep.Click += new System.EventHandler(this.btnBuscarCep_Click);
             // 
             // frmCadPacientes
             // 
@@ -911,5 +928,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rg;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardSus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mae;
+        private System.Windows.Forms.Button btnBuscarCep;
     }
 }

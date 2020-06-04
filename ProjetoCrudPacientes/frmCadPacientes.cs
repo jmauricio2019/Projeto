@@ -23,6 +23,26 @@ namespace ProjetoCrudPacientes
             LimparBox();//limpar campos ao iniciar o form
         }
 
+        public void BuscarCep()
+        {
+            using (var ws = new WScorreios.AtendeClienteClient())
+            {
+                try
+                {
+                    var resultado = ws.consultaCEP(txtCep.Text);
+                    txtRua.Text = resultado.end;
+                    txtCidade.Text = resultado.cidade;
+                    txtBairro.Text = resultado.bairro;
+                    txtUf.Text = resultado.uf;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
         public void ValidaCns()
         {
             
@@ -826,6 +846,7 @@ namespace ProjetoCrudPacientes
             {
                 txtRua.BackColor = Color.DeepSkyBlue;
                 txtRua.TextAlign = HorizontalAlignment.Left;
+                BuscarCep();
                 txtRua.Focus();
             }
         }
@@ -1002,6 +1023,11 @@ namespace ProjetoCrudPacientes
         private void txtProntuario_TextChanged(object sender, EventArgs e)
         {
             txtProntuario.ReadOnly = true;
+        }
+
+        private void btnBuscarCep_Click(object sender, EventArgs e)
+        {
+            BuscarCep();
         }
     }
 }
