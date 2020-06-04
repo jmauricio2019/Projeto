@@ -700,7 +700,7 @@
             this.tabeladeClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabeladeClientes.Location = new System.Drawing.Point(16, 79);
             this.tabeladeClientes.Name = "tabeladeClientes";
-            this.tabeladeClientes.Size = new System.Drawing.Size(1276, 220);
+            this.tabeladeClientes.Size = new System.Drawing.Size(1293, 220);
             this.tabeladeClientes.TabIndex = 57;
             this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
             // 

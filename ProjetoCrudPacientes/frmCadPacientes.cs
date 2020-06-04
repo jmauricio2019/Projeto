@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace ProjetoCrudPacientes
 {
     public partial class frmCadPacientes : Form
@@ -22,7 +21,9 @@ namespace ProjetoCrudPacientes
             InitializeComponent();
             LimparBox();//limpar campos ao iniciar o form
         }
-
+        /// <summary>
+        //realiza a busca de endereço pelo cep
+        /// </summary>
         public void BuscarCep()
         {
             using (var ws = new WScorreios.AtendeClienteClient())
@@ -43,6 +44,8 @@ namespace ProjetoCrudPacientes
 
             }
         }
+
+        //verifica se o cartão do sus é valido
         public void ValidaCns()
         {
             
@@ -227,7 +230,7 @@ namespace ProjetoCrudPacientes
                             {    //inserir dados no banco de dados
                                 MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
                                 objcon.Open();
-                                MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (id, nome, datanasc, cpf, rg, cns, mae, \n" +
+                                MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (prontuario, nome, datanasc, cpf, rg, cns, mae, \n" +
                                     " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
                                     " uf, observacoes) values( null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
 
@@ -351,7 +354,7 @@ namespace ProjetoCrudPacientes
 
                         objcon.Open();
                         //busca pelo cpf
-                        MySqlCommand objCmd = new MySqlCommand("select nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
+                        MySqlCommand objCmd = new MySqlCommand("select nome, prontuario, datanasc, cpf, rg, cns, mae, pai, tel1, " +
                             "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where cpf = ?", objcon);
 
                         objCmd.Parameters.Clear();
@@ -368,23 +371,23 @@ namespace ProjetoCrudPacientes
                         dr.Read();
 
                         txtNome.Text = dr.GetString(0);
-                        txtDataNasc.Text = dr.GetString(1);
-                        txtCpf.Text = dr.GetString(2);
-                        txtRg.Text = dr.GetString(3);
-                        txtCns.Text = dr.GetString(4);
-                        txtMae.Text = dr.GetString(5);
-                        txtPai.Text = dr.GetString(6);
-                        txtTel1.Text = dr.GetString(7);
-                        txtTel2.Text = dr.GetString(8);
-                        txtEmail.Text = dr.GetString(9);
-                        txtCep.Text = dr.GetString(10);
-                        txtRua.Text = dr.GetString(11);
-                        txtNum.Text = dr.GetString(12);
-                        txtBairro.Text = dr.GetString(13);
-                        txtCidade.Text = dr.GetString(14);
-                        txtUf.Text = dr.GetString(15);
-                        txtObservacoes.Text = dr.GetString(16);
-
+                        txtProntuario.Text = dr.GetString(1);
+                        txtDataNasc.Text = dr.GetString(2);
+                        txtCpf.Text = dr.GetString(3);
+                        txtRg.Text = dr.GetString(4);
+                        txtCns.Text = dr.GetString(5);
+                        txtMae.Text = dr.GetString(6);
+                        txtPai.Text = dr.GetString(7);
+                        txtTel1.Text = dr.GetString(8);
+                        txtTel2.Text = dr.GetString(9);
+                        txtEmail.Text = dr.GetString(10);
+                        txtCep.Text = dr.GetString(11);
+                        txtRua.Text = dr.GetString(12);
+                        txtNum.Text = dr.GetString(13);
+                        txtBairro.Text = dr.GetString(14);
+                        txtCidade.Text = dr.GetString(15);
+                        txtUf.Text = dr.GetString(16);
+                        txtObservacoes.Text = dr.GetString(17);
 
                         //mensagem
                         MessageBox.Show("busca realizada com sucesso");
@@ -449,9 +452,6 @@ namespace ProjetoCrudPacientes
                 //cria o objeto command para executar a instruçao sql
                 MySqlCommand cmd = new MySqlCommand(strSql, con);
 
-
-
-
                 //define o tipo do comando
                 cmd.CommandType = CommandType.Text;
                 //cria um dataadapter
@@ -459,13 +459,9 @@ namespace ProjetoCrudPacientes
 
                 MySqlDataReader dr = cmd.ExecuteReader();
 
-
-
                 //Obtem o número de colunas
 
                 int nColunas = dr.FieldCount;
-
-
 
                 //percorre as colunas obtendo o seu nome e incluindo no DataGridView
 
@@ -662,7 +658,6 @@ namespace ProjetoCrudPacientes
             txtProntuario1.Text = (" ");
         }
 
-
         private void frmCadPacientes_Load(object sender, EventArgs e)
         {
 
@@ -688,7 +683,6 @@ namespace ProjetoCrudPacientes
         private void btnBuscar1_Click(object sender, EventArgs e)
         {
             SelecionarDataGrewView();
-            Selecionar();
             LimparBox2();
         }
 
@@ -717,7 +711,6 @@ namespace ProjetoCrudPacientes
             btnAtualizar.Enabled = false;
             btnExcluir.Enabled = false;
             LimparBox();
-            txtNome.BackColor = Color.DeepSkyBlue;
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.Focus();
         }
@@ -732,7 +725,6 @@ namespace ProjetoCrudPacientes
             
             if (e.KeyChar == 13)
             {
-                txtDataNasc.BackColor = Color.DeepSkyBlue;
                 txtDataNasc.TextAlign = HorizontalAlignment.Left;
                 txtDataNasc.Focus();
             }
@@ -743,7 +735,6 @@ namespace ProjetoCrudPacientes
             
             if (e.KeyChar == 13)
             {
-                txtCpf.BackColor = Color.DeepSkyBlue;
                 txtCpf.TextAlign = HorizontalAlignment.Left;
                 txtCpf.Focus();
             }
@@ -753,9 +744,7 @@ namespace ProjetoCrudPacientes
         {
             
             if (e.KeyChar == 13)
-            {
-                
-                
+            { 
                 {
                     int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
                     int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -831,12 +820,10 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtCns.BackColor = Color.DeepSkyBlue;
                 txtCns.TextAlign = HorizontalAlignment.Left;
                 txtCns.Focus();
             }
         }
-
         private void txtCns_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -858,7 +845,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtPai.BackColor = Color.DeepSkyBlue;
                 txtPai.TextAlign = HorizontalAlignment.Left;
                 txtPai.Focus();
             }
@@ -868,7 +854,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtTel1.BackColor = Color.DeepSkyBlue;
                 txtTel1.TextAlign = HorizontalAlignment.Left;
                 txtTel1.Focus();
             }
@@ -878,7 +863,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtTel2.BackColor = Color.DeepSkyBlue;
                 txtTel2.TextAlign = HorizontalAlignment.Left;
                 txtTel2.Focus();
             }
@@ -888,7 +872,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtEmail.BackColor = Color.DeepSkyBlue;
                 txtEmail.TextAlign = HorizontalAlignment.Left;
                 txtEmail.Focus();
             }
@@ -898,7 +881,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtCep.BackColor = Color.DeepSkyBlue;
                 txtCep.TextAlign = HorizontalAlignment.Left;
                 txtCep.Focus();
             }
@@ -908,7 +890,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtRua.BackColor = Color.DeepSkyBlue;
                 txtRua.TextAlign = HorizontalAlignment.Left;
                 BuscarCep();
                 txtRua.Focus();
@@ -919,8 +900,7 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtNum.BackColor = Color.DeepSkyBlue;
-                txtNum.TextAlign = HorizontalAlignment.Right;
+                txtNum.TextAlign = HorizontalAlignment.Left;
                 txtNum.Focus();
             }
         }
@@ -929,7 +909,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtBairro.BackColor = Color.DeepSkyBlue;
                 txtBairro.TextAlign = HorizontalAlignment.Left;
                 txtBairro.Focus();
             }
@@ -939,7 +918,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtCidade.BackColor = Color.DeepSkyBlue;
                 txtCidade.TextAlign = HorizontalAlignment.Left;
                 txtCidade.Focus();
             }
@@ -949,7 +927,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtUf.BackColor = Color.DeepSkyBlue;
                 txtUf.TextAlign = HorizontalAlignment.Left;
                 txtUf.Focus();
             }
@@ -959,7 +936,6 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                txtObservacoes.BackColor = Color.DeepSkyBlue;
                 txtObservacoes.TextAlign = HorizontalAlignment.Left;
                 txtObservacoes.Focus();
             }
@@ -1035,8 +1011,6 @@ namespace ProjetoCrudPacientes
                     {
                         txtCpf1.BackColor = Color.White;
                         txtCpf1.TextAlign = HorizontalAlignment.Left;
-
-                        SelecionarDataGrewView();
                         Selecionar();
                         LimparBox2();
                     }
