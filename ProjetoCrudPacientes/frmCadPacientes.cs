@@ -426,6 +426,13 @@ namespace ProjetoCrudPacientes
             btnSalvar.Enabled = false;
             btnAtualizar.Enabled = true;
             btnExcluir.Enabled = true;
+            //limpa o campo a cada busca 
+            tabeladeClientes.Rows.Clear();
+            tabeladeClientes.DataSource = null; //Remover a datasource
+            tabeladeClientes.Columns.Clear(); //Remover as colunas
+            tabeladeClientes.Rows.Clear();    //Remover as linhas
+            tabeladeClientes.Refresh();
+
 
             try
             {    //selecionar dados no banco de dados
@@ -1089,6 +1096,10 @@ namespace ProjetoCrudPacientes
 
         private void tabeladeClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //desabilitar salvar
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnExcluir.Enabled = true;
             try
             {
                 txtNome.Text = tabeladeClientes.CurrentRow.Cells[1].Value.ToString();
