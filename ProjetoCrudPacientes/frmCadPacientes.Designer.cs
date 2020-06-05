@@ -662,6 +662,7 @@
             this.txtProntuario1.Name = "txtProntuario1";
             this.txtProntuario1.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario1.TabIndex = 88;
+            this.txtProntuario1.Click += new System.EventHandler(this.txtProntuario1_Click);
             this.txtProntuario1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProntuario1_KeyPress);
             // 
             // txtDataNasc1
@@ -672,6 +673,7 @@
             this.txtDataNasc1.Name = "txtDataNasc1";
             this.txtDataNasc1.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc1.TabIndex = 65;
+            this.txtDataNasc1.Click += new System.EventHandler(this.txtDataNasc1_Click);
             this.txtDataNasc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataNasc1_KeyPress);
             // 
             // txtCpf1
@@ -682,6 +684,7 @@
             this.txtCpf1.Name = "txtCpf1";
             this.txtCpf1.Size = new System.Drawing.Size(169, 24);
             this.txtCpf1.TabIndex = 63;
+            this.txtCpf1.Click += new System.EventHandler(this.txtCpf1_Click);
             this.txtCpf1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf1_KeyPress);
             // 
             // txtNome1
@@ -691,6 +694,7 @@
             this.txtNome1.Name = "txtNome1";
             this.txtNome1.Size = new System.Drawing.Size(415, 24);
             this.txtNome1.TabIndex = 62;
+            this.txtNome1.Click += new System.EventHandler(this.txtNome1_Click);
             this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
             // 
             // tabeladeClientes

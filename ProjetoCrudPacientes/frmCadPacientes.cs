@@ -15,7 +15,7 @@ namespace ProjetoCrudPacientes
     {
         string cns;
         int CNS;
-        
+
         public frmCadPacientes()
         {
             InitializeComponent();
@@ -48,14 +48,14 @@ namespace ProjetoCrudPacientes
         //verifica se o cartão do sus é valido
         public void ValidaCns()
         {
-            
+
             cns = txtCns.Text;
             if (cns == null || cns.Trim().Length < 15)
             {
-              MessageBox.Show("Número CNS inválido");
+                MessageBox.Show("Número CNS inválido");
                 txtCns.BackColor = Color.Red;
                 txtCns.TextAlign = HorizontalAlignment.Left;
-               
+
             }
             else
             {
@@ -177,8 +177,8 @@ namespace ProjetoCrudPacientes
             else
             {
                 //verifica CNS
-               
-                if(CNS == 1)
+
+                if (CNS == 1)
                 {
                     // vericando cpf
                     int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -299,7 +299,7 @@ namespace ProjetoCrudPacientes
                 }
             }
         }
-               
+
         //selecionar dados do banco de dados
         public void Selecionar()
         {
@@ -313,13 +313,13 @@ namespace ProjetoCrudPacientes
             int cont = 0;
             for (int i = 0; i < arr.Length - 1; i++)
             {
-                if(arr[i] == arr[i + 1])
+                if (arr[i] == arr[i + 1])
                 {
                     cont++;
                 }
             }
-            
-            if (arr.Length == 11 )
+
+            if (arr.Length == 11)
             {
                 int soma = 0;
 
@@ -355,7 +355,7 @@ namespace ProjetoCrudPacientes
                         objcon.Open();
                         //busca pelo cpf
                         MySqlCommand objCmd = new MySqlCommand("select nome, prontuario, datanasc, cpf, rg, cns, mae, pai, tel1, " +
-                            "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where cpf = ?", objcon);
+                            "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cpf= ?", objcon);
 
                         objCmd.Parameters.Clear();
 
@@ -435,18 +435,36 @@ namespace ProjetoCrudPacientes
             tabeladeClientes.Columns.Clear(); //Remover as colunas
             tabeladeClientes.Rows.Clear();    //Remover as linhas
             tabeladeClientes.Refresh();
-
-
+            string name = txtNome1.Text;
+            string cpf = txtCpf1.Text;
+            string dat = txtDataNasc1.Text;
+            string ide = txtProntuario1.Text;
             try
             {    //selecionar dados no banco de dados
 
                 // define a string de conexao com provedor caminho e nome do banco de dados
                 string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
-                //define a instrução SQL
-                string strSql = "select * from tb_paciente ";
-
                 //cria a conexão com o banco de dados
                 MySqlConnection con = new MySqlConnection(strProvider);
+                //define a instrução SQL
+                string strSql = "select * from tb_paciente";
+                if (txtCpf1.Enabled == true)
+                {
+                    strSql = "select * from tb_paciente where cpf like '%" + cpf + "%'";
+                }
+                if (txtDataNasc1.Enabled == true)
+                {
+                    strSql = "select * from tb_paciente where datanasc like '%" + dat + "%'";
+                }
+                if (txtProntuario1.Enabled == true)
+                {
+                    strSql = "select * from tb_paciente where prontuario like '%" + ide + "%'";
+                }
+                if (txtNome.Enabled == true)
+                {
+                    strSql = "select * from tb_paciente where nome like '%" + name + "%'";
+                }
+
                 //abre a conexao
                 con.Open();
                 //cria o objeto command para executar a instruçao sql
@@ -454,6 +472,7 @@ namespace ProjetoCrudPacientes
 
                 //define o tipo do comando
                 cmd.CommandType = CommandType.Text;
+
                 //cria um dataadapter
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
@@ -475,10 +494,8 @@ namespace ProjetoCrudPacientes
                 //define um array de strings com nCOlunas
 
                 string[] linhaDados = new string[nColunas];
-
-
                 //percorre o DataRead
-
+                int cont = 0;//para informar mensagem para o usuario se não encontrar 
                 while (dr.Read())
 
                 {
@@ -514,17 +531,31 @@ namespace ProjetoCrudPacientes
                             linhaDados[a] = dr.GetDateTime(a).ToString();
 
                         }
-
+                        cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
+
                 }
                 con.Close();
+                if (cont == 0)
+                {
+                    MessageBox.Show("Cadastro inexistente");
+                }
 
             }
             catch (Exception erro)
             {
                 MessageBox.Show("busca nao realizada" + erro);
             }
+            txtNome1.Text = "";
+            txtCpf1.Text = "";
+            txtDataNasc1.Text = "";
+            txtProntuario1.Text = "";
+
+            txtProntuario1.Enabled = true;
+            txtCpf1.Enabled = true;
+            txtNome1.Enabled = true;
+            txtDataNasc1.Enabled = true;
 
         }
 
@@ -554,7 +585,7 @@ namespace ProjetoCrudPacientes
 
                     //parametros do comando sql
                     objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
-                    objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;                  
+                    objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
                     objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
                     objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
                     objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
@@ -586,7 +617,7 @@ namespace ProjetoCrudPacientes
                     MessageBox.Show("Não Atualizado !!!" + erro);
                 }
             }
-            
+
         }
         //excluir dados no banco de dados
         public void Excluir()
@@ -683,13 +714,15 @@ namespace ProjetoCrudPacientes
         private void btnBuscar1_Click(object sender, EventArgs e)
         {
             SelecionarDataGrewView();
-            LimparBox2();
+            //LimparBox2();
+
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
-            
+
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -722,7 +755,7 @@ namespace ProjetoCrudPacientes
 
         private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             if (e.KeyChar == 13)
             {
                 txtDataNasc.TextAlign = HorizontalAlignment.Left;
@@ -732,7 +765,7 @@ namespace ProjetoCrudPacientes
 
         private void txtDataNasc_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             if (e.KeyChar == 13)
             {
                 txtCpf.TextAlign = HorizontalAlignment.Left;
@@ -742,9 +775,9 @@ namespace ProjetoCrudPacientes
 
         private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             if (e.KeyChar == 13)
-            { 
+            {
                 {
                     int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
                     int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -787,7 +820,7 @@ namespace ProjetoCrudPacientes
                         else
                             resto1 = 11 - resto1;
 
-                        if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont !=10)
+                        if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
                         {
                             txtCpf.BackColor = Color.DeepSkyBlue;
                             txtCpf.TextAlign = HorizontalAlignment.Left;
@@ -806,7 +839,7 @@ namespace ProjetoCrudPacientes
                         }
 
 
-                    }else
+                    } else
                     {
                         MessageBox.Show("Faltam números no CPF");
                     }
@@ -831,14 +864,14 @@ namespace ProjetoCrudPacientes
                 cns = "";
                 cns = txtCns.Text;
                 CNS = 0;// Zerar caso tenha salvo na memoria
-                ValidaCns(); 
-                if(CNS != 1)
+                ValidaCns();
+                if (CNS != 1)
                 {
                     txtCns.BackColor = Color.Red;
                     txtCns.TextAlign = HorizontalAlignment.Left;
-                }          
+                }
             }
-                
+
         }
 
         private void txtMae_KeyPress(object sender, KeyPressEventArgs e)
@@ -1100,5 +1133,35 @@ namespace ProjetoCrudPacientes
             }
 
         }
+
+        private void txtNome1_Click(object sender, EventArgs e)
+        {
+            txtProntuario1.Enabled = false;
+            txtCpf1.Enabled = false;
+            txtDataNasc1.Enabled = false;
+        }
+
+        private void txtProntuario1_Click(object sender, EventArgs e)
+        {
+            txtCpf1.Enabled = false;
+            txtNome1.Enabled = false;
+            txtDataNasc1.Enabled = false;
+        }
+
+        private void txtDataNasc1_Click(object sender, EventArgs e)
+        {
+            txtCpf1.Enabled = false;
+            txtNome1.Enabled = false;
+            txtProntuario1.Enabled = false;
+        }
+
+        private void txtCpf1_Click(object sender, EventArgs e)
+        {
+            txtDataNasc1.Enabled = false;
+            txtNome1.Enabled = false;
+            txtProntuario1.Enabled = false;
+        }
     }
+            
+    
 }
