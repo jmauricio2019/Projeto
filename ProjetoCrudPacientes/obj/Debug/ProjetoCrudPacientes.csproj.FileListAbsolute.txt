@@ -105,3 +105,4 @@ C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\D
 C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.csproj.CopyComplete
 C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.exe
 C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.pdb
+C:\xampp\htdocs\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmLogin.resources

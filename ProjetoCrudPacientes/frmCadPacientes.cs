@@ -1097,6 +1097,11 @@ namespace ProjetoCrudPacientes
             txtNome1.Enabled = false;
             txtProntuario1.Enabled = false;
         }
+
+        private void tabeladeClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
             
     

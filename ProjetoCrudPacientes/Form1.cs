@@ -29,7 +29,7 @@ namespace ProjetoCrudPacientes
 
                 this.Visible = false;
 
-               frmOpcoes frm = new frmOpcoes();
+               frmLogin frm = new frmLogin();
 
                 frm.ShowDialog();
 

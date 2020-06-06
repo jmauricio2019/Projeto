@@ -87,6 +87,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -627,6 +628,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.txtProntuario1);
             this.groupBox1.Controls.Add(this.txtDataNasc1);
@@ -668,7 +670,7 @@
             // txtDataNasc1
             // 
             this.txtDataNasc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataNasc1.Location = new System.Drawing.Point(381, 49);
+            this.txtDataNasc1.Location = new System.Drawing.Point(380, 49);
             this.txtDataNasc1.Mask = "00/00/0000";
             this.txtDataNasc1.Name = "txtDataNasc1";
             this.txtDataNasc1.Size = new System.Drawing.Size(101, 24);
@@ -679,7 +681,7 @@
             // txtCpf1
             // 
             this.txtCpf1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpf1.Location = new System.Drawing.Point(56, 50);
+            this.txtCpf1.Location = new System.Drawing.Point(69, 50);
             this.txtCpf1.Mask = "000,000,000-00";
             this.txtCpf1.Name = "txtCpf1";
             this.txtCpf1.Size = new System.Drawing.Size(169, 24);
@@ -707,6 +709,7 @@
             this.tabeladeClientes.Size = new System.Drawing.Size(1293, 220);
             this.tabeladeClientes.TabIndex = 57;
             this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
+            this.tabeladeClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellContentClick);
             // 
             // btnBuscar1
             // 
@@ -715,7 +718,7 @@
             this.btnBuscar1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnBuscar1.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar1.Image")));
             this.btnBuscar1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar1.Location = new System.Drawing.Point(769, 10);
+            this.btnBuscar1.Location = new System.Drawing.Point(795, 31);
             this.btnBuscar1.Name = "btnBuscar1";
             this.btnBuscar1.Size = new System.Drawing.Size(116, 37);
             this.btnBuscar1.TabIndex = 49;
@@ -728,7 +731,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(260, 49);
+            this.label19.Location = new System.Drawing.Point(257, 49);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(122, 22);
             this.label19.TabIndex = 40;
@@ -767,6 +770,16 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Pesquisar Pacientes";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(775, 16);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(150, 13);
+            this.label25.TabIndex = 90;
+            this.label25.Text = "*Seleciona todos os cadastros";
+            // 
             // frmCadPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -776,6 +789,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1350, 722);
             this.MinimumSize = new System.Drawing.Size(1350, 722);
@@ -855,5 +869,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtProntuario1;
         private System.Windows.Forms.Button btnBuscarCep;
+        private System.Windows.Forms.Label label25;
     }
 }
