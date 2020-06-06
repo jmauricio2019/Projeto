@@ -43,5 +43,15 @@ namespace ProjetoCrudPacientes
             //lblHora.Text = DateTime.Now.ToLongTimeString();
             lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

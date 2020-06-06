@@ -1102,6 +1102,17 @@ namespace ProjetoCrudPacientes
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //lblHora.Text = DateTime.Now.ToLongTimeString();
+           //lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
             
     

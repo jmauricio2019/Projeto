@@ -127,6 +127,7 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(109, 17);
             this.toolStripStatusLabel1.Text = " Usuário logado:";
             this.toolStripStatusLabel1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // lblUsuario
             // 
@@ -134,6 +135,7 @@
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(47, 17);
             this.lblUsuario.Text = "Usuário";
+            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
             // toolStripStatusLabel2
             // 

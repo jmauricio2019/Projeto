@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadPacientes));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +77,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.txtProntuario1 = new System.Windows.Forms.TextBox();
             this.txtDataNasc1 = new System.Windows.Forms.MaskedTextBox();
@@ -87,7 +89,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -646,6 +648,16 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(775, 16);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(150, 13);
+            this.label25.TabIndex = 90;
+            this.label25.Text = "*Seleciona todos os cadastros";
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -770,15 +782,11 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Pesquisar Pacientes";
             // 
-            // label25
+            // timer1
             // 
-            this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(775, 16);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(150, 13);
-            this.label25.TabIndex = 90;
-            this.label25.Text = "*Seleciona todos os cadastros";
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmCadPacientes
             // 
@@ -870,5 +878,6 @@
         private System.Windows.Forms.TextBox txtProntuario1;
         private System.Windows.Forms.Button btnBuscarCep;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Timer timer1;
     }
 }
