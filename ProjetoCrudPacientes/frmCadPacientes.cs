@@ -14,7 +14,7 @@ namespace ProjetoCrudPacientes
     public partial class frmCadPacientes : Form
     {
         string cns;
-        int CNS;
+        int CNS, Prot, cpff;
 
         public frmCadPacientes()
         {
@@ -48,7 +48,7 @@ namespace ProjetoCrudPacientes
         //verifica se o cartão do sus é valido
         public void ValidaCns()
         {
-
+            CNS = 0;
             cns = txtCns.Text;
             if (cns == null || cns.Trim().Length < 15)
             {
@@ -161,12 +161,21 @@ namespace ProjetoCrudPacientes
             }
 
         }
+        public void GerarProntuario()
+        {
+            //gerar número aleatorio
+            Random numAleatorio = new Random();
+            int valorInteiro = numAleatorio.Next(1, 3);//intervalo de numeros mudar aqui
+            txtProntuario.Text = Convert.ToString(valorInteiro);
+        }
 
         //inserir dados no banco de dados
         public void Cadastrar()
         {
-            CNS = 0;//zerar caso tenha feito alteraçao no enter
-            ValidaCns();
+            
+            ValidaCns(); //verifica Prontuario com mesmo nome no Banco
+            VerificaCPF();//verifica CPF com mesmo nome no Banco
+            VerificaProntuario();
             //verificar campo vazio 
             if (txtNome.Text == " " || txtDataNasc.Text == " " || txtCpf.Text == " " || txtCns.Text == " " ||
                 txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
@@ -178,7 +187,7 @@ namespace ProjetoCrudPacientes
             {
                 //verifica CNS
 
-                if (CNS == 1)
+                if (CNS == 1 && cpff == 0 && Prot == 0)
                 {
                     // vericando cpf
                     int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -232,9 +241,10 @@ namespace ProjetoCrudPacientes
                                 objcon.Open();
                                 MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (prontuario, nome, datanasc, cpf, rg, cns, mae, \n" +
                                     " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
-                                    " uf, observacoes) values( null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                                    " uf, observacoes) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
 
                                 //parametros do comando sql
+                                objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
                                 objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
                                 objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
                                 objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
@@ -295,132 +305,107 @@ namespace ProjetoCrudPacientes
                 }
                 else
                 {
-                    MessageBox.Show("Número CNS Inválido ");
+                    if (CNS != 1)
+                    {
+                        MessageBox.Show("Número CNS Inválido ");
+                    }
+                    if (cpff != 0)
+                    {
+                        MessageBox.Show("Há um cadastro com este CPF ");
+                    }
+                    if(Prot != 0)
+                    {
+                        MessageBox.Show("Há um cadastro com este Numero de Prontuario tecle em salvar novamente");
+                        txtProntuario.Text = " ";
+                        GerarProntuario();
+                    }
                 }
+
+                    
             }
         }
 
-        //selecionar dados do banco de dados
-        public void Selecionar()
+        public void VerificaProntuario()
         {
-            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-            string cpf = txtCpf1.Text;
-            cpf = cpf.Trim().Replace(".", "").Replace("-", "");
-            char[] arr;
-            arr = cpf.ToCharArray();
-            //verifica se todos os números são iguais para validar cpf
-            int cont = 0;
-            for (int i = 0; i < arr.Length - 1; i++)
-            {
-                if (arr[i] == arr[i + 1])
+            string id = txtProntuario.Text;
+            Prot = 0;
+            try
+            {    //selecionar dados no banco de dados
+                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+
+                objcon.Open();
+                //busca pelo prontuario
+                MySqlCommand objCmd = new MySqlCommand("select  prontuario, nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
+                    "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  prontuario= ?", objcon);
+
+                objCmd.Parameters.Clear();
+
+                objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar).Value = txtProntuario.Text;
+
+                //comando para executar query
+                objCmd.CommandType = CommandType.Text;
+
+                //recebe conteudo do banco
+                MySqlDataReader dr;
+                dr = objCmd.ExecuteReader();
+
+                dr.Read();
+
+                String pront = dr.GetString(0);
+                if (pront == id)
                 {
-                    cont++;
-                }
-            }
-
-            if (arr.Length == 11)
-            {
-                int soma = 0;
-
-                for (int i = 0; i < 9; i++)
-                    soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
-
-                int resto = soma % 11;
-                if (resto < 2)
-                    resto = 0;
-                else
-                    resto = 11 - resto;
-
-
-
-                soma = 0;
-                for (int i = 0; i < 10; i++)
-                    soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
-
-                int resto1 = soma % 11;
-                if (resto1 < 2)
-                    resto1 = 0;
-                else
-                    resto1 = 11 - resto1;
-
-                if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
-                {
-                    txtCpf1.BackColor = Color.White;
-                    txtCpf1.TextAlign = HorizontalAlignment.Left;
-                    try
-                    {    //selecionar dados no banco de dados
-                        MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
-
-                        objcon.Open();
-                        //busca pelo cpf
-                        MySqlCommand objCmd = new MySqlCommand("select nome, prontuario, datanasc, cpf, rg, cns, mae, pai, tel1, " +
-                            "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cpf= ?", objcon);
-
-                        objCmd.Parameters.Clear();
-
-                        objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf1.Text;
-
-                        //comando para executar query
-                        objCmd.CommandType = CommandType.Text;
-
-                        //recebe conteudo do banco
-                        MySqlDataReader dr;
-                        dr = objCmd.ExecuteReader();
-
-                        dr.Read();
-
-                        txtNome.Text = dr.GetString(0);
-                        txtProntuario.Text = dr.GetString(1);
-                        txtDataNasc.Text = dr.GetString(2);
-                        txtCpf.Text = dr.GetString(3);
-                        txtRg.Text = dr.GetString(4);
-                        txtCns.Text = dr.GetString(5);
-                        txtMae.Text = dr.GetString(6);
-                        txtPai.Text = dr.GetString(7);
-                        txtTel1.Text = dr.GetString(8);
-                        txtTel2.Text = dr.GetString(9);
-                        txtEmail.Text = dr.GetString(10);
-                        txtCep.Text = dr.GetString(11);
-                        txtRua.Text = dr.GetString(12);
-                        txtNum.Text = dr.GetString(13);
-                        txtBairro.Text = dr.GetString(14);
-                        txtCidade.Text = dr.GetString(15);
-                        txtUf.Text = dr.GetString(16);
-                        txtObservacoes.Text = dr.GetString(17);
-
-                        //mensagem
-                        MessageBox.Show("busca realizada com sucesso");
-
-                        //fecha o banco de dados
-                        txtCpf1.BackColor = Color.White;
-                        txtCpf1.TextAlign = HorizontalAlignment.Left;
-
-                        objcon.Close();
-                        btnSalvar.Enabled = false;
-                        btnAtualizar.Enabled = true;
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Não existe cadastro");
-                    }
-
-                }
-                else
-                {
-                    MessageBox.Show("CPF Inválido");
-
-                    txtCpf1.BackColor = Color.Red;
-                    txtCpf1.TextAlign = HorizontalAlignment.Left;
-                    txtCpf1.Focus();
+                    Prot = 1;
                 }
 
-
+                objcon.Close();
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show(" Faltam números no CPF");
+                
             }
+
+
+        }
+
+        //selecionar dados do banco de dados
+        public void VerificaCPF()
+        {
+            string cp = txtCpf.Text;
+            cpff = 0;
+            try
+            {    //selecionar dados no banco de dados
+                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+
+                objcon.Open();
+                //busca pelo cpf
+                MySqlCommand objCmd = new MySqlCommand("select  prontuario,nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
+                    "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cpf=?",objcon);
+
+                objCmd.Parameters.Clear();
+                objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf.Text;
+                //comando para executar query
+                objCmd.CommandType = CommandType.Text;
+
+                //recebe conteudo do banco
+                MySqlDataReader dr;
+                dr = objCmd.ExecuteReader();
+
+                dr.Read();
+
+                String cpftest = dr.GetString(3);
+                if (cpftest == cp)
+                {
+                    cpff = 1;
+                }
+                //mensagem
+                //fecha o banco de dados
+                objcon.Close();
+            }
+            catch (Exception)
+            {
+                
+            }
+
 
         }
 
@@ -1103,6 +1088,11 @@ namespace ProjetoCrudPacientes
 
         }
 
+        private void txtNome_Click(object sender, EventArgs e)
+        {
+            GerarProntuario();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //lblHora.Text = DateTime.Now.ToLongTimeString();
@@ -1113,6 +1103,7 @@ namespace ProjetoCrudPacientes
         {
 
         }
+
     }
             
     
