@@ -176,12 +176,12 @@ namespace ProjetoCrudPacientes
             ValidaCns(); //verifica Prontuario com mesmo nome no Banco
             VerificaCPF();//verifica CPF com mesmo nome no Banco
             VerificaProntuario();
-            //verificar campo vazio 
-            if (txtNome.Text == " " || txtDataNasc.Text == " " || txtCpf.Text == " " || txtCns.Text == " " ||
+            //verificar campo vazio
+            if (txtNome.Text == " " || txtDataNasc.Text == " " ||
                 txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                 txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Campo Obrigatório Vazio");
+                MessageBox.Show("Os Campos Nome, Data de Nasc., tel1, Endereço" + "\n" + "\n" + "São Obrigatorios!!!", "Menssagem");
             }
             else
             {
@@ -217,9 +217,6 @@ namespace ProjetoCrudPacientes
                             resto = 0;
                         else
                             resto = 11 - resto;
-
-
-
                         soma = 0;
                         for (int i = 0; i < 10; i++)
                             soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
@@ -311,7 +308,7 @@ namespace ProjetoCrudPacientes
                     }
                     if (cpff != 0)
                     {
-                        MessageBox.Show("Há um cadastro com este CPF ");
+                        MessageBox.Show("CPF Cadastrado!!! ");
                     }
                     if(Prot != 0)
                     {
@@ -363,8 +360,6 @@ namespace ProjetoCrudPacientes
             {
                 
             }
-
-
         }
 
         //selecionar dados do banco de dados
@@ -532,6 +527,7 @@ namespace ProjetoCrudPacientes
             {
                 MessageBox.Show("busca nao realizada" + erro);
             }
+            
             txtNome1.Text = "";
             txtCpf1.Text = "";
             txtDataNasc1.Text = "";
@@ -544,14 +540,23 @@ namespace ProjetoCrudPacientes
 
         }
 
+        //limpar datagrewview
+
+        public void limpardatagrewview()
+        {
+            //LIMPAR GRID
+            tabeladeClientes.Rows.Clear();
+            tabeladeClientes.Refresh();
+        }
+
         //atualiar dados no banco de dados
         public void Atualizar()
         {
-            if (txtNome.Text == " " || txtDataNasc.Text == " " || txtCpf.Text == " " || txtCns.Text == " " ||
-               txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
-               txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
+            if (txtNome.Text == " " || txtDataNasc.Text == " " ||
+                txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+                txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Campo Obrigatório Vazio");
+                MessageBox.Show("Os Campos Nome, Data de Nasc., tel1, Endereço" + "\n" + "\n" + "São Obrigatorios!!!" , "Menssagem");
             }
             else
             {
@@ -608,11 +613,11 @@ namespace ProjetoCrudPacientes
         public void Excluir()
         {
             //verificar campo vazio
-            if (txtNome.Text == " " || txtDataNasc.Text == " " || txtCpf.Text == " " || txtCns.Text == " " ||
+            if (txtNome.Text == " " || txtDataNasc.Text == " " ||
                 txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                 txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Campo Obrigatório Vazio");
+                MessageBox.Show("Os Campos Nome, Data de Nasc., tel1, Endereço" + "\n" + "\n" + "São Obrigatorios!!!", "Menssagem");
             }
             else
             {
@@ -714,12 +719,14 @@ namespace ProjetoCrudPacientes
         {
             Atualizar();
             LimparBox();
+            limpardatagrewview();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             Excluir();
             LimparBox();
+            limpardatagrewview();
         }
 
         private void checkBoxIncluirCadastro_CheckedChanged(object sender, EventArgs e)
@@ -728,6 +735,7 @@ namespace ProjetoCrudPacientes
             btnSalvar.Enabled = true;
             btnAtualizar.Enabled = false;
             btnExcluir.Enabled = false;
+            VerificaCPF();
             LimparBox();
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.Focus();
@@ -807,10 +815,9 @@ namespace ProjetoCrudPacientes
 
                         if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
                         {
-                            txtCpf.BackColor = Color.DeepSkyBlue;
+                            VerificaProntuario();
                             txtCpf.TextAlign = HorizontalAlignment.Left;
                             txtCpf.Focus();
-                            txtRg.BackColor = Color.DeepSkyBlue;
                             txtRg.TextAlign = HorizontalAlignment.Left;
                             txtRg.Focus();
                         }
