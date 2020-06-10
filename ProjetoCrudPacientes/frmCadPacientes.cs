@@ -20,6 +20,7 @@ namespace ProjetoCrudPacientes
         {
             InitializeComponent();
             LimparBox();//limpar campos ao iniciar o form
+            LimparBox2();
         }
         /// <summary>
         //realiza a busca de endereço pelo cep
@@ -165,14 +166,14 @@ namespace ProjetoCrudPacientes
         {
             //gerar número aleatorio
             Random numAleatorio = new Random();
-            int valorInteiro = numAleatorio.Next(1, 3);//intervalo de numeros mudar aqui
+            int valorInteiro = numAleatorio.Next(1000000, 9999999);//intervalo de numeros mudar aqui
             txtProntuario.Text = Convert.ToString(valorInteiro);
         }
 
         //inserir dados no banco de dados
         public void Cadastrar()
         {
-            
+
             ValidaCns(); //verifica Prontuario com mesmo nome no Banco
             VerificaCPF();//verifica CPF com mesmo nome no Banco
             VerificaProntuario();
@@ -310,7 +311,7 @@ namespace ProjetoCrudPacientes
                     {
                         MessageBox.Show("CPF Cadastrado!!! ");
                     }
-                    if(Prot != 0)
+                    if (Prot != 0)
                     {
                         MessageBox.Show("Há um cadastro com este Numero de Prontuario tecle em salvar novamente");
                         txtProntuario.Text = " ";
@@ -318,7 +319,7 @@ namespace ProjetoCrudPacientes
                     }
                 }
 
-                    
+
             }
         }
 
@@ -358,7 +359,7 @@ namespace ProjetoCrudPacientes
             }
             catch (Exception)
             {
-                
+
             }
         }
 
@@ -374,7 +375,7 @@ namespace ProjetoCrudPacientes
                 objcon.Open();
                 //busca pelo cpf
                 MySqlCommand objCmd = new MySqlCommand("select  prontuario,nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
-                    "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cpf=?",objcon);
+                    "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cpf=?", objcon);
 
                 objCmd.Parameters.Clear();
                 objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf.Text;
@@ -398,13 +399,13 @@ namespace ProjetoCrudPacientes
             }
             catch (Exception)
             {
-                
+
             }
 
 
         }
 
-        public void SelecionarDataGrewView()
+        public void SelecionarDataGrewViewCPF()
         {
             btnSalvar.Enabled = false;
             btnAtualizar.Enabled = true;
@@ -415,48 +416,29 @@ namespace ProjetoCrudPacientes
             tabeladeClientes.Columns.Clear(); //Remover as colunas
             tabeladeClientes.Rows.Clear();    //Remover as linhas
             tabeladeClientes.Refresh();
-            string name = txtNome1.Text;
-            string cpf = txtCpf1.Text;
-            string dat = txtDataNasc1.Text;
-            string ide = txtProntuario1.Text;
+
             try
             {    //selecionar dados no banco de dados
-
                 // define a string de conexao com provedor caminho e nome do banco de dados
                 string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
                 //cria a conexão com o banco de dados
                 MySqlConnection con = new MySqlConnection(strProvider);
                 //define a instrução SQL
-                string strSql = "select * from tb_paciente";
-                if (txtCpf1.Enabled == true)
-                {
-                    strSql = "select * from tb_paciente where cpf like '%" + cpf + "%'";
-                }
-                if (txtDataNasc1.Enabled == true)
-                {
-                    strSql = "select * from tb_paciente where datanasc like '%" + dat + "%'";
-                }
-                if (txtProntuario1.Enabled == true)
-                {
-                    strSql = "select * from tb_paciente where prontuario like '%" + ide + "%'";
-                }
-                if (txtNome.Enabled == true)
-                {
-                    strSql = "select * from tb_paciente where nome like '%" + name + "%'";
-                }
-
                 //abre a conexao
                 con.Open();
-                //cria o objeto command para executar a instruçao sql
-                MySqlCommand cmd = new MySqlCommand(strSql, con);
 
-                //define o tipo do comando
+                //if (txtCpf1.Enabled == true )
+                //{
+                MySqlCommand cmd = new MySqlCommand("select* from tb_paciente where cpf = ?", con);
+                cmd.Parameters.Clear();
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf1.Text;
                 cmd.CommandType = CommandType.Text;
 
                 //cria um dataadapter
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
                 MySqlDataReader dr = cmd.ExecuteReader();
+
 
                 //Obtem o número de colunas
 
@@ -514,7 +496,7 @@ namespace ProjetoCrudPacientes
                         cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
-
+                    txtCpf.Enabled = false;
                 }
                 con.Close();
                 if (cont == 0)
@@ -527,16 +509,477 @@ namespace ProjetoCrudPacientes
             {
                 MessageBox.Show("busca nao realizada" + erro);
             }
-            
-            txtNome1.Text = "";
-            txtCpf1.Text = "";
-            txtDataNasc1.Text = "";
-            txtProntuario1.Text = "";
+            LimparBox2();
+            TextBox();
+        }
 
-            txtProntuario1.Enabled = true;
+        public void SelecionarDataGrewViewProntuario()
+        {
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnExcluir.Enabled = true;
+            //limpa o campo a cada busca 
+            tabeladeClientes.Rows.Clear();
+            tabeladeClientes.DataSource = null; //Remover a datasource
+            tabeladeClientes.Columns.Clear(); //Remover as colunas
+            tabeladeClientes.Rows.Clear();    //Remover as linhas
+            tabeladeClientes.Refresh();
+
+            try
+            {    //selecionar dados no banco de dados
+                // define a string de conexao com provedor caminho e nome do banco de dados
+                string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
+                //cria a conexão com o banco de dados
+                MySqlConnection con = new MySqlConnection(strProvider);
+                //define a instrução SQL
+                //abre a conexao
+                con.Open();
+
+                //if (txtCpf1.Enabled == true )
+                //{
+                MySqlCommand cmd = new MySqlCommand("select* from tb_paciente where prontuario= ?", con);
+                cmd.Parameters.Clear();
+                cmd.Parameters.Add("@prontuario", MySqlDbType.VarChar).Value = txtProntuario1.Text;
+                cmd.CommandType = CommandType.Text;
+
+                //cria um dataadapter
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                
+               
+
+                //Obtem o número de colunas
+
+                int nColunas = dr.FieldCount;
+
+                //percorre as colunas obtendo o seu nome e incluindo no DataGridView
+
+                for (int i = 0; i < nColunas; i++)
+
+                {
+
+                    tabeladeClientes.Columns.Add(dr.GetName(i).ToString(), dr.GetName(i).ToString());
+
+                }
+                //define um array de strings com nCOlunas
+
+                string[] linhaDados = new string[nColunas];
+                //percorre o DataRead
+                int cont = 0;//para informar mensagem para o usuario se não encontrar 
+                while (dr.Read())
+
+                {
+
+                    //percorre cada uma das colunas
+
+                    for (int a = 0; a < nColunas; a++)
+
+                    {
+
+                        //verifica o tipo de dados da coluna
+
+                        if (dr.GetFieldType(a).ToString() == "System.Int32")
+
+                        {
+
+                            linhaDados[a] = dr.GetInt32(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.String")
+
+                        {
+
+                            linhaDados[a] = dr.GetString(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.DateTime")
+
+                        {
+
+                            linhaDados[a] = dr.GetDateTime(a).ToString();
+
+                        }
+                        cont++;
+                    }
+                    tabeladeClientes.Rows.Add(linhaDados);
+                    txtCpf.Enabled = false;
+                }
+                con.Close();
+                if (cont == 0)
+                {
+                    MessageBox.Show("Cadastro inexistente");
+                }
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("busca nao realizada" + erro);
+            }
+            LimparBox2();
+            TextBox();
+        }
+        public void SelecionarDataGrewViewNome()
+        {
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnExcluir.Enabled = true;
+            //limpa o campo a cada busca 
+            tabeladeClientes.Rows.Clear();
+            tabeladeClientes.DataSource = null; //Remover a datasource
+            tabeladeClientes.Columns.Clear(); //Remover as colunas
+            tabeladeClientes.Rows.Clear();    //Remover as linhas
+            tabeladeClientes.Refresh();
+            string name = txtNome1.Text;
+
+            try
+            {    //selecionar dados no banco de dados
+                // define a string de conexao com provedor caminho e nome do banco de dados
+                string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
+                //cria a conexão com o banco de dados
+                MySqlConnection con = new MySqlConnection(strProvider);
+                //define a instrução SQL
+                //abre a conexao
+                con.Open();
+                string strSql = "select * from tb_paciente where nome like '%" + name + "%'";
+               //cria o objeto command para executar a instruçao sql
+                MySqlCommand cmd = new MySqlCommand(strSql, con);
+
+                //define o tipo do comando
+                cmd.CommandType = CommandType.Text;
+
+                //cria um dataadapter
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+
+                //Obtem o número de colunas
+
+                int nColunas = dr.FieldCount;
+
+                //percorre as colunas obtendo o seu nome e incluindo no DataGridView
+
+                for (int i = 0; i < nColunas; i++)
+
+                {
+
+                    tabeladeClientes.Columns.Add(dr.GetName(i).ToString(), dr.GetName(i).ToString());
+
+                }
+                //define um array de strings com nCOlunas
+
+                string[] linhaDados = new string[nColunas];
+                //percorre o DataRead
+                int cont = 0;//para informar mensagem para o usuario se não encontrar 
+                while (dr.Read())
+
+                {
+
+                    //percorre cada uma das colunas
+
+                    for (int a = 0; a < nColunas; a++)
+
+                    {
+
+                        //verifica o tipo de dados da coluna
+
+                        if (dr.GetFieldType(a).ToString() == "System.Int32")
+
+                        {
+
+                            linhaDados[a] = dr.GetInt32(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.String")
+
+                        {
+
+                            linhaDados[a] = dr.GetString(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.DateTime")
+
+                        {
+
+                            linhaDados[a] = dr.GetDateTime(a).ToString();
+
+                        }
+                        cont++;
+                    }
+                    tabeladeClientes.Rows.Add(linhaDados);
+                    
+                }
+                con.Close();
+                if (cont == 0)
+                {
+                    MessageBox.Show("Cadastro inexistente");
+                }
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("busca nao realizada" + erro);
+            }
+            LimparBox2();
+            TextBox();
+        }
+
+        public void SelecionarDataGrewViewTodos()
+        {
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnExcluir.Enabled = true;
+            //limpa o campo a cada busca 
+            tabeladeClientes.Rows.Clear();
+            tabeladeClientes.DataSource = null; //Remover a datasource
+            tabeladeClientes.Columns.Clear(); //Remover as colunas
+            tabeladeClientes.Rows.Clear();    //Remover as linhas
+            tabeladeClientes.Refresh();
+           
+
+            try
+            {    //selecionar dados no banco de dados
+                // define a string de conexao com provedor caminho e nome do banco de dados
+                string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
+                //cria a conexão com o banco de dados
+                MySqlConnection con = new MySqlConnection(strProvider);
+                //define a instrução SQL
+                //abre a conexao
+                con.Open();
+                string strSql = "select * from tb_paciente ";
+                //cria o objeto command para executar a instruçao sql
+                MySqlCommand cmd = new MySqlCommand(strSql, con);
+
+                //define o tipo do comando
+                cmd.CommandType = CommandType.Text;
+
+                //cria um dataadapter
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+
+                //Obtem o número de colunas
+
+                int nColunas = dr.FieldCount;
+
+                //percorre as colunas obtendo o seu nome e incluindo no DataGridView
+
+                for (int i = 0; i < nColunas; i++)
+
+                {
+
+                    tabeladeClientes.Columns.Add(dr.GetName(i).ToString(), dr.GetName(i).ToString());
+
+                }
+                //define um array de strings com nCOlunas
+
+                string[] linhaDados = new string[nColunas];
+                //percorre o DataRead
+                int cont = 0;//para informar mensagem para o usuario se não encontrar 
+                while (dr.Read())
+
+                {
+
+                    //percorre cada uma das colunas
+
+                    for (int a = 0; a < nColunas; a++)
+
+                    {
+
+                        //verifica o tipo de dados da coluna
+
+                        if (dr.GetFieldType(a).ToString() == "System.Int32")
+
+                        {
+
+                            linhaDados[a] = dr.GetInt32(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.String")
+
+                        {
+
+                            linhaDados[a] = dr.GetString(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.DateTime")
+
+                        {
+
+                            linhaDados[a] = dr.GetDateTime(a).ToString();
+
+                        }
+                        cont++;
+                    }
+                    tabeladeClientes.Rows.Add(linhaDados);
+                }
+                con.Close();
+                if (cont == 0)
+                {
+                    MessageBox.Show("Cadastro inexistente");
+                }
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("busca nao realizada" + erro);
+            }
+
+            LimparBox2();
+            TextBox();
+        }
+        public void SelecionarDataGrewViewDatanasc()
+        {
+           
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnExcluir.Enabled = true;
+            //limpa o campo a cada busca 
+            tabeladeClientes.Rows.Clear();
+            tabeladeClientes.DataSource = null; //Remover a datasource
+            tabeladeClientes.Columns.Clear(); //Remover as colunas
+            tabeladeClientes.Rows.Clear();    //Remover as linhas
+            tabeladeClientes.Refresh();
+
+            try
+            {    //selecionar dados no banco de dados
+                // define a string de conexao com provedor caminho e nome do banco de dados
+                string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
+                //cria a conexão com o banco de dados
+                MySqlConnection con = new MySqlConnection(strProvider);
+                //define a instrução SQL
+                //abre a conexao
+                con.Open();
+
+                //if (txtCpf1.Enabled == true )
+                //{
+                MySqlCommand cmd = new MySqlCommand("select* from tb_paciente where datanasc= ?", con);
+                cmd.Parameters.Clear();
+                cmd.Parameters.Add("@datanasc", MySqlDbType.VarChar).Value = txtDataNasc1.Text;
+                cmd.CommandType = CommandType.Text;
+
+                //cria um dataadapter
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                
+
+                //Obtem o número de colunas
+
+                int nColunas = dr.FieldCount;
+
+                //percorre as colunas obtendo o seu nome e incluindo no DataGridView
+
+                for (int i = 0; i < nColunas; i++)
+
+                {
+
+                    tabeladeClientes.Columns.Add(dr.GetName(i).ToString(), dr.GetName(i).ToString());
+
+                }
+                //define um array de strings com nCOlunas
+
+                string[] linhaDados = new string[nColunas];
+                //percorre o DataRead
+                int cont = 0;//para informar mensagem para o usuario se não encontrar 
+                while (dr.Read())
+
+                {
+
+                    //percorre cada uma das colunas
+
+                    for (int a = 0; a < nColunas; a++)
+
+                    {
+
+                        //verifica o tipo de dados da coluna
+
+                        if (dr.GetFieldType(a).ToString() == "System.Int32")
+
+                        {
+
+                            linhaDados[a] = dr.GetInt32(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.String")
+
+                        {
+
+                            linhaDados[a] = dr.GetString(a).ToString();
+
+                        }
+
+                        if (dr.GetFieldType(a).ToString() == "System.DateTime")
+
+                        {
+
+                            linhaDados[a] = dr.GetDateTime(a).ToString();
+
+                        }
+                        cont++;
+                    }
+                    tabeladeClientes.Rows.Add(linhaDados);
+                    
+                }
+                con.Close();
+                if (cont == 0)
+                {
+                    MessageBox.Show("Cadastro inexistente");
+                }
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("busca nao realizada" + erro);
+            }
+
+            LimparBox2();
+            TextBox();
+        }
+
+        public void TextBox()
+        {
             txtCpf1.Enabled = true;
-            txtNome1.Enabled = true;
+            txtProntuario1.Enabled = true;
             txtDataNasc1.Enabled = true;
+            txtNome1.Enabled = true;
+        }
+        //este seria o metodo para colocar no botão mas deu Bug 
+        public void SelecionarDataGrewView()
+        {
+            if(txtCpf1.Text==" " && txtNome1.Text==" "&& 
+                txtProntuario1.Text==" " && txtDataNasc1.Text ==" ")
+            {
+                SelecionarDataGrewViewTodos();
+            }else
+            {
+                if (txtProntuario1.Enabled == true )
+                {
+                    SelecionarDataGrewViewProntuario();
+                }
+                if (txtCpf1.Enabled == true)
+                {
+                    SelecionarDataGrewViewCPF();
+                }
+                if (txtDataNasc1.Enabled == true)
+                {
+                    SelecionarDataGrewViewDatanasc();
+                }
+            }
+            
+            LimparBox2();
+            TextBox();
 
         }
 
@@ -703,7 +1146,7 @@ namespace ProjetoCrudPacientes
 
         private void btnBuscar1_Click(object sender, EventArgs e)
         {
-            SelecionarDataGrewView();
+            SelecionarDataGrewViewTodos();
             //LimparBox2();
 
 
@@ -712,6 +1155,7 @@ namespace ProjetoCrudPacientes
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
+            limpardatagrewview();
 
         }
 
@@ -731,6 +1175,7 @@ namespace ProjetoCrudPacientes
 
         private void checkBoxIncluirCadastro_CheckedChanged(object sender, EventArgs e)
         {
+            txtCpf.Enabled=true;
             txtProntuario.ReadOnly = true;
             btnSalvar.Enabled = true;
             btnAtualizar.Enabled = false;
@@ -739,6 +1184,7 @@ namespace ProjetoCrudPacientes
             LimparBox();
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.Focus();
+            limpardatagrewview();
         }
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -932,6 +1378,11 @@ namespace ProjetoCrudPacientes
 
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
+          
+            if (!(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == 13)
             {
                 txtBairro.TextAlign = HorizontalAlignment.Left;
@@ -958,7 +1409,7 @@ namespace ProjetoCrudPacientes
         }
 
         private void txtUf_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        {          
             if (e.KeyChar == 13)
             {
                 txtObservacoes.TextAlign = HorizontalAlignment.Left;
@@ -991,7 +1442,7 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                SelecionarDataGrewView();
+                SelecionarDataGrewViewCPF();
             }
         }
 
@@ -999,7 +1450,7 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                SelecionarDataGrewView();
+                SelecionarDataGrewViewNome();
             }
         }
 
@@ -1007,15 +1458,20 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
-                SelecionarDataGrewView();
+                SelecionarDataGrewViewDatanasc();
             }
         }
 
         private void txtProntuario1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            txtProntuario1.MaxLength = 8;
+            if (!(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
             if (e.KeyChar == 13)
             {
-                SelecionarDataGrewView();
+                SelecionarDataGrewViewProntuario();
             }
         }
 
@@ -1037,6 +1493,7 @@ namespace ProjetoCrudPacientes
             btnExcluir.Enabled = true;
             try
             {
+                txtProntuario.Text = tabeladeClientes.CurrentRow.Cells[0].Value.ToString();
                 txtNome.Text = tabeladeClientes.CurrentRow.Cells[1].Value.ToString();
                 txtDataNasc.Text = tabeladeClientes.CurrentRow.Cells[2].Value.ToString();
                 txtCpf.Text = tabeladeClientes.CurrentRow.Cells[3].Value.ToString();
@@ -1067,6 +1524,7 @@ namespace ProjetoCrudPacientes
             txtProntuario1.Enabled = false;
             txtCpf1.Enabled = false;
             txtDataNasc1.Enabled = false;
+            
         }
 
         private void txtProntuario1_Click(object sender, EventArgs e)
@@ -1098,6 +1556,11 @@ namespace ProjetoCrudPacientes
         private void txtNome_Click(object sender, EventArgs e)
         {
             GerarProntuario();
+        }
+
+        private void txtProntuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
