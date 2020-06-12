@@ -54,7 +54,6 @@ namespace ProjetoCrudPacientes
             if (cns == null || cns.Trim().Length < 15)
             {
                 MessageBox.Show("Número CNS inválido");
-                txtCns.BackColor = Color.Red;
                 txtCns.TextAlign = HorizontalAlignment.Left;
 
             }
@@ -109,7 +108,6 @@ namespace ProjetoCrudPacientes
                         CNS = 1;
                         txtCns.BackColor = Color.DeepSkyBlue;
                         txtCns.TextAlign = HorizontalAlignment.Left;
-                        txtMae.BackColor = Color.DeepSkyBlue;
                         txtMae.TextAlign = HorizontalAlignment.Left;
                         txtMae.Focus();
 
@@ -149,7 +147,6 @@ namespace ProjetoCrudPacientes
                         CNS = 1;
                         txtCns.BackColor = Color.DeepSkyBlue;
                         txtCns.TextAlign = HorizontalAlignment.Left;
-                        txtMae.BackColor = Color.DeepSkyBlue;
                         txtMae.TextAlign = HorizontalAlignment.Left;
                         txtMae.Focus();
                     }
@@ -230,7 +227,7 @@ namespace ProjetoCrudPacientes
 
                         if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
                         {
-                            txtCpf.BackColor = Color.DeepSkyBlue;
+
                             txtCpf.TextAlign = HorizontalAlignment.Left;
                             txtCpf.Focus();
                             try
@@ -287,13 +284,9 @@ namespace ProjetoCrudPacientes
                         else
                         {
                             MessageBox.Show("CPF Inválido");
-
-                            txtCpf.BackColor = Color.Red;
                             txtCpf.TextAlign = HorizontalAlignment.Left;
                             txtCpf.Focus();
                         }
-
-
                     }
                     else
                     {
@@ -318,8 +311,6 @@ namespace ProjetoCrudPacientes
                         GerarProntuario();
                     }
                 }
-
-
             }
         }
 
@@ -999,7 +990,7 @@ namespace ProjetoCrudPacientes
                 txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                 txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Os Campos Nome, Data de Nasc., tel1, Endereço" + "\n" + "\n" + "São Obrigatorios!!!" , "Menssagem");
+                MessageBox.Show("Necessario Realizar uma Busca!!!", "Menssagem");
             }
             else
             {
@@ -1055,15 +1046,8 @@ namespace ProjetoCrudPacientes
         //excluir dados no banco de dados
         public void Excluir()
         {
-            //verificar campo vazio
-            if (txtNome.Text == " " || txtDataNasc.Text == " " ||
-                txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
-                txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
-            {
-                MessageBox.Show("Os Campos Nome, Data de Nasc., tel1, Endereço" + "\n" + "\n" + "São Obrigatorios!!!", "Menssagem");
-            }
-            else
-            {
+            
+
                 try
                 {    //excluir dados no banco de dados
                     MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
@@ -1077,19 +1061,19 @@ namespace ProjetoCrudPacientes
                     objCmd.CommandType = CommandType.Text;
                     objCmd.ExecuteNonQuery();
                     //mensagem
-                    MessageBox.Show("Exclusão Realizada com Sucesso !!!");
+                   // MessageBox.Show("Exclusão Realizada com Sucesso !!!");
 
                     //fecha o banco de dados
                     objcon.Close();
                 }
                 catch (Exception erro)
                 {
-                    MessageBox.Show("Dados não Excluidos !!!" + erro);
-
-                }
+                   // MessageBox.Show("Dados não Excluidos !!!" + erro);
+                    LimparBox();
             }
-            LimparBox();
-        }
+            }
+            
+        
 
         //limpar todos os txt box
         public void LimparBox()
@@ -1168,9 +1152,24 @@ namespace ProjetoCrudPacientes
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Excluir();
-            LimparBox();
-            limpardatagrewview();
+            if (txtNome.Text == " " || txtDataNasc.Text == " " ||
+                   txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+                   txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
+            {
+                MessageBox.Show("Necessario Realizar uma Busca!!!", "Menssagem");
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja apagar o registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                {
+                    //Sua rotina de exclusão
+                    Excluir();
+                    LimparBox();
+                    limpardatagrewview();
+                    //Confirmando exclusão para o usuário
+                    MessageBox.Show("Registro apagado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void checkBoxIncluirCadastro_CheckedChanged(object sender, EventArgs e)
@@ -1199,6 +1198,7 @@ namespace ProjetoCrudPacientes
             {
                 txtDataNasc.TextAlign = HorizontalAlignment.Left;
                 txtDataNasc.Focus();
+                GerarProntuario();
             }
         }
 
@@ -1270,8 +1270,6 @@ namespace ProjetoCrudPacientes
                         else
                         {
                             MessageBox.Show("CPF Inválido");
-
-                            txtCpf.BackColor = Color.Red;
                             txtCpf.TextAlign = HorizontalAlignment.Left;
                             txtCpf.Focus();
                         }
@@ -1305,7 +1303,6 @@ namespace ProjetoCrudPacientes
                 ValidaCns();
                 if (CNS != 1)
                 {
-                    txtCns.BackColor = Color.Red;
                     txtCns.TextAlign = HorizontalAlignment.Left;
                 }
             }
@@ -1491,6 +1488,7 @@ namespace ProjetoCrudPacientes
             btnSalvar.Enabled = false;
             btnAtualizar.Enabled = true;
             btnExcluir.Enabled = true;
+
             try
             {
                 txtProntuario.Text = tabeladeClientes.CurrentRow.Cells[0].Value.ToString();
