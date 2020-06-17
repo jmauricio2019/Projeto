@@ -171,63 +171,14 @@ namespace ProjetoCrudPacientes
         public void Cadastrar()
         {
 
-            ValidaCns(); //verifica Prontuario com mesmo nome no Banco
-            VerificaCPF();//verifica CPF com mesmo nome no Banco
+            //ValidaCns(); //verifica Prontuario com mesmo nome no Banco
+            //VerificaCPF();//verifica CPF com mesmo nome no Banco
             VerificaProntuario();
             //verificar campo vazio
-            if (txtNome.Text == " " || txtDataNasc.Text == " " ||
-                txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
-                txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
-            {
-                MessageBox.Show("Os Campos Nome, Data de Nasc., tel1, Endereço" + "\n" + "\n" + "São Obrigatorios!!!", "Menssagem");
-            }
-            else
-            {
-                //verifica CNS
-
-                if (CNS == 1 && cpff == 0 && Prot == 0)
+            
+           
+                if (Prot == 0)
                 {
-                    // vericando cpf
-                    int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-                    int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-                    string cpf = txtCpf.Text;
-                    cpf = cpf.Trim().Replace(".", "").Replace("-", "");
-                    char[] arr;
-
-                    arr = cpf.ToCharArray();
-                    //verifica se todos os números são iguais para validar cpf
-                    int cont = 0;
-                    for (int i = 0; i < arr.Length - 1; i++)
-                    {
-                        if (arr[i] == arr[i + 1])
-                        {
-                            cont++;
-                        }
-                    }
-                    int soma = 0;
-                    if (arr.Length == 11)//verifica se tem a quantidade correta de numeros do cpf
-                    {
-                        for (int i = 0; i < 9; i++)
-                            soma += int.Parse(arr[i].ToString()) * multiplicador1[i];
-
-                        int resto = soma % 11;
-                        if (resto < 2)
-                            resto = 0;
-                        else
-                            resto = 11 - resto;
-                        soma = 0;
-                        for (int i = 0; i < 10; i++)
-                            soma += int.Parse(arr[i].ToString()) * multiplicador2[i];
-
-                        int resto1 = soma % 11;
-                        if (resto1 < 2)
-                            resto1 = 0;
-                        else
-                            resto1 = 11 - resto1;
-
-                        if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
-                        {
-
                             txtCpf.TextAlign = HorizontalAlignment.Left;
                             txtCpf.Focus();
                             try
@@ -237,7 +188,6 @@ namespace ProjetoCrudPacientes
                                 MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (prontuario, nome, datanasc, cpf, rg, cns, mae, \n" +
                                     " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
                                     " uf, observacoes) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
-
                                 //parametros do comando sql
                                 objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
                                 objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
@@ -278,32 +228,11 @@ namespace ProjetoCrudPacientes
                             {
                                 MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
                             }
+                        }                       
 
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("CPF Inválido");
-                            txtCpf.TextAlign = HorizontalAlignment.Left;
-                            txtCpf.Focus();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Faltam números no CPF");
-
-                    }
-                }
                 else
                 {
-                    if (CNS != 1)
-                    {
-                        MessageBox.Show("Número CNS Inválido ");
-                    }
-                    if (cpff != 0)
-                    {
-                        MessageBox.Show("CPF Cadastrado!!! ");
-                    }
+                 //  if (cpff != 0) {MessageBox.Show("CPF Cadastrado!!! ");}
                     if (Prot != 0)
                     {
                         MessageBox.Show("Há um cadastro com este Numero de Prontuario tecle em salvar novamente");
@@ -312,7 +241,7 @@ namespace ProjetoCrudPacientes
                     }
                 }
             }
-        }
+        
 
         public void VerificaProntuario()
         {
@@ -358,6 +287,7 @@ namespace ProjetoCrudPacientes
         public void VerificaCPF()
         {
             string cp = txtCpf.Text;
+            string ct = "   .   .   -";
             cpff = 0;
             try
             {    //selecionar dados no banco de dados
@@ -384,6 +314,9 @@ namespace ProjetoCrudPacientes
                 {
                     cpff = 1;
                 }
+               
+                if (cpff != 0 && cpftest != ct) { MessageBox.Show("CPF Cadastrado!!! "); }
+
                 //mensagem
                 //fecha o banco de dados
                 objcon.Close();
@@ -1003,13 +936,14 @@ namespace ProjetoCrudPacientes
                     MySqlCommand objCmd = new MySqlCommand("update tb_paciente set nome = ?," +
                         "" +
                         " datanasc = ?," +
-                        " rg = ?, cns = ?, mae = ?, pai = ?, tel1 = ?, tel2 = ?, email = ?, cep = ?, logadouro = ?," +
-                        " num = ?, bairro = ?, cidade = ?, uf = ?, observacoes = ? where cpf = ?", objcon);
+                        " cpf = ?, rg = ?, cns = ?, mae = ?, pai = ?, tel1 = ?, tel2 = ?, email = ?, cep = ?, logadouro = ?," +
+                        " num = ?, bairro = ?, cidade = ?, uf = ?, observacoes = ? where prontuario = ?", objcon);
                     objCmd.Parameters.Clear();
 
                     //parametros do comando sql
                     objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
                     objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
+                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
                     objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
                     objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
                     objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
@@ -1024,7 +958,7 @@ namespace ProjetoCrudPacientes
                     objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
                     objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
                     objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
-                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
+                    objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 18).Value = txtProntuario.Text;
                     //comando para executar query
                     objCmd.CommandType = CommandType.Text;
                     objCmd.ExecuteNonQuery();
@@ -1140,11 +1074,11 @@ namespace ProjetoCrudPacientes
         {
             Cadastrar();
             limpardatagrewview();
-
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            VerificaCPF();
             Atualizar();
             LimparBox();
             limpardatagrewview();
@@ -1160,7 +1094,7 @@ namespace ProjetoCrudPacientes
             }
             else
             {
-                if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja apagar o registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                if (DialogResult.Yes == MessageBox.Show("Tem certeza que deseja EXCLUIR o registro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
                 {
                     //Sua rotina de exclusão
                     Excluir();
@@ -1179,7 +1113,6 @@ namespace ProjetoCrudPacientes
             btnSalvar.Enabled = true;
             btnAtualizar.Enabled = false;
             btnExcluir.Enabled = false;
-            VerificaCPF();
             LimparBox();
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.Focus();
@@ -1262,6 +1195,7 @@ namespace ProjetoCrudPacientes
                         if (resto == int.Parse(arr[9].ToString()) && resto1 == int.Parse(arr[10].ToString()) && cont != 10)
                         {
                             VerificaProntuario();
+                            VerificaCPF();
                             txtCpf.TextAlign = HorizontalAlignment.Left;
                             txtCpf.Focus();
                             txtRg.TextAlign = HorizontalAlignment.Left;
@@ -1559,6 +1493,11 @@ namespace ProjetoCrudPacientes
         private void txtProntuario_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void txtProntuario_Click(object sender, EventArgs e)
+        {
+            GerarProntuario();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

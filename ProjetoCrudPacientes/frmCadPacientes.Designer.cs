@@ -107,7 +107,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1350, 25);
+            this.menuStrip2.Size = new System.Drawing.Size(1364, 25);
             this.menuStrip2.TabIndex = 24;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -175,7 +175,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(12, 373);
+            this.groupBox2.Location = new System.Drawing.Point(16, 373);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1326, 337);
             this.groupBox2.TabIndex = 27;
@@ -223,6 +223,7 @@
             this.txtProntuario.Name = "txtProntuario";
             this.txtProntuario.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario.TabIndex = 87;
+            this.txtProntuario.Click += new System.EventHandler(this.txtProntuario_Click);
             this.txtProntuario.TextChanged += new System.EventHandler(this.txtProntuario_TextChanged);
             this.txtProntuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProntuario_KeyPress);
             // 
@@ -668,7 +669,7 @@
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(11, 39);
+            this.groupBox1.Location = new System.Drawing.Point(15, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1327, 316);
             this.groupBox1.TabIndex = 26;
@@ -818,15 +819,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 722);
+            this.ClientSize = new System.Drawing.Size(1364, 762);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1350, 722);
-            this.MinimumSize = new System.Drawing.Size(1350, 722);
+            this.MaximumSize = new System.Drawing.Size(1380, 762);
+            this.MinimumSize = new System.Drawing.Size(1364, 762);
             this.Name = "frmCadPacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Pacientes";
