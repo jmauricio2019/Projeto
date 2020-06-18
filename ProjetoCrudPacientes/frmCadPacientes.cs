@@ -14,7 +14,7 @@ namespace ProjetoCrudPacientes
     public partial class frmCadPacientes : Form
     {
         string cns;
-        int CNS, Prot, cpff;
+        int CNS, Prot, cpff,cnss;
 
         public frmCadPacientes()
         {
@@ -171,10 +171,11 @@ namespace ProjetoCrudPacientes
         public void Cadastrar()
         {
             //ValidaCns(); //verifica Prontuario com mesmo nome no Banco
-            //VerificaCPF();//verifica CPF com mesmo nome no Banco
+            VerificaCPF();//verifica CPF com mesmo nome no Banco
             VerificaProntuario();
+            VerificaCNS();
             //verificar campo vazio
-            if (Prot == 0)
+            if (Prot == 0 && cpff == 0 && cnss ==0)
             {
                 txtCpf.TextAlign = HorizontalAlignment.Left;
                 txtCpf.Focus();
@@ -235,6 +236,14 @@ namespace ProjetoCrudPacientes
                     MessageBox.Show("Há um cadastro com este Numero de Prontuario tecle em salvar novamente");
                     txtProntuario.Text = " ";
                     GerarProntuario();
+                }
+                if(cpff != 0)
+                {
+                    MessageBox.Show("Há um cadastro com este Número de CPF");
+                }
+                if (cnss != 0)
+                {
+                    MessageBox.Show("Há um cadastro com este Número de CNS");
                 }
             }
             }
@@ -312,7 +321,48 @@ namespace ProjetoCrudPacientes
                     cpff = 1;
                 }
                
-                if (cpff != 0 && cpftest != ct) { MessageBox.Show("CPF Cadastrado!!! "); }
+                
+                //mensagem
+                //fecha o banco de dados
+                objcon.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        //Cns com mesmo dados no banco
+        public void VerificaCNS()
+        {
+            string cs = txtCns.Text;
+            cnss = 0;
+            try
+            {    //selecionar dados no banco de dados
+                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+
+                objcon.Open();
+                //busca pelo cns
+                MySqlCommand objCmd = new MySqlCommand("select  prontuario,nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
+                    "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cns=?", objcon);
+
+                objCmd.Parameters.Clear();
+                objCmd.Parameters.Add("@cns", MySqlDbType.VarChar).Value = txtCns.Text;
+                //comando para executar query
+                objCmd.CommandType = CommandType.Text;
+
+                //recebe conteudo do banco
+                MySqlDataReader dr;
+                dr = objCmd.ExecuteReader();
+
+                dr.Read();
+
+                String cnstest = dr.GetString(5);
+               
+                if (cnstest == cs)
+                {
+                    cnss = 1;
+                }
+
 
                 //mensagem
                 //fecha o banco de dados
