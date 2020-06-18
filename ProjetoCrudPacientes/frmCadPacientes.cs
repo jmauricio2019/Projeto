@@ -170,76 +170,73 @@ namespace ProjetoCrudPacientes
         //inserir dados no banco de dados
         public void Cadastrar()
         {
-
             //ValidaCns(); //verifica Prontuario com mesmo nome no Banco
             //VerificaCPF();//verifica CPF com mesmo nome no Banco
             VerificaProntuario();
             //verificar campo vazio
-            
-           
-                if (Prot == 0)
-                {
-                            txtCpf.TextAlign = HorizontalAlignment.Left;
-                            txtCpf.Focus();
-                            try
-                            {    //inserir dados no banco de dados
-                                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
-                                objcon.Open();
-                                MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (prontuario, nome, datanasc, cpf, rg, cns, mae, \n" +
-                                    " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
-                                    " uf, observacoes) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
-                                //parametros do comando sql
-                                objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
-                                objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
-                                objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
-                                objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
-                                objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
-                                objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
-                                objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
-                                objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
-                                objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
-                                objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
-                                objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
-                                objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
-                                objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
-                                objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
-                                objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
-                                objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
-                                objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
-                                objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
+            if (Prot == 0)
+            {
+                txtCpf.TextAlign = HorizontalAlignment.Left;
+                txtCpf.Focus();
+                try
+                {    //inserir dados no banco de dados
+                    MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
+                    objcon.Open();
+                    MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (prontuario, nome, datanasc, cpf, rg, cns, mae, \n" +
+                        " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
+                        " uf, observacoes) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                    //parametros do comando sql
+                    objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
+                    objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+                    objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
+                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
+                    objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
+                    objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
+                    objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
+                    objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
+                    objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
+                    objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
+                    objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
+                    objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
+                    objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
+                    objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
+                    objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
+                    objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
+                    objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
+                    objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
 
-                                //para colocar os estados no combo box
-                                //cmbestado.itens.add("sp");
+                    //para colocar os estados no combo box
+                    //cmbestado.itens.add("sp");
 
-                                //comando para executar query
-                                objCmd.ExecuteNonQuery();
+                    //comando para executar query
+                    objCmd.ExecuteNonQuery();
 
-                                MessageBox.Show("Cadastrado com Sucesso!!!");
+                    MessageBox.Show("Cadastrado com Sucesso!!!");
 
-                                //fecha o banco de dados
-                                objcon.Close();
-                                LimparBox();
-                                btnSalvar.Enabled = false;
-                                btnAtualizar.Enabled = false;
-                                btnExcluir.Enabled = false;
-                                checkBoxIncluirCadastro.Focus();
-                            }
-                            catch (Exception erro)
-                            {
-                                MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
-                            }
-                        }                       
-
-                else
-                {
-                 //  if (cpff != 0) {MessageBox.Show("CPF Cadastrado!!! ");}
-                    if (Prot != 0)
-                    {
-                        MessageBox.Show("Há um cadastro com este Numero de Prontuario tecle em salvar novamente");
-                        txtProntuario.Text = " ";
-                        GerarProntuario();
-                    }
+                    //fecha o banco de dados
+                    objcon.Close();
+                    LimparBox();
+                    btnSalvar.Enabled = false;
+                    btnAtualizar.Enabled = false;
+                    btnExcluir.Enabled = false;
+                    checkBoxIncluirCadastro.Focus();
                 }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
+                }
+            }
+            else
+            {
+
+                VerificaProntuario();
+                if (Prot != 0)
+                {
+                    MessageBox.Show("Há um cadastro com este Numero de Prontuario tecle em salvar novamente");
+                    txtProntuario.Text = " ";
+                    GerarProntuario();
+                }
+            }
             }
         
 
@@ -325,8 +322,6 @@ namespace ProjetoCrudPacientes
             {
 
             }
-
-
         }
 
         public void SelecionarDataGrewViewCPF()
@@ -980,15 +975,13 @@ namespace ProjetoCrudPacientes
         //excluir dados no banco de dados
         public void Excluir()
         {
-            
-
                 try
                 {    //excluir dados no banco de dados
                     MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
                     objcon.Open();
-                    MySqlCommand objCmd = new MySqlCommand("delete from tb_paciente where cpf = ?", objcon);
+                    MySqlCommand objCmd = new MySqlCommand("delete from tb_paciente where prontuario = ?", objcon);
                     objCmd.Parameters.Clear();
-                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf.Text;
+                    objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar).Value = txtProntuario.Text;
 
 
                     //comando para executar query
@@ -1040,6 +1033,19 @@ namespace ProjetoCrudPacientes
             txtProntuario1.Text = (" ");
         }
 
+        public void letramaiusc()
+        {
+            txtNome.Text = txtNome.Text.ToUpper();
+            txtMae.Text = txtMae.Text.ToUpper();
+            txtPai.Text = txtPai.Text.ToUpper();
+            txtEmail.Text = txtEmail.Text.ToLower();
+            txtRua.Text = txtRua.Text.ToUpper();
+            txtBairro.Text = txtBairro.Text.ToUpper();
+            txtCidade.Text = txtCidade.Text.ToUpper();
+            txtUf.Text = txtUf.Text.ToUpper();
+            txtObservacoes.Text = txtObservacoes.Text.ToUpper();
+        }
+
         private void frmCadPacientes_Load(object sender, EventArgs e)
         {
 
@@ -1072,13 +1078,15 @@ namespace ProjetoCrudPacientes
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            //VerificaCPF();
+            letramaiusc();
             Cadastrar();
             limpardatagrewview();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            VerificaCPF();
+            //VerificaCPF();
             Atualizar();
             LimparBox();
             limpardatagrewview();
@@ -1497,7 +1505,7 @@ namespace ProjetoCrudPacientes
 
         private void txtProntuario_Click(object sender, EventArgs e)
         {
-            GerarProntuario();
+            //GerarProntuario();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
