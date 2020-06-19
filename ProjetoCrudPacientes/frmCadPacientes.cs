@@ -968,7 +968,7 @@ namespace ProjetoCrudPacientes
                 txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                 txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Necessario Realizar uma Busca!!!", "Menssagem");
+                MessageBox.Show("Necessario Realizar uma Busca!!!", "Mensagem");
             }
             else
             {
@@ -1128,10 +1128,20 @@ namespace ProjetoCrudPacientes
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            //VerificaCPF();
-            letramaiusc();
-            Cadastrar();
-            limpardatagrewview();
+            if(txtNome.Text == " " || txtDataNasc.Text == " " ||
+                  txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+                  txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
+            {
+                MessageBox.Show("Os Campos: nome, data de nascimento, nome da mãe\n telefone 1" +
+                    "e o endereço completo devem ser preenchidos. ");
+            }else
+            {
+                //VerificaCPF();
+                letramaiusc();
+                Cadastrar();
+                limpardatagrewview();
+            }
+            
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -1148,7 +1158,7 @@ namespace ProjetoCrudPacientes
                    txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                    txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Necessario Realizar uma Busca!!!", "Menssagem");
+                MessageBox.Show("Necessario Realizar uma Busca!!!", "Mensagem");
             }
             else
             {
@@ -1545,7 +1555,7 @@ namespace ProjetoCrudPacientes
 
         private void txtNome_Click(object sender, EventArgs e)
         {
-            GerarProntuario();
+            
         }
 
         private void txtProntuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -1555,7 +1565,7 @@ namespace ProjetoCrudPacientes
 
         private void txtProntuario_Click(object sender, EventArgs e)
         {
-            //GerarProntuario();
+            GerarProntuario();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
