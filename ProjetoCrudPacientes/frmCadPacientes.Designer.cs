@@ -197,9 +197,9 @@
             this.label26.ForeColor = System.Drawing.Color.Red;
             this.label26.Location = new System.Drawing.Point(180, 170);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(121, 13);
+            this.label26.Size = new System.Drawing.Size(125, 13);
             this.label26.TabIndex = 91;
-            this.label26.Text = "Realiza busca pelo CEP";
+            this.label26.Text = "*Realiza busca pelo CEP";
             // 
             // btnBuscarCep
             // 
@@ -276,6 +276,7 @@
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(169, 24);
             this.txtCpf.TabIndex = 82;
+            this.txtCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCpf_MaskInputRejected);
             this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
             // 
             // txtPai
@@ -736,6 +737,7 @@
             this.txtNome1.Size = new System.Drawing.Size(415, 24);
             this.txtNome1.TabIndex = 62;
             this.txtNome1.Click += new System.EventHandler(this.txtNome1_Click);
+            this.txtNome1.TextChanged += new System.EventHandler(this.txtNome1_TextChanged);
             this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
             // 
             // tabeladeClientes

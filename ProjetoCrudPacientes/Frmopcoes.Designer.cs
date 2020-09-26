@@ -213,6 +213,7 @@
             this.Name = "frmOpcoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Inicial";
+            this.Load += new System.EventHandler(this.frmOpcoes_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

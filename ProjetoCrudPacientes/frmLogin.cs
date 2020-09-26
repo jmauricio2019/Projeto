@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetoCrudPacientes
@@ -19,10 +12,10 @@ namespace ProjetoCrudPacientes
 
         public void campoVazio()
         {
-           
+
             if (txtLogin.Text == "" && txtSenha.Text == "")
             {
-               
+
             }
         }
 
@@ -75,6 +68,11 @@ namespace ProjetoCrudPacientes
                 //btnLogin.Focus();
                 ValidaLogin();
             }
+        }
+
+        private void txtLogin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

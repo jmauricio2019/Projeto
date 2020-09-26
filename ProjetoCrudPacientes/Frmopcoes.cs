@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetoCrudPacientes
@@ -30,7 +23,7 @@ namespace ProjetoCrudPacientes
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tel: " + "\n" + "\n" + "josehvvn@gmail.com" + "\n" + "\n" + "raphaelacacio84@gmail.com", "Ajuda?" );
+            MessageBox.Show("Raphael (12)9 8169-1914" + "\n" + "\n" + "Jose Mauricio(12)9 9720-9637 ", "Ajuda?");
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -50,6 +43,11 @@ namespace ProjetoCrudPacientes
         }
 
         private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmOpcoes_Load(object sender, EventArgs e)
         {
 
         }

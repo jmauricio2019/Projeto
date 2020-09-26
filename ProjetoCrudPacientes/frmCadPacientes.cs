@@ -1,26 +1,22 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetoCrudPacientes
 {
     public partial class frmCadPacientes : Form
     {
-        string cns;
-        int CNS, Prot, cpff,cnss;
+        string cns, Cpff;
+        int CNS, Prot, cpff, cnss;
 
         public frmCadPacientes()
         {
             InitializeComponent();
             LimparBox();//limpar campos ao iniciar o form
             LimparBox2();
+
         }
         /// <summary>
         //realiza a busca de endereço pelo cep
@@ -113,9 +109,7 @@ namespace ProjetoCrudPacientes
 
                     }
 
-
                 }
-
 
                 //2. Rotina de validação de Números que iniciam com 7, 8 ou 9:
                 if (cns.StartsWith("7") || cns.StartsWith("8") || cns.StartsWith("9"))
@@ -138,9 +132,7 @@ namespace ProjetoCrudPacientes
                             (Convert.ToInt32(cns.Substring(13, 1)) * 2) +
                             (Convert.ToInt32(cns.Substring(14, 1)) * 1);
 
-
                     resto = soma % 11;
-
 
                     if (resto == 0)
                     {
@@ -150,104 +142,109 @@ namespace ProjetoCrudPacientes
                         txtMae.TextAlign = HorizontalAlignment.Left;
                         txtMae.Focus();
                     }
-
                 }
 
                 //se for 3, 4, 5 ou 6 é inválido
 
-
             }
 
         }
-        public void GerarProntuario()
-        {
+       // public void GerarProntuario()
+      //  {
             //gerar número aleatorio
-            Random numAleatorio = new Random();
-            int valorInteiro = numAleatorio.Next(1000000, 9999999);//intervalo de numeros mudar aqui
-            txtProntuario.Text = Convert.ToString(valorInteiro);
-        }
+        //    Random numAleatorio = new Random();
+          //  int valorInteiro = numAleatorio.Next(1000000, 9999999);//intervalo de numeros mudar aqui
+            //txtProntuario.Text = Convert.ToString(valorInteiro);
+        //}
 
         //inserir dados no banco de dados
         public void Cadastrar()
         {
+
             //ValidaCns(); //verifica Prontuario com mesmo nome no Banco
-            VerificaCPF();//verifica CPF com mesmo nome no Banco
             VerificaProntuario();
             VerificaCNS();
             //verificar campo vazio
-            if (Prot == 0 && cpff == 0 && cnss ==0)
+            //verificar campo vazio
+
+            if (txtNome.Text == " " || txtDataNasc.Text == " " ||
+                txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+                txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                txtCpf.TextAlign = HorizontalAlignment.Left;
-                txtCpf.Focus();
-                try
-                {    //inserir dados no banco de dados
-                    MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
-                    objcon.Open();
-                    MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (prontuario, nome, datanasc, cpf, rg, cns, mae, \n" +
-                        " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
-                        " uf, observacoes) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
-                    //parametros do comando sql
-                    objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
-                    objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
-                    objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
-                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
-                    objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
-                    objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
-                    objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
-                    objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
-                    objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
-                    objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
-                    objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
-                    objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
-                    objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
-                    objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
-                    objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
-                    objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
-                    objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
-                    objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
-
-                    //para colocar os estados no combo box
-                    //cmbestado.itens.add("sp");
-
-                    //comando para executar query
-                    objCmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Cadastrado com Sucesso!!!");
-
-                    //fecha o banco de dados
-                    objcon.Close();
-                    LimparBox();
-                    btnSalvar.Enabled = false;
-                    btnAtualizar.Enabled = false;
-                    btnExcluir.Enabled = false;
-                    checkBoxIncluirCadastro.Focus();
-                }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
-                }
+                MessageBox.Show("Necessario Preencher." + "\n" + "Nome, Data de Nasc., Nome da Mãe, Tel1, Endereço Completo", "Mensagem");
             }
+
             else
             {
+                if (Prot == 0)
+                {
+                    txtCpf.TextAlign = HorizontalAlignment.Left;
+                    txtCpf.Focus();
+                    try
+                    {    //inserir dados no banco de dados
+                        MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
+                        objcon.Open();
+                        MySqlCommand objCmd = new MySqlCommand("insert into tb_paciente (prontuario, nome, datanasc, cpf, rg, cns, mae, \n" +
+                            " pai, tel1, tel2, email, cep, logadouro, num, bairro, cidade, \n" +
+                            " uf, observacoes) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                        //parametros do comando sql
+                        objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
+                        objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+                        objCmd.Parameters.Add("@datanasc", MySqlDbType.VarChar, 17).Value = txtDataNasc.Text;
+                        objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar, 18).Value = txtCpf.Text;
+                        objCmd.Parameters.Add("@rg", MySqlDbType.VarChar, 18).Value = txtRg.Text;
+                        objCmd.Parameters.Add("@cns", MySqlDbType.VarChar, 18).Value = txtCns.Text;
+                        objCmd.Parameters.Add("@mae", MySqlDbType.VarChar, 400).Value = txtMae.Text;
+                        objCmd.Parameters.Add("@pai", MySqlDbType.VarChar, 40).Value = txtPai.Text;
+                        objCmd.Parameters.Add("@tel1", MySqlDbType.VarChar, 20).Value = txtTel1.Text;
+                        objCmd.Parameters.Add("@tel2", MySqlDbType.VarChar, 20).Value = txtTel2.Text;
+                        objCmd.Parameters.Add("@email", MySqlDbType.VarChar, 50).Value = txtEmail.Text;
+                        objCmd.Parameters.Add("@cep", MySqlDbType.VarChar, 14).Value = txtCep.Text;
+                        objCmd.Parameters.Add("@logadouro", MySqlDbType.VarChar, 100).Value = txtRua.Text;
+                        objCmd.Parameters.Add("@num", MySqlDbType.VarChar, 8).Value = txtNum.Text;
+                        objCmd.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
+                        objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
+                        objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
+                        objCmd.Parameters.Add("@observacoes", MySqlDbType.VarChar, 200).Value = txtObservacoes.Text;
 
-                VerificaProntuario();
-                if (Prot != 0)
-                {
-                    MessageBox.Show("Há um cadastro com este Numero de Prontuario tecle em salvar novamente");
-                    txtProntuario.Text = " ";
-                    GerarProntuario();
+                        //para colocar os estados no combo box
+                        //cmbestado.itens.add("sp");
+
+                        //comando para executar query
+                        objCmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Cadastrado com Sucesso!!!");
+
+                        //fecha o banco de dados
+                        objcon.Close();
+                        LimparBox();
+                        btnSalvar.Enabled = false;
+                        btnAtualizar.Enabled = false;
+                        btnExcluir.Enabled = false;
+                        checkBoxIncluirCadastro.Focus();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Cadastro NÃO Realizado!!!" + erro);
+                    }
                 }
-                if(cpff != 0)
+                else
                 {
-                    MessageBox.Show("Há um cadastro com este Número de CPF");
-                }
-                if (cnss != 0)
-                {
-                    MessageBox.Show("Há um cadastro com este Número de CNS");
+                    VerificaProntuario();
+                    if (Prot != 0)
+                    {
+                        MessageBox.Show("Há um cadastro com este Nùmero de Prontuario!!!");
+                        txtProntuario.Text = " ";
+                       
+                        //GerarProntuario();
+                    }
+                    else
+                    {
+                        Cadastrar();
+                    }
                 }
             }
-            }
-        
+        }
 
         public void VerificaProntuario()
         {
@@ -293,43 +290,55 @@ namespace ProjetoCrudPacientes
         public void VerificaCPF()
         {
             string cp = txtCpf.Text;
-            string ct = "   .   .   -";
+
             cpff = 0;
-            try
-            {    //selecionar dados no banco de dados
-                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+            if (cpff == 0)
 
-                objcon.Open();
-                //busca pelo cpf
-                MySqlCommand objCmd = new MySqlCommand("select  prontuario,nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
-                    "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cpf=?", objcon);
+                try
+                {    //selecionar dados no banco de dados
+                    MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
 
-                objCmd.Parameters.Clear();
-                objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf.Text;
-                //comando para executar query
-                objCmd.CommandType = CommandType.Text;
+                    objcon.Open();
+                    //busca pelo cpf
+                    MySqlCommand objCmd = new MySqlCommand("select  prontuario,nome, datanasc, cpf, rg, cns, mae, pai, tel1, " +
+                        "tel2, email, cep, logadouro, num, bairro, cidade, uf, observacoes from tb_paciente where  cpf=?", objcon);
 
-                //recebe conteudo do banco
-                MySqlDataReader dr;
-                dr = objCmd.ExecuteReader();
+                    objCmd.Parameters.Clear();
+                    objCmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = txtCpf.Text;
+                    //comando para executar query
+                    objCmd.CommandType = CommandType.Text;
 
-                dr.Read();
+                    //recebe conteudo do banco
+                    MySqlDataReader dr;
+                    dr = objCmd.ExecuteReader();
 
-                String cpftest = dr.GetString(3);
-                if (cpftest == cp)
-                {
-                    cpff = 1;
+                    dr.Read();
+
+                    String cpftest = dr.GetString(3);
+                    if (cpftest == cp)
+                    {
+                        cpff = 1;
+
+                    }
+
+
+                    //mensagem
+                    //fecha o banco de dados
+                    objcon.Close();
                 }
-               
-                
-                //mensagem
-                //fecha o banco de dados
-                objcon.Close();
-            }
-            catch (Exception)
+                catch (Exception)
+                {
+
+                }
+            else
             {
 
+                if (cpff != 0)
+                {
+                    MessageBox.Show("Há um cadastro com este Número de CPF");
+                }
             }
+
         }
         //Cns com mesmo dados no banco
         public void VerificaCNS()
@@ -357,7 +366,7 @@ namespace ProjetoCrudPacientes
                 dr.Read();
 
                 String cnstest = dr.GetString(5);
-               
+
                 if (cnstest == cs)
                 {
                     cnss = 1;
@@ -465,7 +474,8 @@ namespace ProjetoCrudPacientes
                         cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
-                    txtCpf.Enabled = false;
+                    // txtCpf.Enabled = false;
+                    txtProntuario.Enabled = false;
                 }
                 con.Close();
                 if (cont == 0)
@@ -479,7 +489,6 @@ namespace ProjetoCrudPacientes
                 MessageBox.Show("busca nao realizada" + erro);
             }
             LimparBox2();
-            TextBox();
         }
 
         public void SelecionarDataGrewViewProntuario()
@@ -516,8 +525,8 @@ namespace ProjetoCrudPacientes
 
                 MySqlDataReader dr = cmd.ExecuteReader();
 
-                
-               
+
+
 
                 //Obtem o número de colunas
 
@@ -575,7 +584,8 @@ namespace ProjetoCrudPacientes
                         cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
-                    txtCpf.Enabled = false;
+                    //txtCpf.Enabled = false;
+                    txtProntuario.Enabled = false;
                 }
                 con.Close();
                 if (cont == 0)
@@ -589,7 +599,7 @@ namespace ProjetoCrudPacientes
                 MessageBox.Show("busca nao realizada" + erro);
             }
             LimparBox2();
-            TextBox();
+
         }
         public void SelecionarDataGrewViewNome()
         {
@@ -614,7 +624,7 @@ namespace ProjetoCrudPacientes
                 //abre a conexao
                 con.Open();
                 string strSql = "select * from tb_paciente where nome like '%" + name + "%'";
-               //cria o objeto command para executar a instruçao sql
+                //cria o objeto command para executar a instruçao sql
                 MySqlCommand cmd = new MySqlCommand(strSql, con);
 
                 //define o tipo do comando
@@ -682,7 +692,8 @@ namespace ProjetoCrudPacientes
                         cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
-                    
+                    txtProntuario.Enabled = false;
+
                 }
                 con.Close();
                 if (cont == 0)
@@ -696,7 +707,7 @@ namespace ProjetoCrudPacientes
                 MessageBox.Show("busca nao realizada" + erro);
             }
             LimparBox2();
-            TextBox();
+            //TextBox();
         }
 
         public void SelecionarDataGrewViewTodos()
@@ -710,7 +721,7 @@ namespace ProjetoCrudPacientes
             tabeladeClientes.Columns.Clear(); //Remover as colunas
             tabeladeClientes.Rows.Clear();    //Remover as linhas
             tabeladeClientes.Refresh();
-           
+
 
             try
             {    //selecionar dados no banco de dados
@@ -790,6 +801,7 @@ namespace ProjetoCrudPacientes
                         cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
+                    txtProntuario.Enabled = false;
                 }
                 con.Close();
                 if (cont == 0)
@@ -804,11 +816,11 @@ namespace ProjetoCrudPacientes
             }
 
             LimparBox2();
-            TextBox();
+
         }
         public void SelecionarDataGrewViewDatanasc()
         {
-           
+
             btnSalvar.Enabled = false;
             btnAtualizar.Enabled = true;
             btnExcluir.Enabled = true;
@@ -841,7 +853,7 @@ namespace ProjetoCrudPacientes
 
                 MySqlDataReader dr = cmd.ExecuteReader();
 
-                
+
 
                 //Obtem o número de colunas
 
@@ -899,7 +911,8 @@ namespace ProjetoCrudPacientes
                         cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
-                    
+                    txtProntuario.Enabled = false;
+
                 }
                 con.Close();
                 if (cont == 0)
@@ -914,26 +927,19 @@ namespace ProjetoCrudPacientes
             }
 
             LimparBox2();
-            TextBox();
+
         }
 
-        public void TextBox()
-        {
-            txtCpf1.Enabled = true;
-            txtProntuario1.Enabled = true;
-            txtDataNasc1.Enabled = true;
-            txtNome1.Enabled = true;
-        }
-        //este seria o metodo para colocar no botão mas deu Bug 
         public void SelecionarDataGrewView()
         {
-            if(txtCpf1.Text==" " && txtNome1.Text==" "&& 
-                txtProntuario1.Text==" " && txtDataNasc1.Text ==" ")
+            if (txtCpf1.Text == " " && txtNome1.Text == " " &&
+                txtProntuario1.Text == " " && txtDataNasc1.Text == " ")
             {
                 SelecionarDataGrewViewTodos();
-            }else
+            }
+            else
             {
-                if (txtProntuario1.Enabled == true )
+                if (txtProntuario1.Enabled == true)
                 {
                     SelecionarDataGrewViewProntuario();
                 }
@@ -946,14 +952,11 @@ namespace ProjetoCrudPacientes
                     SelecionarDataGrewViewDatanasc();
                 }
             }
-            
+
             LimparBox2();
-            TextBox();
 
         }
-
         //limpar datagrewview
-
         public void limpardatagrewview()
         {
             //LIMPAR GRID
@@ -968,7 +971,8 @@ namespace ProjetoCrudPacientes
                 txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                 txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Necessario Realizar uma Busca!!!", "Mensagem");
+                MessageBox.Show("Os Campos: Prontuario, Nome, Data de Nascimento, Nome da Mãe\n Telefone 1" +
+                    "e o Endereço Completo Devem ser Preenchidos. ", "Mensagem");
             }
             else
             {
@@ -1019,38 +1023,37 @@ namespace ProjetoCrudPacientes
                 {
                     MessageBox.Show("Não Atualizado !!!" + erro);
                 }
+
             }
 
         }
         //excluir dados no banco de dados
         public void Excluir()
         {
-                try
-                {    //excluir dados no banco de dados
-                    MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
-                    objcon.Open();
-                    MySqlCommand objCmd = new MySqlCommand("delete from tb_paciente where prontuario = ?", objcon);
-                    objCmd.Parameters.Clear();
-                    objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar).Value = txtProntuario.Text;
+            try
+            {    //excluir dados no banco de dados
+                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
+                objcon.Open();
+                MySqlCommand objCmd = new MySqlCommand("delete from tb_paciente where prontuario = ?", objcon);
+                objCmd.Parameters.Clear();
+                objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar).Value = txtProntuario.Text;
 
 
-                    //comando para executar query
-                    objCmd.CommandType = CommandType.Text;
-                    objCmd.ExecuteNonQuery();
-                    //mensagem
-                   // MessageBox.Show("Exclusão Realizada com Sucesso !!!");
+                //comando para executar query
+                objCmd.CommandType = CommandType.Text;
+                objCmd.ExecuteNonQuery();
+                //mensagem
+                // MessageBox.Show("Exclusão Realizada com Sucesso !!!");
 
-                    //fecha o banco de dados
-                    objcon.Close();
-                }
-                catch (Exception erro)
-                {
-                   // MessageBox.Show("Dados não Excluidos !!!" + erro);
-                    LimparBox();
+                //fecha o banco de dados
+                objcon.Close();
             }
+            catch (Exception erro)
+            {
+                // MessageBox.Show("Dados não Excluidos !!!" + erro);
+                LimparBox();
             }
-            
-        
+        }
 
         //limpar todos os txt box
         public void LimparBox()
@@ -1128,25 +1131,28 @@ namespace ProjetoCrudPacientes
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(txtNome.Text == " " || txtDataNasc.Text == " " ||
+            if (txtProntuario.Text == " " || txtNome.Text == " " || txtDataNasc.Text == " " ||
                   txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                   txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
             {
-                MessageBox.Show("Os Campos: nome, data de nascimento, nome da mãe\n telefone 1" +
-                    "e o endereço completo devem ser preenchidos. ");
-            }else
+                MessageBox.Show("Os Campos: Prontuario, Nome, Data de Nascimento, Nome da Mãe\n Telefone 1" +
+                    "e o Endereço Completo Devem ser Preenchidos. ");
+            }
+            else
             {
                 //VerificaCPF();
+                //GerarProntuario();
                 letramaiusc();
                 Cadastrar();
                 limpardatagrewview();
             }
-            
+
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             //VerificaCPF();
+            letramaiusc();
             Atualizar();
             LimparBox();
             limpardatagrewview();
@@ -1176,8 +1182,9 @@ namespace ProjetoCrudPacientes
 
         private void checkBoxIncluirCadastro_CheckedChanged(object sender, EventArgs e)
         {
-            txtCpf.Enabled=true;
-            txtProntuario.ReadOnly = true;
+            txtCpf.Enabled = true;
+            txtProntuario.Enabled = true;
+            // txtProntuario.ReadOnly = true;
             btnSalvar.Enabled = true;
             btnAtualizar.Enabled = false;
             btnExcluir.Enabled = false;
@@ -1189,7 +1196,7 @@ namespace ProjetoCrudPacientes
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tel: " + "\n" + "\n" + "josehvvn@gmail.com" + "\n" + "\n" + "raphaelacacio84@gmail.com", "Ajuda?");
+            MessageBox.Show("Raphael (12)9 8169-1914" + "\n" + "\n" + "Jose Mauricio(12)9 9720-9637 ", "Ajuda?");
         }
 
         private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
@@ -1197,9 +1204,9 @@ namespace ProjetoCrudPacientes
 
             if (e.KeyChar == 13)
             {
-                txtDataNasc.TextAlign = HorizontalAlignment.Left;
-                txtDataNasc.Focus();
-                GerarProntuario();
+                txtProntuario.TextAlign = HorizontalAlignment.Left;
+                txtProntuario.Focus();
+                //GerarProntuario();
             }
         }
 
@@ -1277,7 +1284,8 @@ namespace ProjetoCrudPacientes
                         }
 
 
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("Faltam números no CPF");
                     }
@@ -1377,7 +1385,7 @@ namespace ProjetoCrudPacientes
 
         private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
+
             if (!(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar)))
             {
                 e.Handled = true;
@@ -1408,7 +1416,7 @@ namespace ProjetoCrudPacientes
         }
 
         private void txtUf_KeyPress(object sender, KeyPressEventArgs e)
-        {          
+        {
             if (e.KeyChar == 13)
             {
                 txtObservacoes.TextAlign = HorizontalAlignment.Left;
@@ -1442,6 +1450,7 @@ namespace ProjetoCrudPacientes
             if (e.KeyChar == 13)
             {
                 SelecionarDataGrewViewCPF();
+                btnBuscar1.Focus();
             }
         }
 
@@ -1449,7 +1458,9 @@ namespace ProjetoCrudPacientes
         {
             if (e.KeyChar == 13)
             {
+                letramaiusc();
                 SelecionarDataGrewViewNome();
+                btnBuscar1.Focus();
             }
         }
 
@@ -1458,6 +1469,7 @@ namespace ProjetoCrudPacientes
             if (e.KeyChar == 13)
             {
                 SelecionarDataGrewViewDatanasc();
+                btnBuscar1.Focus();
             }
         }
 
@@ -1471,12 +1483,15 @@ namespace ProjetoCrudPacientes
             if (e.KeyChar == 13)
             {
                 SelecionarDataGrewViewProntuario();
+                btnBuscar1.Focus();
             }
         }
 
         private void txtProntuario_TextChanged(object sender, EventArgs e)
         {
-            txtProntuario.ReadOnly = true;
+            //txtProntuario.ReadOnly = true;
+          
+           
         }
 
         private void btnBuscarCep_Click(object sender, EventArgs e)
@@ -1521,31 +1536,37 @@ namespace ProjetoCrudPacientes
 
         private void txtNome1_Click(object sender, EventArgs e)
         {
-            txtProntuario1.Enabled = false;
-            txtCpf1.Enabled = false;
-            txtDataNasc1.Enabled = false;
-            
+            //txtNome1.Enabled = true;
+           // txtProntuario1.Enabled = true;
+           // txtCpf1.Enabled = true;
+           // txtDataNasc1.Enabled = true;
+           //mantem texto sempre a esquer e remove espaço
+            var teste = "".Trim();
+            txtNome1.Text = teste;
         }
 
         private void txtProntuario1_Click(object sender, EventArgs e)
         {
-            txtCpf1.Enabled = false;
-            txtNome1.Enabled = false;
-            txtDataNasc1.Enabled = false;
+            //txtProntuario1.Enabled = true;
+           // txtCpf1.Enabled = true;
+            //txtNome1.Enabled = true;
+            //txtDataNasc1.Enabled = true;
         }
 
         private void txtDataNasc1_Click(object sender, EventArgs e)
         {
-            txtCpf1.Enabled = false;
-            txtNome1.Enabled = false;
-            txtProntuario1.Enabled = false;
+            //txtDataNasc1.Enabled = true;
+           // txtCpf1.Enabled = false;
+           // txtNome1.Enabled = false;
+           // txtProntuario1.Enabled = false;
         }
 
         private void txtCpf1_Click(object sender, EventArgs e)
         {
-            txtDataNasc1.Enabled = false;
-            txtNome1.Enabled = false;
-            txtProntuario1.Enabled = false;
+            //txtCpf1.Enabled = true;
+           // txtDataNasc1.Enabled = false;
+           // txtNome1.Enabled = false;
+           // txtProntuario1.Enabled = false;
         }
 
         private void tabeladeClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1555,23 +1576,45 @@ namespace ProjetoCrudPacientes
 
         private void txtNome_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void txtCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtNome1_TextChanged(object sender, EventArgs e)
+        {
+            txtNome1.Enabled = true;
+            txtProntuario1.Enabled = true;
+            txtCpf1.Enabled = true;
+            txtDataNasc1.Enabled = true;
         }
 
         private void txtProntuario_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == 13)
+            {
 
+                txtDataNasc.TextAlign = HorizontalAlignment.Left;
+                txtDataNasc.Focus();
+                //GerarProntuario();
+            }
         }
 
         private void txtProntuario_Click(object sender, EventArgs e)
         {
-            GerarProntuario();
+            //mantem texto sempre a esquer e remove espaço
+            var teste = "".Trim();
+            txtProntuario.Text = teste;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //lblHora.Text = DateTime.Now.ToLongTimeString();
-           //lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            //lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -1580,6 +1623,6 @@ namespace ProjetoCrudPacientes
         }
 
     }
-            
-    
+
+
 }
