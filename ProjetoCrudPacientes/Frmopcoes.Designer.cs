@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +97,7 @@
             this.btnCadastrodeClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastrodeClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrodeClientes.Image")));
             this.btnCadastrodeClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrodeClientes.Location = new System.Drawing.Point(110, 331);
+            this.btnCadastrodeClientes.Location = new System.Drawing.Point(89, 254);
             this.btnCadastrodeClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrodeClientes.Name = "btnCadastrodeClientes";
             this.btnCadastrodeClientes.Size = new System.Drawing.Size(333, 69);
@@ -157,7 +159,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poor Richard", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(63, 239);
+            this.label1.Location = new System.Drawing.Point(49, 190);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 55);
             this.label1.TabIndex = 37;
@@ -168,7 +170,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poor Richard", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(12, 134);
+            this.label2.Location = new System.Drawing.Point(4, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(250, 73);
             this.label2.TabIndex = 36;
@@ -193,11 +195,43 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button1.Font = new System.Drawing.Font("Poor Richard", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(89, 347);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(333, 69);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Colaboradores";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LimeGreen;
+            this.button2.Font = new System.Drawing.Font("Poor Richard", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(671, 252);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(333, 69);
+            this.button2.TabIndex = 42;
+            this.button2.Text = "Agenda de Consultas";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // frmOpcoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 551);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCadastrodeClientes);
             this.Controls.Add(this.statusStrip1);
@@ -239,5 +273,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

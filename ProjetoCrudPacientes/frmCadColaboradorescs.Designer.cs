@@ -1,6 +1,6 @@
 ﻿namespace ProjetoCrudPacientes
 {
-    partial class frmCadPacientes
+    partial class frmCadColaboradorescs
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadPacientes));
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadColaboradorescs));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.btnBuscarCep = new System.Windows.Forms.Button();
             this.txtProntuario = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtObservacoes = new System.Windows.Forms.TextBox();
             this.txtDataNasc = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.txtPai = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtMae = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.txtUf = new System.Windows.Forms.TextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -60,7 +50,6 @@
             this.txtTel1 = new System.Windows.Forms.MaskedTextBox();
             this.txtRg = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtCns = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.checkBoxIncluirCadastro = new System.Windows.Forms.CheckBox();
@@ -92,60 +81,38 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip2.SuspendLayout();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbbCargo = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.ajudaToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1364, 25);
-            this.menuStrip2.TabIndex = 24;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(68, 21);
-            this.toolStripMenuItem1.Text = "Retormar";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            this.ajudaToolStripMenuItem.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ajudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
-            this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.txtSenha);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.cbbCargo);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.btnBuscarCep);
             this.groupBox2.Controls.Add(this.txtProntuario);
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.txtObservacoes);
             this.groupBox2.Controls.Add(this.txtDataNasc);
             this.groupBox2.Controls.Add(this.txtCpf);
-            this.groupBox2.Controls.Add(this.txtPai);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.txtMae);
-            this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.btnExcluir);
             this.groupBox2.Controls.Add(this.txtUf);
             this.groupBox2.Controls.Add(this.txtCidade);
@@ -158,7 +125,6 @@
             this.groupBox2.Controls.Add(this.txtTel1);
             this.groupBox2.Controls.Add(this.txtRg);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtCns);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtNome);
             this.groupBox2.Controls.Add(this.checkBoxIncluirCadastro);
@@ -177,24 +143,11 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(16, 373);
+            this.groupBox2.Location = new System.Drawing.Point(16, 379);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1326, 337);
-            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1141, 284);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 39);
-            this.button1.TabIndex = 93;
-            this.button1.Text = "AGENDAR";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // label27
             // 
@@ -229,7 +182,6 @@
             this.btnBuscarCep.TabIndex = 88;
             this.btnBuscarCep.Text = "     BUSCAR";
             this.btnBuscarCep.UseVisualStyleBackColor = false;
-            this.btnBuscarCep.Click += new System.EventHandler(this.btnBuscarCep_Click);
             // 
             // txtProntuario
             // 
@@ -238,9 +190,6 @@
             this.txtProntuario.Name = "txtProntuario";
             this.txtProntuario.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario.TabIndex = 87;
-            this.txtProntuario.Click += new System.EventHandler(this.txtProntuario_Click);
-            this.txtProntuario.TextChanged += new System.EventHandler(this.txtProntuario_TextChanged);
-            this.txtProntuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProntuario_KeyPress);
             // 
             // label23
             // 
@@ -249,29 +198,20 @@
             this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label23.Location = new System.Drawing.Point(713, 11);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(95, 22);
+            this.label23.Size = new System.Drawing.Size(91, 22);
             this.label23.TabIndex = 86;
-            this.label23.Text = "Prontuario";
+            this.label23.Text = "Matrícula";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Poor Richard", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(6, 288);
+            this.label22.Location = new System.Drawing.Point(43, 284);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(121, 22);
+            this.label22.Size = new System.Drawing.Size(72, 28);
             this.label22.TabIndex = 85;
-            this.label22.Text = "Obeservações";
-            // 
-            // txtObservacoes
-            // 
-            this.txtObservacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservacoes.Location = new System.Drawing.Point(127, 288);
-            this.txtObservacoes.Name = "txtObservacoes";
-            this.txtObservacoes.Size = new System.Drawing.Size(895, 24);
-            this.txtObservacoes.TabIndex = 84;
-            this.txtObservacoes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtObservacoes_KeyPress);
+            this.label22.Text = "Senha";
             // 
             // txtDataNasc
             // 
@@ -281,7 +221,6 @@
             this.txtDataNasc.Name = "txtDataNasc";
             this.txtDataNasc.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc.TabIndex = 83;
-            this.txtDataNasc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataNasc_KeyPress);
             // 
             // txtCpf
             // 
@@ -291,48 +230,6 @@
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(169, 24);
             this.txtCpf.TabIndex = 82;
-            this.txtCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCpf_MaskInputRejected);
-            this.txtCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf_KeyPress);
-            // 
-            // txtPai
-            // 
-            this.txtPai.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPai.Location = new System.Drawing.Point(581, 95);
-            this.txtPai.Name = "txtPai";
-            this.txtPai.Size = new System.Drawing.Size(406, 24);
-            this.txtPai.TabIndex = 81;
-            this.txtPai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPai_KeyPress);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(544, 94);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(36, 22);
-            this.label21.TabIndex = 80;
-            this.label21.Text = "Pai";
-            // 
-            // txtMae
-            // 
-            this.txtMae.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMae.Location = new System.Drawing.Point(58, 94);
-            this.txtMae.Name = "txtMae";
-            this.txtMae.Size = new System.Drawing.Size(406, 24);
-            this.txtMae.TabIndex = 79;
-            this.txtMae.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMae_KeyPress);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(12, 94);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(45, 22);
-            this.label20.TabIndex = 78;
-            this.label20.Text = "Mãe";
             // 
             // btnExcluir
             // 
@@ -347,7 +244,6 @@
             this.btnExcluir.TabIndex = 77;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // txtUf
             // 
@@ -356,7 +252,6 @@
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(43, 24);
             this.txtUf.TabIndex = 76;
-            this.txtUf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUf_KeyPress);
             // 
             // txtCidade
             // 
@@ -365,7 +260,6 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(227, 24);
             this.txtCidade.TabIndex = 75;
-            this.txtCidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCidade_KeyPress);
             // 
             // txtBairro
             // 
@@ -374,7 +268,6 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(262, 24);
             this.txtBairro.TabIndex = 74;
-            this.txtBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBairro_KeyPress);
             // 
             // txtNum
             // 
@@ -383,7 +276,6 @@
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(86, 24);
             this.txtNum.TabIndex = 73;
-            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // txtRua
             // 
@@ -392,7 +284,6 @@
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(406, 24);
             this.txtRua.TabIndex = 72;
-            this.txtRua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRua_KeyPress);
             // 
             // txtCep
             // 
@@ -402,7 +293,6 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(119, 24);
             this.txtCep.TabIndex = 71;
-            this.txtCep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCep_KeyPress);
             // 
             // txtEmail
             // 
@@ -411,7 +301,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(361, 24);
             this.txtEmail.TabIndex = 70;
-            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtTel2
             // 
@@ -421,7 +310,6 @@
             this.txtTel2.Name = "txtTel2";
             this.txtTel2.Size = new System.Drawing.Size(149, 24);
             this.txtTel2.TabIndex = 69;
-            this.txtTel2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel2_KeyPress);
             // 
             // txtTel1
             // 
@@ -431,7 +319,6 @@
             this.txtTel1.Name = "txtTel1";
             this.txtTel1.Size = new System.Drawing.Size(148, 24);
             this.txtTel1.TabIndex = 68;
-            this.txtTel1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTel1_KeyPress);
             // 
             // txtRg
             // 
@@ -440,27 +327,17 @@
             this.txtRg.Name = "txtRg";
             this.txtRg.Size = new System.Drawing.Size(186, 24);
             this.txtRg.TabIndex = 67;
-            this.txtRg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRg_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(747, 52);
+            this.label4.Location = new System.Drawing.Point(333, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 22);
+            this.label4.Size = new System.Drawing.Size(129, 22);
             this.label4.TabIndex = 66;
-            this.label4.Text = "CNS";
-            // 
-            // txtCns
-            // 
-            this.txtCns.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCns.Location = new System.Drawing.Point(797, 52);
-            this.txtCns.Name = "txtCns";
-            this.txtCns.Size = new System.Drawing.Size(190, 24);
-            this.txtCns.TabIndex = 65;
-            this.txtCns.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCns_KeyPress);
+            this.label4.Text = "Inscrição CRM";
             // 
             // label2
             // 
@@ -480,8 +357,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(406, 24);
             this.txtNome.TabIndex = 61;
-            this.txtNome.Click += new System.EventHandler(this.txtNome_Click);
-            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // checkBoxIncluirCadastro
             // 
@@ -494,7 +369,6 @@
             this.checkBoxIncluirCadastro.TabIndex = 59;
             this.checkBoxIncluirCadastro.Text = "Incluir Cadastro";
             this.checkBoxIncluirCadastro.UseVisualStyleBackColor = true;
-            this.checkBoxIncluirCadastro.CheckedChanged += new System.EventHandler(this.checkBoxIncluirCadastro_CheckedChanged);
             // 
             // btnAtualizar
             // 
@@ -509,7 +383,6 @@
             this.btnAtualizar.TabIndex = 58;
             this.btnAtualizar.Text = "  ATUALIZAR";
             this.btnAtualizar.UseVisualStyleBackColor = false;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnSalvar
             // 
@@ -524,8 +397,6 @@
             this.btnSalvar.TabIndex = 49;
             this.btnSalvar.Text = "  SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            this.btnSalvar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnSalvar_KeyPress);
             // 
             // label16
             // 
@@ -664,11 +535,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poor Richard", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label5.Location = new System.Drawing.Point(986, 7);
+            this.label5.Location = new System.Drawing.Point(948, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(297, 41);
+            this.label5.Size = new System.Drawing.Size(369, 41);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Cadastrar Pacientes";
+            this.label5.Text = "Cadastrar Colaboradores";
             // 
             // groupBox1
             // 
@@ -685,10 +556,10 @@
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 39);
+            this.groupBox1.Location = new System.Drawing.Point(15, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1327, 316);
-            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             // 
             // label25
@@ -708,9 +579,9 @@
             this.label24.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label24.Location = new System.Drawing.Point(538, 16);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(95, 22);
+            this.label24.Size = new System.Drawing.Size(91, 22);
             this.label24.TabIndex = 89;
-            this.label24.Text = "Prontuario";
+            this.label24.Text = "Matrícula";
             // 
             // txtProntuario1
             // 
@@ -719,8 +590,6 @@
             this.txtProntuario1.Name = "txtProntuario1";
             this.txtProntuario1.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario1.TabIndex = 88;
-            this.txtProntuario1.Click += new System.EventHandler(this.txtProntuario1_Click);
-            this.txtProntuario1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProntuario1_KeyPress);
             // 
             // txtDataNasc1
             // 
@@ -730,8 +599,6 @@
             this.txtDataNasc1.Name = "txtDataNasc1";
             this.txtDataNasc1.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc1.TabIndex = 65;
-            this.txtDataNasc1.Click += new System.EventHandler(this.txtDataNasc1_Click);
-            this.txtDataNasc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataNasc1_KeyPress);
             // 
             // txtCpf1
             // 
@@ -741,8 +608,6 @@
             this.txtCpf1.Name = "txtCpf1";
             this.txtCpf1.Size = new System.Drawing.Size(169, 24);
             this.txtCpf1.TabIndex = 63;
-            this.txtCpf1.Click += new System.EventHandler(this.txtCpf1_Click);
-            this.txtCpf1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCpf1_KeyPress);
             // 
             // txtNome1
             // 
@@ -751,9 +616,6 @@
             this.txtNome1.Name = "txtNome1";
             this.txtNome1.Size = new System.Drawing.Size(415, 24);
             this.txtNome1.TabIndex = 62;
-            this.txtNome1.Click += new System.EventHandler(this.txtNome1_Click);
-            this.txtNome1.TextChanged += new System.EventHandler(this.txtNome1_TextChanged);
-            this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
             // 
             // tabeladeClientes
             // 
@@ -764,8 +626,6 @@
             this.tabeladeClientes.Name = "tabeladeClientes";
             this.tabeladeClientes.Size = new System.Drawing.Size(1293, 220);
             this.tabeladeClientes.TabIndex = 57;
-            this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
-            this.tabeladeClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellContentClick);
             // 
             // btnBuscar1
             // 
@@ -780,7 +640,6 @@
             this.btnBuscar1.TabIndex = 49;
             this.btnBuscar1.Text = "     BUSCAR";
             this.btnBuscar1.UseVisualStyleBackColor = false;
-            this.btnBuscar1.Click += new System.EventHandler(this.btnBuscar1_Click);
             // 
             // label19
             // 
@@ -822,40 +681,121 @@
             this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.Location = new System.Drawing.Point(950, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 41);
+            this.label1.Size = new System.Drawing.Size(362, 41);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Pesquisar Pacientes";
+            this.label1.Text = "Pesquisar Colaboradores";
             // 
-            // timer1
+            // menuStrip2
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.ajudaToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(1348, 25);
+            this.menuStrip2.TabIndex = 28;
+            this.menuStrip2.Text = "menuStrip2";
             // 
-            // frmCadPacientes
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(68, 21);
+            this.toolStripMenuItem1.Text = "Retormar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.ajudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(463, 98);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(112, 24);
+            this.textBox1.TabIndex = 93;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label20.Location = new System.Drawing.Point(685, 96);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(153, 22);
+            this.label20.TabIndex = 94;
+            this.label20.Text = "Inscrição COREN";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(839, 95);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(112, 24);
+            this.textBox2.TabIndex = 95;
+            // 
+            // cbbCargo
+            // 
+            this.cbbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCargo.FormattingEnabled = true;
+            this.cbbCargo.Items.AddRange(new object[] {
+            "RECEPCIONISTA",
+            "ENFERMEIRO",
+            "MÉDICO"});
+            this.cbbCargo.Location = new System.Drawing.Point(121, 96);
+            this.cbbCargo.Name = "cbbCargo";
+            this.cbbCargo.Size = new System.Drawing.Size(157, 26);
+            this.cbbCargo.TabIndex = 96;
+            this.cbbCargo.SelectedIndexChanged += new System.EventHandler(this.cbbCargo_SelectedIndexChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(57, 99);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(60, 22);
+            this.label21.TabIndex = 97;
+            this.label21.Text = "Cargo";
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(121, 288);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(122, 24);
+            this.txtSenha.TabIndex = 98;
+            // 
+            // frmCadColaboradorescs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 762);
+            this.ClientSize = new System.Drawing.Size(1348, 723);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1380, 762);
-            this.MinimumSize = new System.Drawing.Size(1364, 762);
-            this.Name = "frmCadPacientes";
+            this.Name = "frmCadColaboradorescs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Pacientes";
-            this.Load += new System.EventHandler(this.frmCadPacientes_Load);
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.Text = "frmCadColaboradorescs";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -863,20 +803,15 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button btnBuscarCep;
         private System.Windows.Forms.TextBox txtProntuario;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txtObservacoes;
         private System.Windows.Forms.MaskedTextBox txtDataNasc;
         private System.Windows.Forms.MaskedTextBox txtCpf;
-        private System.Windows.Forms.TextBox txtPai;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtMae;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtUf;
         private System.Windows.Forms.TextBox txtCidade;
@@ -889,7 +824,6 @@
         private System.Windows.Forms.MaskedTextBox txtTel1;
         private System.Windows.Forms.TextBox txtRg;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox txtCns;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.CheckBox checkBoxIncluirCadastro;
@@ -909,6 +843,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtProntuario1;
         private System.Windows.Forms.MaskedTextBox txtDataNasc1;
         private System.Windows.Forms.MaskedTextBox txtCpf1;
         private System.Windows.Forms.TextBox txtNome1;
@@ -918,13 +855,14 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txtProntuario1;
-        private System.Windows.Forms.Button btnBuscarCep;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbbCargo;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtSenha;
     }
 }

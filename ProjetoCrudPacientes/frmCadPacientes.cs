@@ -1196,7 +1196,7 @@ namespace ProjetoCrudPacientes
 
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Raphael (12)9 8169-1914" + "\n" + "\n" + "Jose Mauricio(12)9 9720-9637 ", "Ajuda?");
+            
         }
 
         private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
