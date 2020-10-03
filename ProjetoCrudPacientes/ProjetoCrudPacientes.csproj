@@ -106,6 +106,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgendar.Designer.cs">
+      <DependentUpon>frmAgendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnamnese.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnamnese.Designer.cs">
+      <DependentUpon>frmAnamnese.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadColaboradorescs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +135,18 @@
     </Compile>
     <Compile Include="frmCadPacientes.Designer.cs">
       <DependentUpon>frmCadPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsulta.Designer.cs">
+      <DependentUpon>frmConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistoricoAtendimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistoricoAtendimento.Designer.cs">
+      <DependentUpon>frmHistoricoAtendimento.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -136,16 +166,37 @@
     <Compile Include="frmTriagem.Designer.cs">
       <DependentUpon>frmTriagem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerificarAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerificarAgenda.Designer.cs">
+      <DependentUpon>frmVerificarAgenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgendar.resx">
+      <DependentUpon>frmAgendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnamnese.resx">
+      <DependentUpon>frmAnamnese.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadColaboradorescs.resx">
       <DependentUpon>frmCadColaboradorescs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadPacientes.resx">
       <DependentUpon>frmCadPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsulta.resx">
+      <DependentUpon>frmConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoricoAtendimento.resx">
+      <DependentUpon>frmHistoricoAtendimento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -155,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTriagem.resx">
       <DependentUpon>frmTriagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerificarAgenda.resx">
+      <DependentUpon>frmVerificarAgenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

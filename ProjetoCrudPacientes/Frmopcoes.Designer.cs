@@ -47,6 +47,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +99,7 @@
             this.btnCadastrodeClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCadastrodeClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrodeClientes.Image")));
             this.btnCadastrodeClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrodeClientes.Location = new System.Drawing.Point(89, 254);
+            this.btnCadastrodeClientes.Location = new System.Drawing.Point(83, 188);
             this.btnCadastrodeClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrodeClientes.Name = "btnCadastrodeClientes";
             this.btnCadastrodeClientes.Size = new System.Drawing.Size(333, 69);
@@ -160,7 +161,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poor Richard", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(4, 111);
+            this.label2.Location = new System.Drawing.Point(-5, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(250, 73);
             this.label2.TabIndex = 36;
@@ -187,12 +188,12 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button1.BackColor = System.Drawing.Color.MediumOrchid;
             this.button1.Font = new System.Drawing.Font("Poor Richard", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(89, 347);
+            this.button1.Location = new System.Drawing.Point(83, 397);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(333, 69);
@@ -214,6 +215,7 @@
             this.button2.TabIndex = 42;
             this.button2.Text = "Agenda";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -243,12 +245,29 @@
             this.button4.TabIndex = 44;
             this.button4.Text = "Consultas";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Tomato;
+            this.button5.Font = new System.Drawing.Font("Poor Richard", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(87, 292);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(333, 69);
+            this.button5.TabIndex = 45;
+            this.button5.Text = "Histórico";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // frmOpcoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1101, 551);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -296,5 +315,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

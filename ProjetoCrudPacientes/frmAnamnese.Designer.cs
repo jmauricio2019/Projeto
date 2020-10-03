@@ -1,6 +1,6 @@
 ﻿namespace ProjetoCrudPacientes
 {
-    partial class frmTriagem
+    partial class frmAnamnese
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTriagem));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDataNasc1 = new System.Windows.Forms.MaskedTextBox();
-            this.txtNome1 = new System.Windows.Forms.TextBox();
-            this.tabeladeClientes = new System.Windows.Forms.DataGridView();
-            this.btnBuscar1 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnamnese));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -61,7 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.checkBoxIncluirCadastro = new System.Windows.Forms.CheckBox();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,138 +57,24 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
-            this.menuStrip2.SuspendLayout();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox1.Controls.Add(this.txtDataNasc1);
-            this.groupBox1.Controls.Add(this.txtNome1);
-            this.groupBox1.Controls.Add(this.tabeladeClientes);
-            this.groupBox1.Controls.Add(this.btnBuscar1);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1327, 316);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            // 
-            // txtDataNasc1
-            // 
-            this.txtDataNasc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataNasc1.Location = new System.Drawing.Point(147, 45);
-            this.txtDataNasc1.Mask = "00/00/0000";
-            this.txtDataNasc1.Name = "txtDataNasc1";
-            this.txtDataNasc1.Size = new System.Drawing.Size(101, 24);
-            this.txtDataNasc1.TabIndex = 65;
-            // 
-            // txtNome1
-            // 
-            this.txtNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome1.Location = new System.Drawing.Point(104, 12);
-            this.txtNome1.Name = "txtNome1";
-            this.txtNome1.Size = new System.Drawing.Size(415, 24);
-            this.txtNome1.TabIndex = 62;
-            // 
-            // tabeladeClientes
-            // 
-            this.tabeladeClientes.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.tabeladeClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabeladeClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabeladeClientes.Location = new System.Drawing.Point(16, 79);
-            this.tabeladeClientes.Name = "tabeladeClientes";
-            this.tabeladeClientes.Size = new System.Drawing.Size(1293, 220);
-            this.tabeladeClientes.TabIndex = 57;
-            // 
-            // btnBuscar1
-            // 
-            this.btnBuscar1.BackColor = System.Drawing.Color.DarkMagenta;
-            this.btnBuscar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscar1.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar1.Image")));
-            this.btnBuscar1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar1.Location = new System.Drawing.Point(533, 4);
-            this.btnBuscar1.Name = "btnBuscar1";
-            this.btnBuscar1.Size = new System.Drawing.Size(116, 37);
-            this.btnBuscar1.TabIndex = 49;
-            this.btnBuscar1.Text = "     BUSCAR";
-            this.btnBuscar1.UseVisualStyleBackColor = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(21, 47);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(123, 22);
-            this.label19.TabIndex = 40;
-            this.label19.Text = "Data do Aten.";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(20, 11);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(80, 22);
-            this.label18.TabIndex = 38;
-            this.label18.Text = "Paciente";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poor Richard", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(1023, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 41);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Pesquisar Consulta";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.ajudaToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1364, 25);
-            this.menuStrip2.TabIndex = 31;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(68, 21);
-            this.toolStripMenuItem1.Text = "Retormar";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            this.ajudaToolStripMenuItem.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ajudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox2.Controls.Add(this.maskedTextBox1);
             this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.richTextBox2);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Controls.Add(this.label9);
@@ -221,7 +95,6 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtNome);
-            this.groupBox2.Controls.Add(this.checkBoxIncluirCadastro);
             this.groupBox2.Controls.Add(this.btnAtualizar);
             this.groupBox2.Controls.Add(this.btnSalvar);
             this.groupBox2.Controls.Add(this.label8);
@@ -229,10 +102,10 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(17, 378);
+            this.groupBox2.Location = new System.Drawing.Point(15, 38);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1326, 348);
-            this.groupBox2.TabIndex = 32;
+            this.groupBox2.Size = new System.Drawing.Size(1335, 684);
+            this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             // 
             // label10
@@ -370,7 +243,7 @@
             // txtProntuario
             // 
             this.txtProntuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProntuario.Location = new System.Drawing.Point(723, 14);
+            this.txtProntuario.Location = new System.Drawing.Point(692, 10);
             this.txtProntuario.Name = "txtProntuario";
             this.txtProntuario.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario.TabIndex = 87;
@@ -380,7 +253,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(622, 14);
+            this.label23.Location = new System.Drawing.Point(591, 12);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(95, 22);
             this.label23.TabIndex = 86;
@@ -402,7 +275,7 @@
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(1141, 110);
+            this.btnExcluir.Location = new System.Drawing.Point(1173, 447);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(144, 37);
             this.btnExcluir.TabIndex = 77;
@@ -419,7 +292,6 @@
             this.label4.Size = new System.Drawing.Size(82, 22);
             this.label4.TabIndex = 66;
             this.label4.Text = "PA (0x0)";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
@@ -435,22 +307,10 @@
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(161, 14);
+            this.txtNome.Location = new System.Drawing.Point(98, 11);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(406, 24);
             this.txtNome.TabIndex = 61;
-            // 
-            // checkBoxIncluirCadastro
-            // 
-            this.checkBoxIncluirCadastro.AutoSize = true;
-            this.checkBoxIncluirCadastro.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxIncluirCadastro.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.checkBoxIncluirCadastro.Location = new System.Drawing.Point(10, 11);
-            this.checkBoxIncluirCadastro.Name = "checkBoxIncluirCadastro";
-            this.checkBoxIncluirCadastro.Size = new System.Drawing.Size(69, 26);
-            this.checkBoxIncluirCadastro.TabIndex = 59;
-            this.checkBoxIncluirCadastro.Text = "Triar";
-            this.checkBoxIncluirCadastro.UseVisualStyleBackColor = true;
             // 
             // btnAtualizar
             // 
@@ -459,7 +319,7 @@
             this.btnAtualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(1141, 166);
+            this.btnAtualizar.Location = new System.Drawing.Point(1173, 503);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(144, 38);
             this.btnAtualizar.TabIndex = 58;
@@ -473,7 +333,7 @@
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(1141, 226);
+            this.btnSalvar.Location = new System.Drawing.Point(1173, 563);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(144, 39);
             this.btnSalvar.TabIndex = 49;
@@ -518,7 +378,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(79, 14);
+            this.label3.Location = new System.Drawing.Point(14, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 22);
             this.label3.TabIndex = 23;
@@ -529,53 +389,98 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poor Richard", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label5.Location = new System.Drawing.Point(1172, 4);
+            this.label5.Location = new System.Drawing.Point(1157, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 41);
+            this.label5.Size = new System.Drawing.Size(164, 41);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Triagem";
+            this.label5.Text = "Anamnese";
             // 
-            // maskedTextBox1
+            // menuStrip2
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(1032, 13);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(101, 24);
-            this.maskedTextBox1.TabIndex = 114;
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.ajudaToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(1364, 25);
+            this.menuStrip2.TabIndex = 37;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(68, 21);
+            this.toolStripMenuItem1.Text = "Retormar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.ajudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(23, 349);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 22);
+            this.label1.TabIndex = 109;
+            this.label1.Text = "Relatorio Médico:";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.Location = new System.Drawing.Point(27, 374);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(1087, 288);
+            this.richTextBox2.TabIndex = 110;
+            this.richTextBox2.Text = "";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(898, 15);
+            this.label11.Location = new System.Drawing.Point(877, 13);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(133, 22);
-            this.label11.TabIndex = 113;
+            this.label11.TabIndex = 111;
             this.label11.Text = "Data de Atend.";
             // 
-            // frmTriagem
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(1011, 11);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(101, 24);
+            this.maskedTextBox1.TabIndex = 112;
+            // 
+            // frmAnamnese
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 762);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1364, 762);
             this.MinimumSize = new System.Drawing.Size(1364, 762);
-            this.Name = "frmTriagem";
+            this.Name = "frmAnamnese";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmTriagem";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).EndInit();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.Text = "frmAnamnese";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,18 +488,15 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox txtDataNasc1;
-        private System.Windows.Forms.TextBox txtNome1;
-        private System.Windows.Forms.DataGridView tabeladeClientes;
-        private System.Windows.Forms.Button btnBuscar1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label20;
@@ -607,7 +509,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.CheckBox checkBoxIncluirCadastro;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label8;
@@ -615,14 +516,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label11;
     }

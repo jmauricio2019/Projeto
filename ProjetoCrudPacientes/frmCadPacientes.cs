@@ -1592,6 +1592,13 @@ namespace ProjetoCrudPacientes
             txtDataNasc1.Enabled = true;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAgendar frm = new frmAgendar();
+            this.Visible = false;
+            frm.ShowDialog();
+        }
+
         private void txtProntuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)

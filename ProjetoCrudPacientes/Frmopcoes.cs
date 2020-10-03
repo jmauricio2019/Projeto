@@ -64,5 +64,27 @@ namespace ProjetoCrudPacientes
             this.Visible = false;
             frm.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmVerificarAgenda frm = new frmVerificarAgenda();
+            this.Visible = false;
+            frm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            frmConsulta frm = new frmConsulta();
+            this.Visible = false;
+            frm.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            frmHistoricoAtendimento frm = new frmHistoricoAtendimento();
+            this.Visible = false;
+            frm.ShowDialog();
+        }
     }
 }
