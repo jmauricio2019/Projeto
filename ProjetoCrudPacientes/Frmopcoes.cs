@@ -57,5 +57,12 @@ namespace ProjetoCrudPacientes
             frmCadColaboradorescs frm = new frmCadColaboradorescs();
             frm.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmTriagem frm = new frmTriagem();
+            this.Visible = false;
+            frm.ShowDialog();
+        }
     }
 }

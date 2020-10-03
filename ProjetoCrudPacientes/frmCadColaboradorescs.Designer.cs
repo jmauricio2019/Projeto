@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadColaboradorescs));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbbCargo = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.btnBuscarCep = new System.Windows.Forms.Button();
@@ -84,12 +90,6 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cbbCargo = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtSenha = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
@@ -143,11 +143,72 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(16, 379);
+            this.groupBox2.Location = new System.Drawing.Point(18, 379);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1326, 337);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(121, 288);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(122, 24);
+            this.txtSenha.TabIndex = 98;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(57, 99);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(60, 22);
+            this.label21.TabIndex = 97;
+            this.label21.Text = "Cargo";
+            // 
+            // cbbCargo
+            // 
+            this.cbbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCargo.FormattingEnabled = true;
+            this.cbbCargo.Items.AddRange(new object[] {
+            "RECEPCIONISTA",
+            "ENFERMEIRO",
+            "MÉDICO"});
+            this.cbbCargo.Location = new System.Drawing.Point(121, 96);
+            this.cbbCargo.Name = "cbbCargo";
+            this.cbbCargo.Size = new System.Drawing.Size(157, 26);
+            this.cbbCargo.TabIndex = 96;
+            this.cbbCargo.SelectedIndexChanged += new System.EventHandler(this.cbbCargo_SelectedIndexChanged);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(839, 95);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(112, 24);
+            this.textBox2.TabIndex = 95;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label20.Location = new System.Drawing.Point(685, 96);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(153, 22);
+            this.label20.TabIndex = 94;
+            this.label20.Text = "Inscrição COREN";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(463, 98);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(112, 24);
+            this.textBox1.TabIndex = 93;
             // 
             // label27
             // 
@@ -556,7 +617,7 @@
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 45);
+            this.groupBox1.Location = new System.Drawing.Point(17, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1327, 316);
             this.groupBox1.TabIndex = 29;
@@ -626,6 +687,7 @@
             this.tabeladeClientes.Name = "tabeladeClientes";
             this.tabeladeClientes.Size = new System.Drawing.Size(1293, 220);
             this.tabeladeClientes.TabIndex = 57;
+            this.tabeladeClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellContentClick);
             // 
             // btnBuscar1
             // 
@@ -694,7 +756,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1348, 25);
+            this.menuStrip2.Size = new System.Drawing.Size(1364, 25);
             this.menuStrip2.TabIndex = 28;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -715,80 +777,20 @@
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(463, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 24);
-            this.textBox1.TabIndex = 93;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(685, 96);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(153, 22);
-            this.label20.TabIndex = 94;
-            this.label20.Text = "Inscrição COREN";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(839, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(112, 24);
-            this.textBox2.TabIndex = 95;
-            // 
-            // cbbCargo
-            // 
-            this.cbbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCargo.FormattingEnabled = true;
-            this.cbbCargo.Items.AddRange(new object[] {
-            "RECEPCIONISTA",
-            "ENFERMEIRO",
-            "MÉDICO"});
-            this.cbbCargo.Location = new System.Drawing.Point(121, 96);
-            this.cbbCargo.Name = "cbbCargo";
-            this.cbbCargo.Size = new System.Drawing.Size(157, 26);
-            this.cbbCargo.TabIndex = 96;
-            this.cbbCargo.SelectedIndexChanged += new System.EventHandler(this.cbbCargo_SelectedIndexChanged);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(57, 99);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(60, 22);
-            this.label21.TabIndex = 97;
-            this.label21.Text = "Cargo";
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(121, 288);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(122, 24);
-            this.txtSenha.TabIndex = 98;
-            // 
             // frmCadColaboradorescs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 723);
+            this.ClientSize = new System.Drawing.Size(1364, 762);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(1364, 762);
+            this.MinimumSize = new System.Drawing.Size(1364, 762);
             this.Name = "frmCadColaboradorescs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadColaboradorescs";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

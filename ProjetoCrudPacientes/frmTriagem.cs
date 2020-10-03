@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetoCrudPacientes
 {
-    public partial class frmCadColaboradorescs : Form
+    public partial class frmTriagem : Form
     {
-        public frmCadColaboradorescs()
+        public frmTriagem()
         {
             InitializeComponent();
         }
@@ -24,17 +24,7 @@ namespace ProjetoCrudPacientes
             frm.ShowDialog();
         }
 
-        private void cbbCargo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabeladeClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

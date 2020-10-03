@@ -130,6 +130,12 @@
     <Compile Include="Frmopcoes.Designer.cs">
       <DependentUpon>Frmopcoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTriagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTriagem.Designer.cs">
+      <DependentUpon>frmTriagem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frmopcoes.resx">
       <DependentUpon>Frmopcoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTriagem.resx">
+      <DependentUpon>frmTriagem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

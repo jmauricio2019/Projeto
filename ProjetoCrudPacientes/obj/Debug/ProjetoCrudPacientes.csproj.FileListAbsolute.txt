@@ -219,3 +219,4 @@ C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto
 C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.csproj.CopyComplete
 C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.exe
 C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.pdb
+C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmTriagem.resources
