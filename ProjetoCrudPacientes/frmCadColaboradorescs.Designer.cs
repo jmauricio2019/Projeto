@@ -32,10 +32,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.cbbCargo = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCargo = new System.Windows.Forms.ComboBox();
+            this.txtCoren = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCrm = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.btnBuscarCep = new System.Windows.Forms.Button();
@@ -101,10 +101,10 @@
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox2.Controls.Add(this.txtSenha);
             this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.cbbCargo);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtCargo);
+            this.groupBox2.Controls.Add(this.txtCoren);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtCrm);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.btnBuscarCep);
@@ -169,27 +169,27 @@
             this.label21.TabIndex = 97;
             this.label21.Text = "Cargo";
             // 
-            // cbbCargo
+            // txtCargo
             // 
-            this.cbbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCargo.FormattingEnabled = true;
-            this.cbbCargo.Items.AddRange(new object[] {
+            this.txtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCargo.FormattingEnabled = true;
+            this.txtCargo.Items.AddRange(new object[] {
             "RECEPCIONISTA",
             "ENFERMEIRO",
             "MÉDICO"});
-            this.cbbCargo.Location = new System.Drawing.Point(121, 96);
-            this.cbbCargo.Name = "cbbCargo";
-            this.cbbCargo.Size = new System.Drawing.Size(157, 26);
-            this.cbbCargo.TabIndex = 96;
-            this.cbbCargo.SelectedIndexChanged += new System.EventHandler(this.cbbCargo_SelectedIndexChanged);
+            this.txtCargo.Location = new System.Drawing.Point(121, 96);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(157, 26);
+            this.txtCargo.TabIndex = 96;
+            this.txtCargo.SelectedIndexChanged += new System.EventHandler(this.cbbCargo_SelectedIndexChanged);
             // 
-            // textBox2
+            // txtCoren
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(839, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(112, 24);
-            this.textBox2.TabIndex = 95;
+            this.txtCoren.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCoren.Location = new System.Drawing.Point(839, 95);
+            this.txtCoren.Name = "txtCoren";
+            this.txtCoren.Size = new System.Drawing.Size(112, 24);
+            this.txtCoren.TabIndex = 95;
             // 
             // label20
             // 
@@ -202,13 +202,13 @@
             this.label20.TabIndex = 94;
             this.label20.Text = "Inscrição COREN";
             // 
-            // textBox1
+            // txtCrm
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(463, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(112, 24);
-            this.textBox1.TabIndex = 93;
+            this.txtCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCrm.Location = new System.Drawing.Point(463, 98);
+            this.txtCrm.Name = "txtCrm";
+            this.txtCrm.Size = new System.Drawing.Size(112, 24);
+            this.txtCrm.TabIndex = 93;
             // 
             // label27
             // 
@@ -458,6 +458,7 @@
             this.btnSalvar.TabIndex = 49;
             this.btnSalvar.Text = "  SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label16
             // 
@@ -791,6 +792,7 @@
             this.Name = "frmCadColaboradorescs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadColaboradorescs";
+            this.Load += new System.EventHandler(this.frmCadColaboradorescs_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -860,10 +862,10 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbbCargo;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox txtCargo;
+        private System.Windows.Forms.TextBox txtCoren;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCrm;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtSenha;
     }
