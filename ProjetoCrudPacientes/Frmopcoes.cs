@@ -86,5 +86,11 @@ namespace ProjetoCrudPacientes
             this.Visible = false;
             frm.ShowDialog();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmCadColaboradorescs frm = new frmCadColaboradorescs();
+            frm.ShowDialog();
+        }
     }
 }

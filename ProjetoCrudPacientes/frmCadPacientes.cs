@@ -613,7 +613,6 @@ namespace ProjetoCrudPacientes
             tabeladeClientes.Rows.Clear();    //Remover as linhas
             tabeladeClientes.Refresh();
             string name = txtNome1.Text;
-
             try
             {    //selecionar dados no banco de dados
                 // define a string de conexao com provedor caminho e nome do banco de dados
@@ -626,81 +625,51 @@ namespace ProjetoCrudPacientes
                 string strSql = "select * from tb_paciente where nome like '%" + name + "%'";
                 //cria o objeto command para executar a instruçao sql
                 MySqlCommand cmd = new MySqlCommand(strSql, con);
-
                 //define o tipo do comando
                 cmd.CommandType = CommandType.Text;
-
                 //cria um dataadapter
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
                 MySqlDataReader dr = cmd.ExecuteReader();
-
-
                 //Obtem o número de colunas
-
                 int nColunas = dr.FieldCount;
-
                 //percorre as colunas obtendo o seu nome e incluindo no DataGridView
-
                 for (int i = 0; i < nColunas; i++)
-
                 {
-
                     tabeladeClientes.Columns.Add(dr.GetName(i).ToString(), dr.GetName(i).ToString());
-
                 }
                 //define um array de strings com nCOlunas
-
                 string[] linhaDados = new string[nColunas];
                 //percorre o DataRead
                 int cont = 0;//para informar mensagem para o usuario se não encontrar 
                 while (dr.Read())
-
                 {
-
                     //percorre cada uma das colunas
-
                     for (int a = 0; a < nColunas; a++)
-
                     {
-
                         //verifica o tipo de dados da coluna
-
                         if (dr.GetFieldType(a).ToString() == "System.Int32")
-
                         {
-
                             linhaDados[a] = dr.GetInt32(a).ToString();
-
                         }
-
                         if (dr.GetFieldType(a).ToString() == "System.String")
 
                         {
-
                             linhaDados[a] = dr.GetString(a).ToString();
-
                         }
-
                         if (dr.GetFieldType(a).ToString() == "System.DateTime")
-
                         {
-
                             linhaDados[a] = dr.GetDateTime(a).ToString();
-
                         }
                         cont++;
                     }
                     tabeladeClientes.Rows.Add(linhaDados);
                     txtProntuario.Enabled = false;
-
                 }
                 con.Close();
                 if (cont == 0)
                 {
                     MessageBox.Show("Cadastro inexistente");
                 }
-
             }
             catch (Exception erro)
             {
@@ -721,8 +690,6 @@ namespace ProjetoCrudPacientes
             tabeladeClientes.Columns.Clear(); //Remover as colunas
             tabeladeClientes.Rows.Clear();    //Remover as linhas
             tabeladeClientes.Refresh();
-
-
             try
             {    //selecionar dados no banco de dados
                 // define a string de conexao com provedor caminho e nome do banco de dados
@@ -743,20 +710,12 @@ namespace ProjetoCrudPacientes
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
                 MySqlDataReader dr = cmd.ExecuteReader();
-
-
                 //Obtem o número de colunas
-
                 int nColunas = dr.FieldCount;
-
                 //percorre as colunas obtendo o seu nome e incluindo no DataGridView
-
                 for (int i = 0; i < nColunas; i++)
-
                 {
-
                     tabeladeClientes.Columns.Add(dr.GetName(i).ToString(), dr.GetName(i).ToString());
-
                 }
                 //define um array de strings com nCOlunas
 
@@ -764,39 +723,22 @@ namespace ProjetoCrudPacientes
                 //percorre o DataRead
                 int cont = 0;//para informar mensagem para o usuario se não encontrar 
                 while (dr.Read())
-
                 {
-
                     //percorre cada uma das colunas
-
                     for (int a = 0; a < nColunas; a++)
-
                     {
-
                         //verifica o tipo de dados da coluna
-
                         if (dr.GetFieldType(a).ToString() == "System.Int32")
-
                         {
-
                             linhaDados[a] = dr.GetInt32(a).ToString();
-
                         }
-
                         if (dr.GetFieldType(a).ToString() == "System.String")
-
                         {
-
                             linhaDados[a] = dr.GetString(a).ToString();
-
                         }
-
                         if (dr.GetFieldType(a).ToString() == "System.DateTime")
-
                         {
-
                             linhaDados[a] = dr.GetDateTime(a).ToString();
-
                         }
                         cont++;
                     }
@@ -808,7 +750,6 @@ namespace ProjetoCrudPacientes
                 {
                     MessageBox.Show("Cadastro inexistente");
                 }
-
             }
             catch (Exception erro)
             {
