@@ -444,6 +444,7 @@
             this.btnAtualizar.TabIndex = 58;
             this.btnAtualizar.Text = "  ATUALIZAR";
             this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnSalvar
             // 
@@ -703,6 +704,7 @@
             this.btnBuscar1.TabIndex = 49;
             this.btnBuscar1.Text = "     BUSCAR";
             this.btnBuscar1.UseVisualStyleBackColor = false;
+            this.btnBuscar1.Click += new System.EventHandler(this.btnBuscar1_Click);
             // 
             // label19
             // 
