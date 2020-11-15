@@ -1535,9 +1535,9 @@ namespace ProjetoCrudPacientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmAgendar frm = new frmAgendar();
+            frmAgendar destino = new frmAgendar(txtNome.Text, txtProntuario.Text, txtDataNasc.Text, txtMae.Text);
             this.Visible = false;
-            frm.ShowDialog();
+            destino.ShowDialog();
         }
 
         private void txtProntuario_KeyPress(object sender, KeyPressEventArgs e)

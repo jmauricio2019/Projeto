@@ -772,6 +772,11 @@ namespace ProjetoCrudPacientes
             }
         }
 
+        private void txtNome1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void cbbCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
 

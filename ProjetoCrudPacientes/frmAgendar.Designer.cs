@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgendar));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtHoraAtend = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDataAtend = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMae = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEspecialidade = new System.Windows.Forms.ComboBox();
+            this.txtmedico = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.txtProntuario = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -55,7 +57,7 @@
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtNome1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDataNasc1 = new System.Windows.Forms.MaskedTextBox();
@@ -63,8 +65,6 @@
             this.btnBuscar1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,14 +74,14 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox2.Controls.Add(this.maskedTextBox2);
+            this.groupBox2.Controls.Add(this.txtHoraAtend);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.maskedTextBox1);
+            this.groupBox2.Controls.Add(this.txtDataAtend);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtMae);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtEspecialidade);
+            this.groupBox2.Controls.Add(this.txtmedico);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.txtProntuario);
             this.groupBox2.Controls.Add(this.label23);
@@ -102,14 +102,34 @@
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             // 
-            // maskedTextBox1
+            // txtHoraAtend
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(136, 198);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(101, 24);
-            this.maskedTextBox1.TabIndex = 104;
+            this.txtHoraAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoraAtend.Location = new System.Drawing.Point(357, 198);
+            this.txtHoraAtend.Mask = "00:00";
+            this.txtHoraAtend.Name = "txtHoraAtend";
+            this.txtHoraAtend.Size = new System.Drawing.Size(62, 24);
+            this.txtHoraAtend.TabIndex = 106;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(304, 200);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 22);
+            this.label9.TabIndex = 105;
+            this.label9.Text = "Hora";
+            // 
+            // txtDataAtend
+            // 
+            this.txtDataAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDataAtend.Location = new System.Drawing.Point(136, 198);
+            this.txtDataAtend.Mask = "00/00/0000";
+            this.txtDataAtend.Name = "txtDataAtend";
+            this.txtDataAtend.Size = new System.Drawing.Size(101, 24);
+            this.txtDataAtend.TabIndex = 104;
             // 
             // label8
             // 
@@ -122,13 +142,13 @@
             this.label8.TabIndex = 103;
             this.label8.Text = "Data do Aten.";
             // 
-            // textBox1
+            // txtMae
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(340, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(359, 24);
-            this.textBox1.TabIndex = 102;
+            this.txtMae.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMae.Location = new System.Drawing.Point(340, 68);
+            this.txtMae.Name = "txtMae";
+            this.txtMae.Size = new System.Drawing.Size(359, 24);
+            this.txtMae.TabIndex = 102;
             // 
             // label4
             // 
@@ -141,11 +161,11 @@
             this.label4.TabIndex = 101;
             this.label4.Text = "Mãe";
             // 
-            // comboBox1
+            // txtEspecialidade
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEspecialidade.FormattingEnabled = true;
+            this.txtEspecialidade.Items.AddRange(new object[] {
             "CARDIOLOGIA",
             "CLÍNICO GERAL",
             "DERMATOLOGIA",
@@ -157,18 +177,18 @@
             "OTORRINO",
             "PEDIATRIA",
             "PNEUMOLOGIA"});
-            this.comboBox1.Location = new System.Drawing.Point(674, 133);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 26);
-            this.comboBox1.TabIndex = 100;
+            this.txtEspecialidade.Location = new System.Drawing.Point(674, 133);
+            this.txtEspecialidade.Name = "txtEspecialidade";
+            this.txtEspecialidade.Size = new System.Drawing.Size(157, 26);
+            this.txtEspecialidade.TabIndex = 100;
             // 
-            // textBox3
+            // txtmedico
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(82, 135);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(418, 24);
-            this.textBox3.TabIndex = 99;
+            this.txtmedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmedico.Location = new System.Drawing.Point(82, 135);
+            this.txtmedico.Name = "txtmedico";
+            this.txtmedico.Size = new System.Drawing.Size(418, 24);
+            this.txtmedico.TabIndex = 99;
             // 
             // label27
             // 
@@ -280,6 +300,7 @@
             this.btnSalvar.TabIndex = 49;
             this.btnSalvar.Text = "  SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label7
             // 
@@ -358,7 +379,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtNome1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtDataNasc1);
@@ -393,13 +414,14 @@
             this.comboBox2.Size = new System.Drawing.Size(157, 26);
             this.comboBox2.TabIndex = 104;
             // 
-            // textBox7
+            // txtNome1
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(84, 9);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(530, 24);
-            this.textBox7.TabIndex = 103;
+            this.txtNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome1.Location = new System.Drawing.Point(84, 9);
+            this.txtNome1.Name = "txtNome1";
+            this.txtNome1.Size = new System.Drawing.Size(530, 24);
+            this.txtNome1.TabIndex = 103;
+            this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
             // 
             // label11
             // 
@@ -479,26 +501,6 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Agenda";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(304, 200);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 22);
-            this.label9.TabIndex = 105;
-            this.label9.Text = "Hora";
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(357, 198);
-            this.maskedTextBox2.Mask = "00:00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(62, 24);
-            this.maskedTextBox2.TabIndex = 106;
-            // 
             // frmAgendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,6 +515,7 @@
             this.Name = "frmAgendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgendar";
+            this.Load += new System.EventHandler(this.frmAgendar_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
@@ -528,8 +531,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox txtEspecialidade;
+        private System.Windows.Forms.TextBox txtmedico;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtProntuario;
         private System.Windows.Forms.Label label23;
@@ -553,15 +556,15 @@
         private System.Windows.Forms.Button btnBuscar1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtDataAtend;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMae;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtNome1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtHoraAtend;
         private System.Windows.Forms.Label label9;
     }
 }

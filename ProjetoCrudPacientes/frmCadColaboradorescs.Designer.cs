@@ -683,6 +683,7 @@
             this.txtNome1.Name = "txtNome1";
             this.txtNome1.Size = new System.Drawing.Size(415, 24);
             this.txtNome1.TabIndex = 62;
+            this.txtNome1.TextChanged += new System.EventHandler(this.txtNome1_TextChanged);
             this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
             // 
             // tabeladeClientes
