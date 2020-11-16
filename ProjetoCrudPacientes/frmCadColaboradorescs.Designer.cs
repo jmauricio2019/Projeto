@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadColaboradorescs));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtCargo = new System.Windows.Forms.ComboBox();
@@ -90,8 +91,7 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtEspecialidade = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
+            this.txtEspecialidade = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
@@ -101,8 +101,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox2.Controls.Add(this.label28);
             this.groupBox2.Controls.Add(this.txtEspecialidade);
+            this.groupBox2.Controls.Add(this.label28);
             this.groupBox2.Controls.Add(this.txtSenha);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.txtCargo);
@@ -147,16 +147,27 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(18, 379);
+            this.groupBox2.Location = new System.Drawing.Point(18, 382);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1326, 337);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label28.Location = new System.Drawing.Point(282, 148);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(123, 22);
+            this.label28.TabIndex = 100;
+            this.label28.Text = "Especialidade";
+            // 
             // txtSenha
             // 
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(121, 288);
+            this.txtSenha.Location = new System.Drawing.Point(366, 101);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(122, 24);
@@ -181,7 +192,7 @@
             "RECEPCIONISTA",
             "ENFERMEIRO",
             "MÉDICO"});
-            this.txtCargo.Location = new System.Drawing.Point(68, 98);
+            this.txtCargo.Location = new System.Drawing.Point(76, 102);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(157, 26);
             this.txtCargo.TabIndex = 96;
@@ -190,7 +201,7 @@
             // txtCoren
             // 
             this.txtCoren.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCoren.Location = new System.Drawing.Point(661, 103);
+            this.txtCoren.Location = new System.Drawing.Point(790, 148);
             this.txtCoren.Name = "txtCoren";
             this.txtCoren.Size = new System.Drawing.Size(112, 24);
             this.txtCoren.TabIndex = 95;
@@ -200,7 +211,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(504, 104);
+            this.label20.Location = new System.Drawing.Point(633, 149);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(153, 22);
             this.label20.TabIndex = 94;
@@ -209,7 +220,7 @@
             // txtCrm
             // 
             this.txtCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCrm.Location = new System.Drawing.Point(379, 101);
+            this.txtCrm.Location = new System.Drawing.Point(146, 148);
             this.txtCrm.Name = "txtCrm";
             this.txtCrm.Size = new System.Drawing.Size(112, 24);
             this.txtCrm.TabIndex = 93;
@@ -228,7 +239,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.ForeColor = System.Drawing.Color.Red;
-            this.label26.Location = new System.Drawing.Point(180, 170);
+            this.label26.Location = new System.Drawing.Point(182, 239);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(125, 13);
             this.label26.TabIndex = 91;
@@ -241,7 +252,7 @@
             this.btnBuscarCep.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnBuscarCep.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCep.Image")));
             this.btnBuscarCep.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCep.Location = new System.Drawing.Point(180, 183);
+            this.btnBuscarCep.Location = new System.Drawing.Point(182, 252);
             this.btnBuscarCep.Name = "btnBuscarCep";
             this.btnBuscarCep.Size = new System.Drawing.Size(116, 37);
             this.btnBuscarCep.TabIndex = 88;
@@ -272,7 +283,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Poor Richard", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(43, 284);
+            this.label22.Location = new System.Drawing.Point(288, 97);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(72, 28);
             this.label22.TabIndex = 85;
@@ -314,7 +325,7 @@
             // txtUf
             // 
             this.txtUf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUf.Location = new System.Drawing.Point(774, 229);
+            this.txtUf.Location = new System.Drawing.Point(776, 298);
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(43, 24);
             this.txtUf.TabIndex = 76;
@@ -322,7 +333,7 @@
             // txtCidade
             // 
             this.txtCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCidade.Location = new System.Drawing.Point(463, 229);
+            this.txtCidade.Location = new System.Drawing.Point(465, 298);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(227, 24);
             this.txtCidade.TabIndex = 75;
@@ -330,7 +341,7 @@
             // txtBairro
             // 
             this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBairro.Location = new System.Drawing.Point(68, 233);
+            this.txtBairro.Location = new System.Drawing.Point(70, 302);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(262, 24);
             this.txtBairro.TabIndex = 74;
@@ -338,7 +349,7 @@
             // txtNum
             // 
             this.txtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNum.Location = new System.Drawing.Point(983, 185);
+            this.txtNum.Location = new System.Drawing.Point(927, 255);
             this.txtNum.Name = "txtNum";
             this.txtNum.Size = new System.Drawing.Size(86, 24);
             this.txtNum.TabIndex = 73;
@@ -346,7 +357,7 @@
             // txtRua
             // 
             this.txtRua.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRua.Location = new System.Drawing.Point(454, 188);
+            this.txtRua.Location = new System.Drawing.Point(456, 257);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(406, 24);
             this.txtRua.TabIndex = 72;
@@ -354,7 +365,7 @@
             // txtCep
             // 
             this.txtCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCep.Location = new System.Drawing.Point(52, 190);
+            this.txtCep.Location = new System.Drawing.Point(54, 259);
             this.txtCep.Mask = "00,000-000";
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(119, 24);
@@ -363,7 +374,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(661, 138);
+            this.txtEmail.Location = new System.Drawing.Point(663, 207);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(408, 24);
             this.txtEmail.TabIndex = 70;
@@ -371,7 +382,7 @@
             // txtTel2
             // 
             this.txtTel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel2.Location = new System.Drawing.Point(392, 139);
+            this.txtTel2.Location = new System.Drawing.Point(394, 208);
             this.txtTel2.Mask = "(00) 0 0000-0000";
             this.txtTel2.Name = "txtTel2";
             this.txtTel2.Size = new System.Drawing.Size(149, 24);
@@ -380,7 +391,7 @@
             // txtTel1
             // 
             this.txtTel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel1.Location = new System.Drawing.Point(95, 139);
+            this.txtTel1.Location = new System.Drawing.Point(97, 208);
             this.txtTel1.Mask = "(00) 0 0000-0000";
             this.txtTel1.Name = "txtTel1";
             this.txtTel1.Size = new System.Drawing.Size(148, 24);
@@ -399,7 +410,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(244, 101);
+            this.label4.Location = new System.Drawing.Point(12, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 22);
             this.label4.TabIndex = 66;
@@ -471,7 +482,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(739, 229);
+            this.label16.Location = new System.Drawing.Point(741, 298);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(34, 22);
             this.label16.TabIndex = 46;
@@ -482,7 +493,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(6, 232);
+            this.label15.Location = new System.Drawing.Point(8, 301);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(62, 22);
             this.label15.TabIndex = 43;
@@ -493,7 +504,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(928, 187);
+            this.label14.Location = new System.Drawing.Point(894, 255);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(30, 22);
             this.label14.TabIndex = 32;
@@ -504,7 +515,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(391, 230);
+            this.label13.Location = new System.Drawing.Point(393, 299);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(69, 22);
             this.label13.TabIndex = 31;
@@ -515,7 +526,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(358, 188);
+            this.label12.Location = new System.Drawing.Point(360, 257);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(95, 22);
             this.label12.TabIndex = 30;
@@ -526,7 +537,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(6, 190);
+            this.label11.Location = new System.Drawing.Point(8, 259);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(45, 22);
             this.label11.TabIndex = 29;
@@ -537,7 +548,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(6, 139);
+            this.label10.Location = new System.Drawing.Point(8, 208);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 22);
             this.label10.TabIndex = 28;
@@ -548,7 +559,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(297, 139);
+            this.label9.Location = new System.Drawing.Point(299, 208);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 22);
             this.label9.TabIndex = 27;
@@ -559,7 +570,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(604, 139);
+            this.label8.Location = new System.Drawing.Point(606, 208);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 22);
             this.label8.TabIndex = 26;
@@ -795,21 +806,23 @@
             // txtEspecialidade
             // 
             this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEspecialidade.Location = new System.Drawing.Point(914, 105);
+            this.txtEspecialidade.FormattingEnabled = true;
+            this.txtEspecialidade.Items.AddRange(new object[] {
+            "CARDIOLOGIA",
+            "CLÍNICO GERAL",
+            "DERMATOLOGIA",
+            "ENDOCRINOLOGIA",
+            "GASTROLOGIA",
+            "NEFROLOGIA",
+            "NEUROLOGIA",
+            "ORTOPEDIA",
+            "OTORRINO",
+            "PEDIATRIA",
+            "PNEUMOLOGIA"});
+            this.txtEspecialidade.Location = new System.Drawing.Point(410, 144);
             this.txtEspecialidade.Name = "txtEspecialidade";
-            this.txtEspecialidade.Size = new System.Drawing.Size(155, 24);
-            this.txtEspecialidade.TabIndex = 99;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label28.Location = new System.Drawing.Point(781, 105);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(123, 22);
-            this.label28.TabIndex = 100;
-            this.label28.Text = "Especialidade";
+            this.txtEspecialidade.Size = new System.Drawing.Size(157, 26);
+            this.txtEspecialidade.TabIndex = 105;
             // 
             // frmCadColaboradorescs
             // 
@@ -903,6 +916,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox txtEspecialidade;
+        private System.Windows.Forms.ComboBox txtEspecialidade;
     }
 }

@@ -33,6 +33,9 @@ namespace ProjetoCrudPacientes
             txtProntuario.Enabled = false;
             txtDataNasc.Enabled = false; ;
             txtMae.Enabled = false;
+            txtmedico.Enabled = false;
+            txtEspecialidade.Enabled = false;
+            txtCrm.Enabled = false;
         }
 
         //metodo verificar se ja existe cadastro
@@ -80,8 +83,8 @@ namespace ProjetoCrudPacientes
         public void SelecionarDataGrewViewNome()
         {
             btnSalvar.Enabled = true;
-            btnAtualizar.Enabled = true;
-            btnExcluir.Enabled = true;
+            //btnAtualizar.Enabled = true;
+            //btnExcluir.Enabled = true;
             //limpa o campo a cada busca 
             tabeladeClientes.Rows.Clear();
             tabeladeClientes.DataSource = null; //Remover a datasource
@@ -163,7 +166,7 @@ namespace ProjetoCrudPacientes
             //verificar campo vazio
             if (txtNome.Text == " " || txtDataNasc.Text == " " ||
                  txtProntuario.Text == " " || txtMae.Text == " " || txtmedico.Text == " " ||
-                txtEspecialidade.Text == " " || txtDataAtend.Text == " " || txtDataAtend.Text == " " || txtHoraAtend.Text == " ")
+                txtEspecialidade.Text == " " || txtDataAtend.Text == " " || txtDataAtend.Text == " " || txtHoraAtend.Text == " " || txtCrm.Text == " ")
             {
                 MessageBox.Show("Necessario Preencher." + "\n" + "Todos os Campos", "Mensagem");
             }
@@ -178,7 +181,7 @@ namespace ProjetoCrudPacientes
                         MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root;database=bd_crudcad; ");
                         objcon.Open();
                         MySqlCommand objCmd = new MySqlCommand("insert into tb_agenda (prontuario, paciente, datanasc, mae, medico," +
-                            " especialidade, datadeatend, hora) values( ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                            " especialidade, datadeatend, hora, crm) values( ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
                         //parametros do comando sql
                         objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
                         objCmd.Parameters.Add("@paciente", MySqlDbType.VarChar, 100).Value = txtNome.Text;
@@ -188,6 +191,7 @@ namespace ProjetoCrudPacientes
                         objCmd.Parameters.Add("@especialidade", MySqlDbType.VarChar, 17).Value = txtEspecialidade.Text;
                         objCmd.Parameters.Add("@datadeatend", MySqlDbType.VarChar, 17).Value = txtDataAtend.Text;
                         objCmd.Parameters.Add("@hora", MySqlDbType.VarChar, 17).Value = txtHoraAtend.Text;
+                        objCmd.Parameters.Add("@crm", MySqlDbType.VarChar, 15).Value = txtCrm.Text;
 
                         //para colocar os estados no combo box
                         //cmbestado.itens.add("sp");
@@ -197,10 +201,10 @@ namespace ProjetoCrudPacientes
                         //fecha o banco de dados
                         objcon.Close();
                         //LimparBox();
-                        btnSalvar.Enabled = false;
-                        btnAtualizar.Enabled = false;
-                        btnExcluir.Enabled = false;
-                        checkBoxIncluirCadastro.Focus();
+                        //btnSalvar.Enabled = false;
+                        //btnAtualizar.Enabled = false;
+                        //btnExcluir.Enabled = false;
+                       // checkBoxIncluirCadastro.Focus();
                     }
                     catch (Exception erro)
                     {
@@ -228,6 +232,20 @@ namespace ProjetoCrudPacientes
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
+        }
+
+        private void tabeladeClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {            
+                try
+                {
+                    txtmedico.Text = tabeladeClientes.CurrentRow.Cells[2].Value.ToString();
+                    txtCrm.Text = tabeladeClientes.CurrentRow.Cells[7].Value.ToString();
+                    txtEspecialidade.Text = tabeladeClientes.CurrentRow.Cells[19].Value.ToString();
+                }
+                catch
+                {
+
+                }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

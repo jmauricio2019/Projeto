@@ -610,7 +610,7 @@ namespace ProjetoCrudPacientes
                         "" +
                         " datanasc = ?," +
                         " cpf = ?, rg = ?, cargo = ?, crm = ?, coren = ?, tel = ?, tell = ?, email = ?, cep = ?, logradouro = ?," +
-                        " num = ?, bairro = ?, cidade = ?, uf = ?, senha = ?, especialidade? where prontuario = ?", objcon);
+                        " num = ?, bairro = ?, cidade = ?, uf = ?, senha = ?, especialidade = ? where prontuario = ?", objcon);
                     objCmd.Parameters.Clear();
 
                     //parametros do comando sql
@@ -674,6 +674,7 @@ namespace ProjetoCrudPacientes
             txtUf.Text = (" ");
             txtSenha.Text = (" ");
             txtProntuario.Text = (" ");
+            txtEspecialidade.Text = (" ");
         }
         //limpar todos os txt box dos campos de pesquisa
         public void LimparBox2()
@@ -791,9 +792,6 @@ namespace ProjetoCrudPacientes
 
         private void tabeladeClientes_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
-           
-
             try
             {
                 txtProntuario.Text = tabeladeClientes.CurrentRow.Cells[1].Value.ToString();
@@ -820,7 +818,6 @@ namespace ProjetoCrudPacientes
             {
 
             }
-
         }
 
         private void cbbCargo_SelectedIndexChanged(object sender, EventArgs e)

@@ -36,17 +36,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtMae = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEspecialidade = new System.Windows.Forms.ComboBox();
             this.txtmedico = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.txtProntuario = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtDataNasc = new System.Windows.Forms.MaskedTextBox();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.checkBoxIncluirCadastro = new System.Windows.Forms.CheckBox();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +61,9 @@
             this.btnBuscar1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtCrm = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEspecialidade = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,23 +73,22 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox2.Controls.Add(this.txtEspecialidade);
+            this.groupBox2.Controls.Add(this.txtCrm);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtHoraAtend);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtDataAtend);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtMae);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtEspecialidade);
             this.groupBox2.Controls.Add(this.txtmedico);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.txtProntuario);
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.txtDataNasc);
-            this.groupBox2.Controls.Add(this.btnExcluir);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtNome);
-            this.groupBox2.Controls.Add(this.checkBoxIncluirCadastro);
-            this.groupBox2.Controls.Add(this.btnAtualizar);
             this.groupBox2.Controls.Add(this.btnSalvar);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
@@ -105,7 +103,7 @@
             // txtHoraAtend
             // 
             this.txtHoraAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoraAtend.Location = new System.Drawing.Point(357, 198);
+            this.txtHoraAtend.Location = new System.Drawing.Point(357, 240);
             this.txtHoraAtend.Mask = "00:00";
             this.txtHoraAtend.Name = "txtHoraAtend";
             this.txtHoraAtend.Size = new System.Drawing.Size(62, 24);
@@ -116,7 +114,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(304, 200);
+            this.label9.Location = new System.Drawing.Point(304, 242);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 22);
             this.label9.TabIndex = 105;
@@ -125,7 +123,7 @@
             // txtDataAtend
             // 
             this.txtDataAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataAtend.Location = new System.Drawing.Point(136, 198);
+            this.txtDataAtend.Location = new System.Drawing.Point(136, 240);
             this.txtDataAtend.Mask = "00/00/0000";
             this.txtDataAtend.Name = "txtDataAtend";
             this.txtDataAtend.Size = new System.Drawing.Size(101, 24);
@@ -136,7 +134,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(10, 200);
+            this.label8.Location = new System.Drawing.Point(10, 242);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 22);
             this.label8.TabIndex = 103;
@@ -161,27 +159,6 @@
             this.label4.TabIndex = 101;
             this.label4.Text = "Mãe";
             // 
-            // txtEspecialidade
-            // 
-            this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEspecialidade.FormattingEnabled = true;
-            this.txtEspecialidade.Items.AddRange(new object[] {
-            "CARDIOLOGIA",
-            "CLÍNICO GERAL",
-            "DERMATOLOGIA",
-            "ENDOCRINOLOGIA",
-            "GASTROLOGIA",
-            "NEFROLOGIA",
-            "NEUROLOGIA",
-            "ORTOPEDIA",
-            "OTORRINO",
-            "PEDIATRIA",
-            "PNEUMOLOGIA"});
-            this.txtEspecialidade.Location = new System.Drawing.Point(674, 133);
-            this.txtEspecialidade.Name = "txtEspecialidade";
-            this.txtEspecialidade.Size = new System.Drawing.Size(157, 26);
-            this.txtEspecialidade.TabIndex = 100;
-            // 
             // txtmedico
             // 
             this.txtmedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,7 +180,7 @@
             // txtProntuario
             // 
             this.txtProntuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProntuario.Location = new System.Drawing.Point(809, 9);
+            this.txtProntuario.Location = new System.Drawing.Point(652, 9);
             this.txtProntuario.Name = "txtProntuario";
             this.txtProntuario.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario.TabIndex = 87;
@@ -213,7 +190,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(711, 11);
+            this.label23.Location = new System.Drawing.Point(554, 11);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(95, 22);
             this.label23.TabIndex = 86;
@@ -228,26 +205,12 @@
             this.txtDataNasc.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc.TabIndex = 83;
             // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.Red;
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(1141, 110);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(144, 37);
-            this.btnExcluir.TabIndex = 77;
-            this.btnExcluir.Text = "EXCLUIR";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(545, 134);
+            this.label2.Location = new System.Drawing.Point(289, 181);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 22);
             this.label2.TabIndex = 63;
@@ -256,36 +219,10 @@
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(214, 14);
+            this.txtNome.Location = new System.Drawing.Point(92, 14);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(406, 24);
             this.txtNome.TabIndex = 61;
-            // 
-            // checkBoxIncluirCadastro
-            // 
-            this.checkBoxIncluirCadastro.AutoSize = true;
-            this.checkBoxIncluirCadastro.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxIncluirCadastro.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.checkBoxIncluirCadastro.Location = new System.Drawing.Point(10, 11);
-            this.checkBoxIncluirCadastro.Name = "checkBoxIncluirCadastro";
-            this.checkBoxIncluirCadastro.Size = new System.Drawing.Size(69, 26);
-            this.checkBoxIncluirCadastro.TabIndex = 59;
-            this.checkBoxIncluirCadastro.Text = "Triar";
-            this.checkBoxIncluirCadastro.UseVisualStyleBackColor = true;
-            // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
-            this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(1141, 166);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(144, 38);
-            this.btnAtualizar.TabIndex = 58;
-            this.btnAtualizar.Text = "  ATUALIZAR";
-            this.btnAtualizar.UseVisualStyleBackColor = false;
             // 
             // btnSalvar
             // 
@@ -294,7 +231,7 @@
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(1141, 226);
+            this.btnSalvar.Location = new System.Drawing.Point(1161, 283);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(144, 39);
             this.btnSalvar.TabIndex = 49;
@@ -329,7 +266,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(132, 14);
+            this.label3.Location = new System.Drawing.Point(10, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 22);
             this.label3.TabIndex = 23;
@@ -464,6 +401,7 @@
             this.tabeladeClientes.Name = "tabeladeClientes";
             this.tabeladeClientes.Size = new System.Drawing.Size(1293, 220);
             this.tabeladeClientes.TabIndex = 57;
+            this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
             // 
             // btnBuscar1
             // 
@@ -501,6 +439,33 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Agenda";
             // 
+            // txtCrm
+            // 
+            this.txtCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCrm.Location = new System.Drawing.Point(143, 181);
+            this.txtCrm.Name = "txtCrm";
+            this.txtCrm.Size = new System.Drawing.Size(112, 24);
+            this.txtCrm.TabIndex = 108;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(9, 181);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(129, 22);
+            this.label10.TabIndex = 107;
+            this.label10.Text = "Inscrição CRM";
+            // 
+            // txtEspecialidade
+            // 
+            this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEspecialidade.Location = new System.Drawing.Point(418, 181);
+            this.txtEspecialidade.Name = "txtEspecialidade";
+            this.txtEspecialidade.Size = new System.Drawing.Size(206, 24);
+            this.txtEspecialidade.TabIndex = 109;
+            // 
             // frmAgendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,17 +496,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox txtEspecialidade;
         private System.Windows.Forms.TextBox txtmedico;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtProntuario;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.MaskedTextBox txtDataNasc;
-        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.CheckBox checkBoxIncluirCadastro;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -566,5 +527,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MaskedTextBox txtHoraAtend;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtCrm;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtEspecialidade;
     }
 }
