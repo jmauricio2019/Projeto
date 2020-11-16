@@ -47,7 +47,7 @@ namespace ProjetoCrudPacientes
                         objcon.Open();
                         MySqlCommand objCmd = new MySqlCommand("insert into tb_colaborador (prontuario, nome, datanasc, cpf, rg, cargo, crm," +
                             "coren, tel, tell, email, cep, logradouro, num, bairro, cidade, \n" +
-                            " uf, senha) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                            " uf, senha,especialidade) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", objcon);
                         //parametros do comando sql
                         objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
                         objCmd.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
@@ -67,6 +67,7 @@ namespace ProjetoCrudPacientes
                         objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
                         objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
                         objCmd.Parameters.Add("@senha", MySqlDbType.VarChar, 20).Value = txtSenha.Text;
+                        objCmd.Parameters.Add("@especialidade", MySqlDbType.VarChar, 20).Value = txtEspecialidade.Text;
                         //para colocar os estados no combo box
                         //cmbestado.itens.add("sp");
                         //comando para executar query
@@ -609,7 +610,7 @@ namespace ProjetoCrudPacientes
                         "" +
                         " datanasc = ?," +
                         " cpf = ?, rg = ?, cargo = ?, crm = ?, coren = ?, tel = ?, tell = ?, email = ?, cep = ?, logradouro = ?," +
-                        " num = ?, bairro = ?, cidade = ?, uf = ?, senha = ? where prontuario = ?", objcon);
+                        " num = ?, bairro = ?, cidade = ?, uf = ?, senha = ?, especialidade? where prontuario = ?", objcon);
                     objCmd.Parameters.Clear();
 
                     //parametros do comando sql
@@ -630,6 +631,7 @@ namespace ProjetoCrudPacientes
                     objCmd.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
                     objCmd.Parameters.Add("@uf", MySqlDbType.VarChar, 4).Value = txtUf.Text;
                     objCmd.Parameters.Add("@senha", MySqlDbType.VarChar, 20).Value = txtSenha.Text;
+                    objCmd.Parameters.Add("@especialidade", MySqlDbType.VarChar, 18).Value = txtEspecialidade.Text;
                     objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 18).Value = txtProntuario.Text;
                     //comando para executar query
                     objCmd.CommandType = CommandType.Text;
@@ -774,6 +776,50 @@ namespace ProjetoCrudPacientes
 
         private void txtNome1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmCadColaboradorescs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabeladeClientes_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+           
+
+            try
+            {
+                txtProntuario.Text = tabeladeClientes.CurrentRow.Cells[1].Value.ToString();
+                txtNome.Text = tabeladeClientes.CurrentRow.Cells[2].Value.ToString();
+                txtDataNasc.Text = tabeladeClientes.CurrentRow.Cells[3].Value.ToString();
+                txtCpf.Text = tabeladeClientes.CurrentRow.Cells[4].Value.ToString();
+                txtRg.Text = tabeladeClientes.CurrentRow.Cells[5].Value.ToString();
+                txtCargo.Text = tabeladeClientes.CurrentRow.Cells[6].Value.ToString();
+                txtCrm.Text = tabeladeClientes.CurrentRow.Cells[7].Value.ToString();
+                txtCoren.Text = tabeladeClientes.CurrentRow.Cells[8].Value.ToString();
+                txtTel1.Text = tabeladeClientes.CurrentRow.Cells[9].Value.ToString();
+                txtTel2.Text = tabeladeClientes.CurrentRow.Cells[10].Value.ToString();
+                txtEmail.Text = tabeladeClientes.CurrentRow.Cells[11].Value.ToString();
+                txtCep.Text = tabeladeClientes.CurrentRow.Cells[12].Value.ToString();
+                txtRua.Text = tabeladeClientes.CurrentRow.Cells[13].Value.ToString();
+                txtNum.Text = tabeladeClientes.CurrentRow.Cells[14].Value.ToString();
+                txtBairro.Text = tabeladeClientes.CurrentRow.Cells[15].Value.ToString();
+                txtCidade.Text = tabeladeClientes.CurrentRow.Cells[16].Value.ToString();
+                txtUf.Text = tabeladeClientes.CurrentRow.Cells[17].Value.ToString();
+                txtSenha.Text = tabeladeClientes.CurrentRow.Cells[18].Value.ToString();
+                txtEspecialidade.Text = tabeladeClientes.CurrentRow.Cells[19].Value.ToString();
+            }
+            catch
+            {
+
+            }
 
         }
 

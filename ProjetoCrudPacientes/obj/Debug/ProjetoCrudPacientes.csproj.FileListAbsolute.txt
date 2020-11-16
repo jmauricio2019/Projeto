@@ -226,3 +226,11 @@ C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto
 C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmConsulta.resources
 C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.Form2.resources
 C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmHistoricoAtendimento.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.Form2.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmAgendar.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmAnamnese.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmCadColaboradorescs.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmConsulta.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmHistoricoAtendimento.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmTriagem.resources
+C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmVerificarAgenda.resources
