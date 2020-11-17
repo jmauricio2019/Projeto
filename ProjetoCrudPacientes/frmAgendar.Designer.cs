@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgendar));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtEspecialidade = new System.Windows.Forms.TextBox();
+            this.txtCrm = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtHoraAtend = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDataAtend = new System.Windows.Forms.MaskedTextBox();
@@ -61,9 +64,6 @@
             this.btnBuscar1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCrm = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtEspecialidade = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -99,6 +99,33 @@
             this.groupBox2.Size = new System.Drawing.Size(1326, 348);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
+            // 
+            // txtEspecialidade
+            // 
+            this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEspecialidade.Location = new System.Drawing.Point(418, 181);
+            this.txtEspecialidade.Name = "txtEspecialidade";
+            this.txtEspecialidade.Size = new System.Drawing.Size(206, 24);
+            this.txtEspecialidade.TabIndex = 109;
+            // 
+            // txtCrm
+            // 
+            this.txtCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCrm.Location = new System.Drawing.Point(143, 181);
+            this.txtCrm.Name = "txtCrm";
+            this.txtCrm.Size = new System.Drawing.Size(112, 24);
+            this.txtCrm.TabIndex = 108;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(9, 181);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(129, 22);
+            this.label10.TabIndex = 107;
+            this.label10.Text = "Inscrição CRM";
             // 
             // txtHoraAtend
             // 
@@ -416,6 +443,7 @@
             this.btnBuscar1.TabIndex = 49;
             this.btnBuscar1.Text = "     BUSCAR";
             this.btnBuscar1.UseVisualStyleBackColor = false;
+            this.btnBuscar1.Click += new System.EventHandler(this.btnBuscar1_Click);
             // 
             // label19
             // 
@@ -438,33 +466,6 @@
             this.label1.Size = new System.Drawing.Size(130, 41);
             this.label1.TabIndex = 21;
             this.label1.Text = "Agenda";
-            // 
-            // txtCrm
-            // 
-            this.txtCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCrm.Location = new System.Drawing.Point(143, 181);
-            this.txtCrm.Name = "txtCrm";
-            this.txtCrm.Size = new System.Drawing.Size(112, 24);
-            this.txtCrm.TabIndex = 108;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(9, 181);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(129, 22);
-            this.label10.TabIndex = 107;
-            this.label10.Text = "Inscrição CRM";
-            // 
-            // txtEspecialidade
-            // 
-            this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEspecialidade.Location = new System.Drawing.Point(418, 181);
-            this.txtEspecialidade.Name = "txtEspecialidade";
-            this.txtEspecialidade.Size = new System.Drawing.Size(206, 24);
-            this.txtEspecialidade.TabIndex = 109;
             // 
             // frmAgendar
             // 

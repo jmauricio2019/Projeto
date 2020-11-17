@@ -248,6 +248,11 @@ namespace ProjetoCrudPacientes
                 }
         }
 
+        private void btnBuscar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmOpcoes frm = new frmOpcoes();
