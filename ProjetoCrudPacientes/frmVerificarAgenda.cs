@@ -258,6 +258,7 @@ namespace ProjetoCrudPacientes
             tabeladeClientes.Rows.Clear();
             tabeladeClientes.DataSource = null; //Remover a datasource
             tabeladeClientes.Columns.Clear(); //Remover as colunas
+            
             tabeladeClientes.Rows.Clear();    //Remover as linhas
             tabeladeClientes.Refresh();
             try
@@ -335,7 +336,7 @@ namespace ProjetoCrudPacientes
                 objcon.Open();
                 MySqlCommand objCmd = new MySqlCommand("delete from tb_agenda where id = ?", objcon);
                 objCmd.Parameters.Clear();
-                objCmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = txtProntuario.Text;
+                objCmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = tabeladeClientes.CurrentRow.Cells[0].Value.ToString(); ;
                 //comando para executar query
                 objCmd.CommandType = CommandType.Text;
                 objCmd.ExecuteNonQuery();
