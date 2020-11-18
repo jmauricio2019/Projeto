@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTriagem));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDataAtend2 = new System.Windows.Forms.DateTimePicker();
             this.txtNome1 = new System.Windows.Forms.TextBox();
             this.tabeladeClientes = new System.Windows.Forms.DataGridView();
             this.btnBuscar1 = new System.Windows.Forms.Button();
@@ -40,6 +41,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtHoraTriagem = new System.Windows.Forms.MaskedTextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtDataAtend = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -69,9 +72,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtHoraTriagem = new System.Windows.Forms.MaskedTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtDataAtend2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -93,6 +93,16 @@
             this.groupBox1.Size = new System.Drawing.Size(1327, 316);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
+            // 
+            // txtDataAtend2
+            // 
+            this.txtDataAtend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtDataAtend2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDataAtend2.Location = new System.Drawing.Point(148, 44);
+            this.txtDataAtend2.Name = "txtDataAtend2";
+            this.txtDataAtend2.Size = new System.Drawing.Size(118, 24);
+            this.txtDataAtend2.TabIndex = 117;
+            this.txtDataAtend2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataAtend2_KeyPress);
             // 
             // txtNome1
             // 
@@ -231,6 +241,26 @@
             this.groupBox2.Size = new System.Drawing.Size(1326, 348);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
+            // 
+            // txtHoraTriagem
+            // 
+            this.txtHoraTriagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoraTriagem.Location = new System.Drawing.Point(245, 130);
+            this.txtHoraTriagem.Mask = "00:00";
+            this.txtHoraTriagem.Name = "txtHoraTriagem";
+            this.txtHoraTriagem.Size = new System.Drawing.Size(62, 24);
+            this.txtHoraTriagem.TabIndex = 116;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label12.Location = new System.Drawing.Point(120, 131);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 22);
+            this.label12.TabIndex = 115;
+            this.label12.Text = "Hora Triagem";
             // 
             // txtDataAtend
             // 
@@ -425,6 +455,7 @@
             this.btnExcluir.TabIndex = 77;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // label4
             // 
@@ -484,6 +515,7 @@
             this.btnSalvar.TabIndex = 49;
             this.btnSalvar.Text = "  SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label8
             // 
@@ -539,36 +571,6 @@
             this.label5.Size = new System.Drawing.Size(133, 41);
             this.label5.TabIndex = 22;
             this.label5.Text = "Triagem";
-            // 
-            // txtHoraTriagem
-            // 
-            this.txtHoraTriagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoraTriagem.Location = new System.Drawing.Point(245, 130);
-            this.txtHoraTriagem.Mask = "00:00";
-            this.txtHoraTriagem.Name = "txtHoraTriagem";
-            this.txtHoraTriagem.Size = new System.Drawing.Size(62, 24);
-            this.txtHoraTriagem.TabIndex = 116;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(120, 131);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 22);
-            this.label12.TabIndex = 115;
-            this.label12.Text = "Hora Triagem";
-            // 
-            // txtDataAtend2
-            // 
-            this.txtDataAtend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtDataAtend2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataAtend2.Location = new System.Drawing.Point(148, 44);
-            this.txtDataAtend2.Name = "txtDataAtend2";
-            this.txtDataAtend2.Size = new System.Drawing.Size(118, 24);
-            this.txtDataAtend2.TabIndex = 117;
-            this.txtDataAtend2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataAtend2_KeyPress);
             // 
             // frmTriagem
             // 
