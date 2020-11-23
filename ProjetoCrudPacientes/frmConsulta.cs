@@ -281,5 +281,10 @@ namespace ProjetoCrudPacientes
                 SelecionarDataGrewViewDataAtend();
             }
         }
+
+        private void frmConsulta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

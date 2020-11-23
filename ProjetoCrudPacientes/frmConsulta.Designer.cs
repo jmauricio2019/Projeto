@@ -32,8 +32,12 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tabeladeClientes = new System.Windows.Forms.DataGridView();
+            this.txtDataAtend2 = new System.Windows.Forms.DateTimePicker();
+            this.txtNome1 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabeladeClientes = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -65,10 +69,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtDataAtend2 = new System.Windows.Forms.DateTimePicker();
-            this.txtNome1 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
@@ -119,17 +119,46 @@
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             // 
-            // tabeladeClientes
+            // txtDataAtend2
             // 
-            this.tabeladeClientes.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.tabeladeClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabeladeClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabeladeClientes.Location = new System.Drawing.Point(16, 92);
-            this.tabeladeClientes.Name = "tabeladeClientes";
-            this.tabeladeClientes.Size = new System.Drawing.Size(1293, 207);
-            this.tabeladeClientes.TabIndex = 57;
-            this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
-            this.tabeladeClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellContentClick);
+            this.txtDataAtend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtDataAtend2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDataAtend2.Location = new System.Drawing.Point(148, 51);
+            this.txtDataAtend2.Name = "txtDataAtend2";
+            this.txtDataAtend2.Size = new System.Drawing.Size(118, 24);
+            this.txtDataAtend2.TabIndex = 121;
+            this.txtDataAtend2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataAtend2_KeyPress);
+            // 
+            // txtNome1
+            // 
+            this.txtNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome1.Location = new System.Drawing.Point(104, 16);
+            this.txtNome1.Name = "txtNome1";
+            this.txtNome1.Size = new System.Drawing.Size(415, 24);
+            this.txtNome1.TabIndex = 120;
+            this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label19.Location = new System.Drawing.Point(21, 54);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(123, 22);
+            this.label19.TabIndex = 119;
+            this.label19.Text = "Data do Aten.";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(20, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(80, 22);
+            this.label18.TabIndex = 118;
+            this.label18.Text = "Paciente";
             // 
             // label1
             // 
@@ -141,6 +170,18 @@
             this.label1.Size = new System.Drawing.Size(283, 41);
             this.label1.TabIndex = 21;
             this.label1.Text = "Pesquisar Consulta";
+            // 
+            // tabeladeClientes
+            // 
+            this.tabeladeClientes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.tabeladeClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabeladeClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabeladeClientes.Location = new System.Drawing.Point(16, 92);
+            this.tabeladeClientes.Name = "tabeladeClientes";
+            this.tabeladeClientes.Size = new System.Drawing.Size(1293, 207);
+            this.tabeladeClientes.TabIndex = 57;
+            this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
+            this.tabeladeClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellContentClick);
             // 
             // label5
             // 
@@ -492,47 +533,6 @@
             this.label13.TabIndex = 23;
             this.label13.Text = "Paciente";
             // 
-            // txtDataAtend2
-            // 
-            this.txtDataAtend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.txtDataAtend2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataAtend2.Location = new System.Drawing.Point(148, 51);
-            this.txtDataAtend2.Name = "txtDataAtend2";
-            this.txtDataAtend2.Size = new System.Drawing.Size(118, 24);
-            this.txtDataAtend2.TabIndex = 121;
-            this.txtDataAtend2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataAtend2_KeyPress);
-            // 
-            // txtNome1
-            // 
-            this.txtNome1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome1.Location = new System.Drawing.Point(104, 16);
-            this.txtNome1.Name = "txtNome1";
-            this.txtNome1.Size = new System.Drawing.Size(415, 24);
-            this.txtNome1.TabIndex = 120;
-            this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(21, 54);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(123, 22);
-            this.label19.TabIndex = 119;
-            this.label19.Text = "Data do Aten.";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(20, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(80, 22);
-            this.label18.TabIndex = 118;
-            this.label18.Text = "Paciente";
-            // 
             // frmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,6 +547,7 @@
             this.Name = "frmConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConsulta";
+            this.Load += new System.EventHandler(this.frmConsulta_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

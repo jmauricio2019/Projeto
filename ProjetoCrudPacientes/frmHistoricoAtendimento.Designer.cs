@@ -46,6 +46,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDataAtend = new System.Windows.Forms.MaskedTextBox();
@@ -76,7 +77,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -112,6 +112,7 @@
             this.txtDataAtend1.Name = "txtDataAtend1";
             this.txtDataAtend1.Size = new System.Drawing.Size(101, 24);
             this.txtDataAtend1.TabIndex = 92;
+            this.txtDataAtend1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataAtend1_KeyPress);
             // 
             // label14
             // 
@@ -152,6 +153,7 @@
             this.txtProntuario1.Name = "txtProntuario1";
             this.txtProntuario1.Size = new System.Drawing.Size(112, 24);
             this.txtProntuario1.TabIndex = 88;
+            this.txtProntuario1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProntuario1_KeyPress);
             // 
             // txtDataNasc1
             // 
@@ -161,6 +163,7 @@
             this.txtDataNasc1.Name = "txtDataNasc1";
             this.txtDataNasc1.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc1.TabIndex = 65;
+            this.txtDataNasc1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataNasc1_KeyPress);
             // 
             // txtNome1
             // 
@@ -169,6 +172,7 @@
             this.txtNome1.Name = "txtNome1";
             this.txtNome1.Size = new System.Drawing.Size(415, 24);
             this.txtNome1.TabIndex = 62;
+            this.txtNome1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome1_KeyPress);
             // 
             // tabeladeClientes
             // 
@@ -179,6 +183,7 @@
             this.tabeladeClientes.Name = "tabeladeClientes";
             this.tabeladeClientes.Size = new System.Drawing.Size(1293, 182);
             this.tabeladeClientes.TabIndex = 57;
+            this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
             // 
             // btnBuscar1
             // 
@@ -296,6 +301,20 @@
             this.groupBox2.Size = new System.Drawing.Size(1335, 380);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimir.Location = new System.Drawing.Point(1162, 314);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(144, 39);
+            this.btnImprimir.TabIndex = 115;
+            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // label15
             // 
@@ -603,19 +622,6 @@
             this.label12.Size = new System.Drawing.Size(186, 41);
             this.label12.TabIndex = 22;
             this.label12.Text = "Historico do";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(1162, 314);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(144, 39);
-            this.btnImprimir.TabIndex = 115;
-            this.btnImprimir.Text = "IMPRIMIR";
-            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // frmHistoricoAtendimento
             // 

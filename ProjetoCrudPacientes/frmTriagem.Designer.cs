@@ -48,30 +48,29 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtRelatoPaciente = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtSaturacao = new System.Windows.Forms.TextBox();
-            this.txtTemperatura = new System.Windows.Forms.TextBox();
-            this.txtPesoKg = new System.Windows.Forms.TextBox();
             this.txtEspecialidade = new System.Windows.Forms.ComboBox();
             this.txtmedico = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtGlicose = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtPressaoArterial = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.txtProntuario = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtDataNasc = new System.Windows.Forms.MaskedTextBox();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.mySqlConnection1 = new MySql.Data.MySqlClient.MySqlConnection();
+            this.txtPressaoArterial = new System.Windows.Forms.MaskedTextBox();
+            this.txtPesoKg = new System.Windows.Forms.MaskedTextBox();
+            this.txtTemperatura = new System.Windows.Forms.MaskedTextBox();
+            this.txtSaturacao = new System.Windows.Forms.MaskedTextBox();
+            this.txtGlicose = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -205,6 +204,11 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox2.Controls.Add(this.txtGlicose);
+            this.groupBox2.Controls.Add(this.txtSaturacao);
+            this.groupBox2.Controls.Add(this.txtTemperatura);
+            this.groupBox2.Controls.Add(this.txtPesoKg);
+            this.groupBox2.Controls.Add(this.txtPressaoArterial);
             this.groupBox2.Controls.Add(this.txtHoraTriagem);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtDataAtend);
@@ -212,24 +216,17 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtRelatoPaciente);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtSaturacao);
-            this.groupBox2.Controls.Add(this.txtTemperatura);
-            this.groupBox2.Controls.Add(this.txtPesoKg);
             this.groupBox2.Controls.Add(this.txtEspecialidade);
             this.groupBox2.Controls.Add(this.txtmedico);
             this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.txtGlicose);
             this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.txtPressaoArterial);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.txtProntuario);
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.txtDataNasc);
-            this.groupBox2.Controls.Add(this.btnExcluir);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtNome);
-            this.groupBox2.Controls.Add(this.btnAtualizar);
             this.groupBox2.Controls.Add(this.btnSalvar);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
@@ -309,33 +306,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label9.Location = new System.Drawing.Point(669, 175);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 22);
+            this.label9.Size = new System.Drawing.Size(71, 22);
             this.label9.TabIndex = 104;
-            this.label9.Text = "O2 Sat";
-            // 
-            // txtSaturacao
-            // 
-            this.txtSaturacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaturacao.Location = new System.Drawing.Point(742, 175);
-            this.txtSaturacao.Name = "txtSaturacao";
-            this.txtSaturacao.Size = new System.Drawing.Size(112, 24);
-            this.txtSaturacao.TabIndex = 103;
-            // 
-            // txtTemperatura
-            // 
-            this.txtTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemperatura.Location = new System.Drawing.Point(480, 173);
-            this.txtTemperatura.Name = "txtTemperatura";
-            this.txtTemperatura.Size = new System.Drawing.Size(112, 24);
-            this.txtTemperatura.TabIndex = 102;
-            // 
-            // txtPesoKg
-            // 
-            this.txtPesoKg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesoKg.Location = new System.Drawing.Point(480, 125);
-            this.txtPesoKg.Name = "txtPesoKg";
-            this.txtPesoKg.Size = new System.Drawing.Size(112, 24);
-            this.txtPesoKg.TabIndex = 101;
+            this.label9.Text = "O2 Sat.";
             // 
             // txtEspecialidade
             // 
@@ -377,32 +350,16 @@
             this.label21.TabIndex = 97;
             this.label21.Text = "Peso KG";
             // 
-            // txtGlicose
-            // 
-            this.txtGlicose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGlicose.Location = new System.Drawing.Point(195, 173);
-            this.txtGlicose.Name = "txtGlicose";
-            this.txtGlicose.Size = new System.Drawing.Size(112, 24);
-            this.txtGlicose.TabIndex = 95;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(93, 174);
+            this.label20.Location = new System.Drawing.Point(148, 175);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(91, 22);
             this.label20.TabIndex = 94;
             this.label20.Text = "Glic. HGT";
-            // 
-            // txtPressaoArterial
-            // 
-            this.txtPressaoArterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPressaoArterial.Location = new System.Drawing.Point(742, 125);
-            this.txtPressaoArterial.Name = "txtPressaoArterial";
-            this.txtPressaoArterial.Size = new System.Drawing.Size(112, 24);
-            this.txtPressaoArterial.TabIndex = 93;
             // 
             // label27
             // 
@@ -442,21 +399,6 @@
             this.txtDataNasc.Size = new System.Drawing.Size(101, 24);
             this.txtDataNasc.TabIndex = 83;
             // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.Red;
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExcluir.Location = new System.Drawing.Point(1141, 110);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(144, 37);
-            this.btnExcluir.TabIndex = 77;
-            this.btnExcluir.Text = "EXCLUIR";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -488,20 +430,6 @@
             this.txtNome.Size = new System.Drawing.Size(406, 24);
             this.txtNome.TabIndex = 61;
             // 
-            // btnAtualizar
-            // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAtualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizar.Image")));
-            this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtualizar.Location = new System.Drawing.Point(1141, 166);
-            this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(144, 38);
-            this.btnAtualizar.TabIndex = 58;
-            this.btnAtualizar.Text = "  ATUALIZAR";
-            this.btnAtualizar.UseVisualStyleBackColor = false;
-            // 
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -509,7 +437,7 @@
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
             this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalvar.Location = new System.Drawing.Point(1141, 226);
+            this.btnSalvar.Location = new System.Drawing.Point(1135, 285);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(144, 39);
             this.btnSalvar.TabIndex = 49;
@@ -572,6 +500,51 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Triagem";
             // 
+            // txtPressaoArterial
+            // 
+            this.txtPressaoArterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPressaoArterial.Location = new System.Drawing.Point(739, 124);
+            this.txtPressaoArterial.Mask = "000X00";
+            this.txtPressaoArterial.Name = "txtPressaoArterial";
+            this.txtPressaoArterial.Size = new System.Drawing.Size(75, 24);
+            this.txtPressaoArterial.TabIndex = 117;
+            // 
+            // txtPesoKg
+            // 
+            this.txtPesoKg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesoKg.Location = new System.Drawing.Point(478, 124);
+            this.txtPesoKg.Mask = "000,000";
+            this.txtPesoKg.Name = "txtPesoKg";
+            this.txtPesoKg.Size = new System.Drawing.Size(75, 24);
+            this.txtPesoKg.TabIndex = 118;
+            // 
+            // txtTemperatura
+            // 
+            this.txtTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemperatura.Location = new System.Drawing.Point(480, 172);
+            this.txtTemperatura.Mask = "00,0°";
+            this.txtTemperatura.Name = "txtTemperatura";
+            this.txtTemperatura.Size = new System.Drawing.Size(75, 24);
+            this.txtTemperatura.TabIndex = 119;
+            // 
+            // txtSaturacao
+            // 
+            this.txtSaturacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaturacao.Location = new System.Drawing.Point(740, 172);
+            this.txtSaturacao.Mask = "00 %";
+            this.txtSaturacao.Name = "txtSaturacao";
+            this.txtSaturacao.Size = new System.Drawing.Size(75, 24);
+            this.txtSaturacao.TabIndex = 120;
+            // 
+            // txtGlicose
+            // 
+            this.txtGlicose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGlicose.Location = new System.Drawing.Point(245, 172);
+            this.txtGlicose.Mask = "000 mg/dl";
+            this.txtGlicose.Name = "txtGlicose";
+            this.txtGlicose.Size = new System.Drawing.Size(75, 24);
+            this.txtGlicose.TabIndex = 121;
+            // 
             // frmTriagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -613,18 +586,14 @@
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtGlicose;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtPressaoArterial;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtProntuario;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.MaskedTextBox txtDataNasc;
-        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -633,10 +602,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox txtEspecialidade;
         private System.Windows.Forms.TextBox txtmedico;
-        private System.Windows.Forms.TextBox txtPesoKg;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtSaturacao;
-        private System.Windows.Forms.TextBox txtTemperatura;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox txtRelatoPaciente;
         private System.Windows.Forms.MaskedTextBox txtDataAtend;
@@ -644,5 +610,11 @@
         private System.Windows.Forms.MaskedTextBox txtHoraTriagem;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker txtDataAtend2;
+        private System.Windows.Forms.MaskedTextBox txtGlicose;
+        private System.Windows.Forms.MaskedTextBox txtSaturacao;
+        private System.Windows.Forms.MaskedTextBox txtTemperatura;
+        private System.Windows.Forms.MaskedTextBox txtPesoKg;
+        private System.Windows.Forms.MaskedTextBox txtPressaoArterial;
+        private MySql.Data.MySqlClient.MySqlConnection mySqlConnection1;
     }
 }

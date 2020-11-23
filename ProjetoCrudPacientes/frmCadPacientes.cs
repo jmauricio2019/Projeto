@@ -1022,10 +1022,10 @@ namespace ProjetoCrudPacientes
         public void LimparBox2()
         {
             txtNome1.Text = (" ");
-            txtDataNasc1.Text = (" ");
+           txtDataNasc1.Text = (" ");
             txtCpf1.Text = (" ");
             txtProntuario1.Text = (" ");
-        }
+       }
 
         public void letramaiusc()
         {
