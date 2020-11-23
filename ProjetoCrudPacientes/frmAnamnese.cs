@@ -18,6 +18,7 @@ namespace ProjetoCrudPacientes
         public frmAnamnese()
         {
             InitializeComponent();
+            
         }
 
         public frmAnamnese(string valor, string valor1, string valor2, string valor3, string valor4, 
@@ -53,12 +54,13 @@ namespace ProjetoCrudPacientes
             txtSaturacao.Enabled = false;
             txtRelatoPaciente.Enabled = false;
             txtHoraTriagem.Enabled = false;
+            txtHoraAnamnese.Text = DateTime.Now.ToString("hh:mm:ss");
 
 
         }
         public void Verificatriagem()
         {
-            string id = txtEspecialidade.Text;
+            string id = txtHoraTriagem.Text;
             Prot = 0;
             try
             {    //selecionar dados no banco de dados
@@ -67,7 +69,8 @@ namespace ProjetoCrudPacientes
                 objcon.Open();
                 //busca pelo prontuario
                 MySqlCommand objCmd = new MySqlCommand("select  prontuario, paciente, dataatend, datanasc,  medico," +
-                    " especialidade, pesokg, pressaoarterial, glicose, temperatura, saturacao, relatoriopaciente, relatoriomedico, horatriagem, from tb_consulta where  especialidade= ?", objcon);
+                    " especialidade, pesokg, pressaoarterial, glicose, temperatura, saturacao, " +
+                    "relatoriopaciente, horatriagem, relatoriomedico, horaanamnese  from tb_consulta where  horatriagem= ?", objcon);
 
                 objCmd.Parameters.Clear();
 
@@ -106,7 +109,8 @@ namespace ProjetoCrudPacientes
             //verificar campo vazio
             if (txtPesoKg.Text == " " || txtPressaoArterial.Text == " " ||
                  txtGlicose.Text == " " || txtTemperatura.Text == " " ||
-                txtSaturacao.Text == " " || txtRelatoPaciente.Text == " " || txtHoraTriagem.Text == " ")
+                txtSaturacao.Text == " " || txtRelatoPaciente.Text == " " ||
+                txtHoraTriagem.Text == " " || txtRelatoMedico.Text == " " || txtHoraAnamnese.Text == " " )
             {
                 MessageBox.Show("Necessario Preencher." + "\n" + "Todos os Campos", "Mensagem");
             }
@@ -122,7 +126,7 @@ namespace ProjetoCrudPacientes
                         objcon.Open();
                         MySqlCommand objCmd = new MySqlCommand("insert into tb_consulta (prontuario, paciente, datadeatend, datanasc, " +
                             " medico, especialidade, pesokg, pressaoarterial, glicose, temperatura, " +
-                            "saturacao, relatoriopaciente, horatriagem) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
+                            "saturacao, relatoriopaciente, horatriagem, relatoriomedico, horaanamnese) values( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", objcon);
                         //parametros do comando sql
                         objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar, 10).Value = txtProntuario.Text;
                         objCmd.Parameters.Add("@paciente", MySqlDbType.VarChar, 100).Value = txtNome.Text;
@@ -137,7 +141,8 @@ namespace ProjetoCrudPacientes
                         objCmd.Parameters.Add("@saturacao", MySqlDbType.VarChar, 17).Value = txtSaturacao.Text;
                         objCmd.Parameters.Add("@relatoriopaciente", MySqlDbType.VarChar, 99).Value = txtRelatoPaciente.Text;
                         objCmd.Parameters.Add("@horatriagem", MySqlDbType.VarChar, 17).Value = txtHoraTriagem.Text;
-                        objCmd.Parameters.Add("@horatriagem", MySqlDbType.VarChar, 17).Value = txtRelatoMedico.Text;
+                        objCmd.Parameters.Add("@relatoriomedico", MySqlDbType.VarChar, 17).Value = txtRelatoMedico.Text;
+                        objCmd.Parameters.Add("@horaanamnese", MySqlDbType.VarChar, 17).Value = txtHoraAnamnese.Text;
 
 
                         //para colocar os estados no combo box
@@ -175,6 +180,12 @@ namespace ProjetoCrudPacientes
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Cadastrar();
+        }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
 

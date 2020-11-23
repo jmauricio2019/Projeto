@@ -64,6 +64,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtHoraAnamnese = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +102,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox2.Controls.Add(this.txtHoraAnamnese);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtRelatoMedico);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtHoraTriagem);
@@ -400,6 +404,7 @@
             this.button1.TabIndex = 49;
             this.button1.Text = "  SALVAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -455,6 +460,26 @@
             this.label5.Size = new System.Drawing.Size(133, 41);
             this.label5.TabIndex = 22;
             this.label5.Text = "Triagem";
+            // 
+            // txtHoraAnamnese
+            // 
+            this.txtHoraAnamnese.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoraAnamnese.Location = new System.Drawing.Point(1049, 371);
+            this.txtHoraAnamnese.Mask = "00:00";
+            this.txtHoraAnamnese.Name = "txtHoraAnamnese";
+            this.txtHoraAnamnese.Size = new System.Drawing.Size(62, 24);
+            this.txtHoraAnamnese.TabIndex = 120;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(909, 372);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 22);
+            this.label1.TabIndex = 119;
+            this.label1.Text = "Hora Anamnese";
             // 
             // frmAnamnese
             // 
@@ -515,5 +540,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox txtRelatoMedico;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.MaskedTextBox txtHoraAnamnese;
+        private System.Windows.Forms.Label label1;
     }
 }
