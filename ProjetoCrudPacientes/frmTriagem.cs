@@ -469,6 +469,11 @@ namespace ProjetoCrudPacientes
             }
         }
 
+        private void txtHoraTriagem_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
         private void txtNome1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
@@ -497,7 +502,7 @@ namespace ProjetoCrudPacientes
                 txtDataNasc.Text = tabeladeClientes.CurrentRow.Cells[3].Value.ToString();
                 txtmedico.Text = tabeladeClientes.CurrentRow.Cells[5].Value.ToString();
                 txtEspecialidade.Text = tabeladeClientes.CurrentRow.Cells[6].Value.ToString();
-                txtHoraTriagem.Text = DateTime.Now.ToString("hh:mm:ss");
+                txtHoraTriagem.Text = DateTime.Now.ToString("HH:MM");
             }
             catch
             {

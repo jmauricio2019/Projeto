@@ -485,7 +485,7 @@ namespace ProjetoCrudPacientes
                 txtTemperatura.Text = tabeladeClientes.CurrentRow.Cells[10].Value.ToString();
                 txtSaturacao.Text = tabeladeClientes.CurrentRow.Cells[11].Value.ToString();
                 txtRelatoPaciente.Text = tabeladeClientes.CurrentRow.Cells[12].Value.ToString();
-                txtRelatoMedico.Text = tabeladeClientes.CurrentRow.Cells[13].Value.ToString();
+                txtRelatoMedico.Text = tabeladeClientes.CurrentRow.Cells[14].Value.ToString();
             }
             catch
             {

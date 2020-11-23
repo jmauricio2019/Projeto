@@ -243,10 +243,11 @@
             // 
             this.txtHoraTriagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoraTriagem.Location = new System.Drawing.Point(245, 130);
-            this.txtHoraTriagem.Mask = "00:00";
+            this.txtHoraTriagem.Mask = "00:00 h";
             this.txtHoraTriagem.Name = "txtHoraTriagem";
             this.txtHoraTriagem.Size = new System.Drawing.Size(62, 24);
             this.txtHoraTriagem.TabIndex = 116;
+            this.txtHoraTriagem.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtHoraTriagem_MaskInputRejected);
             // 
             // label12
             // 
@@ -255,9 +256,9 @@
             this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label12.Location = new System.Drawing.Point(120, 131);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 22);
+            this.label12.Size = new System.Drawing.Size(123, 22);
             this.label12.TabIndex = 115;
-            this.label12.Text = "Hora Triagem";
+            this.label12.Text = "Hora Triagem:";
             // 
             // txtDataAtend
             // 

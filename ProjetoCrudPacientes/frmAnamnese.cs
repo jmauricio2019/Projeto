@@ -54,7 +54,7 @@ namespace ProjetoCrudPacientes
             txtSaturacao.Enabled = false;
             txtRelatoPaciente.Enabled = false;
             txtHoraTriagem.Enabled = false;
-            txtHoraAnamnese.Text = DateTime.Now.ToString("hh:mm:ss");
+            txtHoraAnamnese.Text = DateTime.Now.ToString("HH:MM");
 
 
         }

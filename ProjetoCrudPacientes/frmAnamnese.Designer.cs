@@ -33,6 +33,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtHoraAnamnese = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtRelatoMedico = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtHoraTriagem = new System.Windows.Forms.MaskedTextBox();
@@ -64,8 +66,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtHoraAnamnese = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -140,6 +140,26 @@
             this.groupBox2.Size = new System.Drawing.Size(1326, 715);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
+            // 
+            // txtHoraAnamnese
+            // 
+            this.txtHoraAnamnese.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoraAnamnese.Location = new System.Drawing.Point(1043, 371);
+            this.txtHoraAnamnese.Mask = "00:00 h";
+            this.txtHoraAnamnese.Name = "txtHoraAnamnese";
+            this.txtHoraAnamnese.Size = new System.Drawing.Size(62, 24);
+            this.txtHoraAnamnese.TabIndex = 120;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(897, 372);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 22);
+            this.label1.TabIndex = 119;
+            this.label1.Text = "Hora Anamnese:";
             // 
             // txtRelatoMedico
             // 
@@ -455,31 +475,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poor Richard", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label5.Location = new System.Drawing.Point(1172, 4);
+            this.label5.Location = new System.Drawing.Point(1157, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 41);
+            this.label5.Size = new System.Drawing.Size(164, 41);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Triagem";
-            // 
-            // txtHoraAnamnese
-            // 
-            this.txtHoraAnamnese.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoraAnamnese.Location = new System.Drawing.Point(1049, 371);
-            this.txtHoraAnamnese.Mask = "00:00";
-            this.txtHoraAnamnese.Name = "txtHoraAnamnese";
-            this.txtHoraAnamnese.Size = new System.Drawing.Size(62, 24);
-            this.txtHoraAnamnese.TabIndex = 120;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(909, 372);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 22);
-            this.label1.TabIndex = 119;
-            this.label1.Text = "Hora Anamnese";
+            this.label5.Text = "Anamnese";
             // 
             // frmAnamnese
             // 
