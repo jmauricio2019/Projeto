@@ -33,6 +33,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtRelatoMedico = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtHoraTriagem = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDataAtend = new System.Windows.Forms.MaskedTextBox();
@@ -62,8 +64,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox2.Controls.Add(this.richTextBox2);
+            this.groupBox2.Controls.Add(this.txtRelatoMedico);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtHoraTriagem);
             this.groupBox2.Controls.Add(this.label12);
@@ -136,6 +136,26 @@
             this.groupBox2.Size = new System.Drawing.Size(1326, 715);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
+            // 
+            // txtRelatoMedico
+            // 
+            this.txtRelatoMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRelatoMedico.Location = new System.Drawing.Point(47, 397);
+            this.txtRelatoMedico.Name = "txtRelatoMedico";
+            this.txtRelatoMedico.Size = new System.Drawing.Size(1066, 275);
+            this.txtRelatoMedico.TabIndex = 118;
+            this.txtRelatoMedico.Text = "";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(22, 372);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(151, 22);
+            this.label13.TabIndex = 117;
+            this.label13.Text = "Relatorio Médico:";
             // 
             // txtHoraTriagem
             // 
@@ -436,26 +456,6 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Triagem";
             // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(47, 397);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(1066, 275);
-            this.richTextBox2.TabIndex = 118;
-            this.richTextBox2.Text = "";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(22, 372);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(151, 22);
-            this.label13.TabIndex = 117;
-            this.label13.Text = "Relatorio Médico:";
-            // 
             // frmAnamnese
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +469,7 @@
             this.Name = "frmAnamnese";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAnamnese";
+            this.Load += new System.EventHandler(this.frmAnamnese_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -512,7 +513,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox txtRelatoMedico;
         private System.Windows.Forms.Label label13;
     }
 }

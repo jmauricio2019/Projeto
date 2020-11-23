@@ -16,6 +16,20 @@ namespace ProjetoCrudPacientes
         public frmConsulta()
         {
             InitializeComponent();
+            // inicializa o form sem poder editar os txtbox
+            txtNome.Enabled = false;
+            txtProntuario.Enabled = false;
+            txtDataNasc.Enabled = false; ;
+            txtmedico.Enabled = false;
+            txtEspecialidade.Enabled = false;
+            txtDataAtend.Enabled = false;
+            txtPesoKg.Enabled = false;
+            txtPressaoArterial.Enabled = false;
+            txtGlicose.Enabled = false;
+            txtTemperatura.Enabled = false;
+            txtSaturacao.Enabled = false;
+            txtRelatoPaciente.Enabled = false;
+            txtHoraTriagem.Enabled = false;
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -210,9 +224,12 @@ namespace ProjetoCrudPacientes
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           // frmAnamnese destino1 = new frmAnamnese(txtNome.Text, txtProntuario.Text, txtDataNasc.Text);
-           // this.Visible = false;
-           // destino1.ShowDialog();
+            frmAnamnese d = new frmAnamnese(txtNome.Text, txtProntuario.Text, txtDataNasc.Text, 
+                txtDataAtend.Text, txtmedico.Text, txtEspecialidade.Text, txtPesoKg.Text,
+                txtPressaoArterial.Text, txtGlicose.Text, txtTemperatura.Text,
+                txtSaturacao.Text, txtRelatoPaciente.Text, txtHoraTriagem.Text);
+            this.Visible = false;
+            d.ShowDialog();
         }
 
         private void label12_Click(object sender, EventArgs e)
