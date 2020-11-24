@@ -3,11 +3,12 @@ using System.Windows.Forms;
 
 namespace ProjetoCrudPacientes
 {
-    public partial class frmOpcoes : Form
+    public partial class frmOpcoes : Form 
     {
-        public frmOpcoes()
+        public frmOpcoes() 
         {
             InitializeComponent();
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)
