@@ -41,7 +41,6 @@ namespace ProjetoCrudPacientes
 
                 cmd.Parameters.AddWithValue("@nome", nome);
                 cmd.Parameters.AddWithValue("@senha", senha);
-                cmd.Parameters.AddWithValue("@cargo", cargo);
                 var resultado = cmd.ExecuteScalar();
                 if(resultado != null)
                 {

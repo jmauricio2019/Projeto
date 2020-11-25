@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ProjetoCrudPacientes
 {
     public partial class frmOpcoes : Form 
     {
-        public frmOpcoes() 
+        public frmOpcoes()
         {
             InitializeComponent();
-
+           
         }
-
-        private void btnSair_Click(object sender, EventArgs e)
+            private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -50,6 +51,56 @@ namespace ProjetoCrudPacientes
 
         private void frmOpcoes_Load(object sender, EventArgs e)
         {
+            string nome = lblUsuario.Text;
+
+
+            try
+            {    //selecionar dados no banco de dados
+                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+
+                objcon.Open();
+                //busca pelo prontuario
+                MySqlCommand objCmd = new MySqlCommand("select   cargo  from tb_colaborador where  nome= ?", objcon);
+
+                objCmd.Parameters.Clear();
+
+                objCmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = lblUsuario.Text;
+
+                //comando para executar query
+                objCmd.CommandType = CommandType.Text;
+
+                //recebe conteudo do banco
+                MySqlDataReader dr;
+                dr = objCmd.ExecuteReader();
+
+                dr.Read();
+
+                String pront = dr.GetString(0);
+                if (pront == "RECEPCIONISTA")
+                {
+                    button3.Visible = false;
+                    button4.Visible = false;
+
+                }
+                if (pront == "MÉDICO")
+                {
+                    button1.Visible = false;
+                    button3.Visible = false;
+                    btnCadastrodeClientes.Visible = false;
+                }
+                if (pront == "ENFERMEIRO")
+                {
+                    button1.Visible = false;
+                    button4.Visible = false;
+                    btnCadastrodeClientes.Visible = false;
+                }
+
+                objcon.Close();
+            }
+            catch (Exception)
+            {
+
+            }
 
         }
 
