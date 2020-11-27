@@ -21,6 +21,8 @@ namespace ProjetoCrudPacientes
         private void btnCadastrodeClientes_Click(object sender, EventArgs e)
         {
             frmCadPacientes frm = new frmCadPacientes();
+            frm.lblUsuario.Text = nome;
+            this.Visible = false;
             frm.ShowDialog();
         }
 
@@ -109,12 +111,15 @@ namespace ProjetoCrudPacientes
         private void button1_Click(object sender, EventArgs e)
         {
             frmCadColaboradorescs frm = new frmCadColaboradorescs();
+            frm.lblUsuario.Text = nome;
+            this.Visible = false;
             frm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             frmTriagem frm = new frmTriagem();
+            frm.lblUsuario.Text = nome;
             this.Visible = false;
             frm.ShowDialog();
         }
@@ -122,6 +127,7 @@ namespace ProjetoCrudPacientes
         private void button2_Click(object sender, EventArgs e)
         {
             frmVerificarAgenda frm = new frmVerificarAgenda();
+            frm.lblUsuario.Text = nome;
             this.Visible = false;
             frm.ShowDialog();
         }
@@ -130,6 +136,7 @@ namespace ProjetoCrudPacientes
         {
 
             frmConsulta frm = new frmConsulta();
+            frm.lblUsuario.Text = nome;
             this.Visible = false;
             frm.ShowDialog();
         }

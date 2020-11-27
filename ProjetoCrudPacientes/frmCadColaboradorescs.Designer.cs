@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadColaboradorescs));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtEspecialidade = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -91,11 +92,16 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtEspecialidade = new System.Windows.Forms.ComboBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
             this.menuStrip2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -152,6 +158,27 @@
             this.groupBox2.Size = new System.Drawing.Size(1326, 337);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
+            // 
+            // txtEspecialidade
+            // 
+            this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEspecialidade.FormattingEnabled = true;
+            this.txtEspecialidade.Items.AddRange(new object[] {
+            "CARDIOLOGIA",
+            "CLÍNICO GERAL",
+            "DERMATOLOGIA",
+            "ENDOCRINOLOGIA",
+            "GASTROLOGIA",
+            "NEFROLOGIA",
+            "NEUROLOGIA",
+            "ORTOPEDIA",
+            "OTORRINO",
+            "PEDIATRIA",
+            "PNEUMOLOGIA"});
+            this.txtEspecialidade.Location = new System.Drawing.Point(410, 144);
+            this.txtEspecialidade.Name = "txtEspecialidade";
+            this.txtEspecialidade.Size = new System.Drawing.Size(157, 26);
+            this.txtEspecialidade.TabIndex = 105;
             // 
             // label28
             // 
@@ -803,32 +830,57 @@
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
             // 
-            // txtEspecialidade
+            // statusStrip1
             // 
-            this.txtEspecialidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEspecialidade.FormattingEnabled = true;
-            this.txtEspecialidade.Items.AddRange(new object[] {
-            "CARDIOLOGIA",
-            "CLÍNICO GERAL",
-            "DERMATOLOGIA",
-            "ENDOCRINOLOGIA",
-            "GASTROLOGIA",
-            "NEFROLOGIA",
-            "NEUROLOGIA",
-            "ORTOPEDIA",
-            "OTORRINO",
-            "PEDIATRIA",
-            "PNEUMOLOGIA"});
-            this.txtEspecialidade.Location = new System.Drawing.Point(410, 144);
-            this.txtEspecialidade.Name = "txtEspecialidade";
-            this.txtEspecialidade.Size = new System.Drawing.Size(157, 26);
-            this.txtEspecialidade.TabIndex = 105;
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.lblUsuario,
+            this.toolStripStatusLabel2,
+            this.lblHora});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 740);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1364, 22);
+            this.statusStrip1.TabIndex = 39;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(109, 17);
+            this.toolStripStatusLabel1.Text = " Usuário logado:";
+            this.toolStripStatusLabel1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(47, 17);
+            this.lblUsuario.Text = "Usuário";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(22, 17);
+            this.toolStripStatusLabel2.Text = "  |  ";
+            // 
+            // lblHora
+            // 
+            this.lblHora.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblHora.Image = ((System.Drawing.Image)(resources.GetObject("lblHora.Image")));
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(65, 17);
+            this.lblHora.Text = "00:00:00";
             // 
             // frmCadColaboradorescs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 762);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip2);
@@ -847,6 +899,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -917,5 +971,10 @@
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox txtEspecialidade;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        public System.Windows.Forms.ToolStripStatusLabel lblUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel lblHora;
     }
 }

@@ -695,6 +695,7 @@ namespace ProjetoCrudPacientes
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmOpcoes frm = new frmOpcoes();
+            frm.lblUsuario.Text = lblUsuario.Text;
             this.Visible = false;
             frm.ShowDialog();
         }

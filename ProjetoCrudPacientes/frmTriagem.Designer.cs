@@ -41,6 +41,11 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtGlicose = new System.Windows.Forms.MaskedTextBox();
+            this.txtSaturacao = new System.Windows.Forms.MaskedTextBox();
+            this.txtTemperatura = new System.Windows.Forms.MaskedTextBox();
+            this.txtPesoKg = new System.Windows.Forms.MaskedTextBox();
+            this.txtPressaoArterial = new System.Windows.Forms.MaskedTextBox();
             this.txtHoraTriagem = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDataAtend = new System.Windows.Forms.MaskedTextBox();
@@ -66,15 +71,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.mySqlConnection1 = new MySql.Data.MySqlClient.MySqlConnection();
-            this.txtPressaoArterial = new System.Windows.Forms.MaskedTextBox();
-            this.txtPesoKg = new System.Windows.Forms.MaskedTextBox();
-            this.txtTemperatura = new System.Windows.Forms.MaskedTextBox();
-            this.txtSaturacao = new System.Windows.Forms.MaskedTextBox();
-            this.txtGlicose = new System.Windows.Forms.MaskedTextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabeladeClientes)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -238,6 +244,51 @@
             this.groupBox2.Size = new System.Drawing.Size(1326, 348);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
+            // 
+            // txtGlicose
+            // 
+            this.txtGlicose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGlicose.Location = new System.Drawing.Point(245, 172);
+            this.txtGlicose.Mask = "000 mg/dl";
+            this.txtGlicose.Name = "txtGlicose";
+            this.txtGlicose.Size = new System.Drawing.Size(75, 24);
+            this.txtGlicose.TabIndex = 121;
+            // 
+            // txtSaturacao
+            // 
+            this.txtSaturacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaturacao.Location = new System.Drawing.Point(740, 172);
+            this.txtSaturacao.Mask = "00 %";
+            this.txtSaturacao.Name = "txtSaturacao";
+            this.txtSaturacao.Size = new System.Drawing.Size(75, 24);
+            this.txtSaturacao.TabIndex = 120;
+            // 
+            // txtTemperatura
+            // 
+            this.txtTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemperatura.Location = new System.Drawing.Point(480, 172);
+            this.txtTemperatura.Mask = "00,0°";
+            this.txtTemperatura.Name = "txtTemperatura";
+            this.txtTemperatura.Size = new System.Drawing.Size(75, 24);
+            this.txtTemperatura.TabIndex = 119;
+            // 
+            // txtPesoKg
+            // 
+            this.txtPesoKg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesoKg.Location = new System.Drawing.Point(478, 124);
+            this.txtPesoKg.Mask = "000,000";
+            this.txtPesoKg.Name = "txtPesoKg";
+            this.txtPesoKg.Size = new System.Drawing.Size(75, 24);
+            this.txtPesoKg.TabIndex = 118;
+            // 
+            // txtPressaoArterial
+            // 
+            this.txtPressaoArterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPressaoArterial.Location = new System.Drawing.Point(739, 124);
+            this.txtPressaoArterial.Mask = "000X00";
+            this.txtPressaoArterial.Name = "txtPressaoArterial";
+            this.txtPressaoArterial.Size = new System.Drawing.Size(75, 24);
+            this.txtPressaoArterial.TabIndex = 117;
             // 
             // txtHoraTriagem
             // 
@@ -501,62 +552,63 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Triagem";
             // 
-            // txtPressaoArterial
+            // statusStrip1
             // 
-            this.txtPressaoArterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPressaoArterial.Location = new System.Drawing.Point(739, 124);
-            this.txtPressaoArterial.Mask = "000X00";
-            this.txtPressaoArterial.Name = "txtPressaoArterial";
-            this.txtPressaoArterial.Size = new System.Drawing.Size(75, 24);
-            this.txtPressaoArterial.TabIndex = 117;
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.lblUsuario,
+            this.toolStripStatusLabel2,
+            this.lblHora});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 740);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1364, 22);
+            this.statusStrip1.TabIndex = 39;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // txtPesoKg
+            // toolStripStatusLabel1
             // 
-            this.txtPesoKg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesoKg.Location = new System.Drawing.Point(478, 124);
-            this.txtPesoKg.Mask = "000,000";
-            this.txtPesoKg.Name = "txtPesoKg";
-            this.txtPesoKg.Size = new System.Drawing.Size(75, 24);
-            this.txtPesoKg.TabIndex = 118;
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(109, 17);
+            this.toolStripStatusLabel1.Text = " Usuário logado:";
+            this.toolStripStatusLabel1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
-            // txtTemperatura
+            // lblUsuario
             // 
-            this.txtTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemperatura.Location = new System.Drawing.Point(480, 172);
-            this.txtTemperatura.Mask = "00,0°";
-            this.txtTemperatura.Name = "txtTemperatura";
-            this.txtTemperatura.Size = new System.Drawing.Size(75, 24);
-            this.txtTemperatura.TabIndex = 119;
+            this.lblUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(47, 17);
+            this.lblUsuario.Text = "Usuário";
             // 
-            // txtSaturacao
+            // toolStripStatusLabel2
             // 
-            this.txtSaturacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaturacao.Location = new System.Drawing.Point(740, 172);
-            this.txtSaturacao.Mask = "00 %";
-            this.txtSaturacao.Name = "txtSaturacao";
-            this.txtSaturacao.Size = new System.Drawing.Size(75, 24);
-            this.txtSaturacao.TabIndex = 120;
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(22, 17);
+            this.toolStripStatusLabel2.Text = "  |  ";
             // 
-            // txtGlicose
+            // lblHora
             // 
-            this.txtGlicose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGlicose.Location = new System.Drawing.Point(245, 172);
-            this.txtGlicose.Mask = "000 mg/dl";
-            this.txtGlicose.Name = "txtGlicose";
-            this.txtGlicose.Size = new System.Drawing.Size(75, 24);
-            this.txtGlicose.TabIndex = 121;
+            this.lblHora.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblHora.Image = ((System.Drawing.Image)(resources.GetObject("lblHora.Image")));
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(65, 17);
+            this.lblHora.Text = "00:00:00";
             // 
             // frmTriagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 762);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1364, 762);
-            this.MinimumSize = new System.Drawing.Size(1364, 762);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "frmTriagem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTriagem";
@@ -568,6 +620,8 @@
             this.menuStrip2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -617,5 +671,10 @@
         private System.Windows.Forms.MaskedTextBox txtPesoKg;
         private System.Windows.Forms.MaskedTextBox txtPressaoArterial;
         private MySql.Data.MySqlClient.MySqlConnection mySqlConnection1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        public System.Windows.Forms.ToolStripStatusLabel lblUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel lblHora;
     }
 }

@@ -190,6 +190,7 @@ namespace ProjetoCrudPacientes
         {
 
             frmConsulta frm = new frmConsulta();
+            frm.lblUsuario.Text = lblUsuario.Text;
             this.Visible = false;
             frm.ShowDialog();
         }

@@ -66,8 +66,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHora = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -102,6 +108,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox2.Controls.Add(this.statusStrip1);
             this.groupBox2.Controls.Add(this.txtHoraAnamnese);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtRelatoMedico);
@@ -481,6 +488,51 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Anamnese";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.lblUsuario,
+            this.toolStripStatusLabel2,
+            this.lblHora});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 690);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1320, 22);
+            this.statusStrip1.TabIndex = 121;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.toolStripStatusLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripStatusLabel1.Image")));
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(109, 17);
+            this.toolStripStatusLabel1.Text = " Usuário logado:";
+            this.toolStripStatusLabel1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(47, 17);
+            this.lblUsuario.Text = "Usuário";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(22, 17);
+            this.toolStripStatusLabel2.Text = "  |  ";
+            // 
+            // lblHora
+            // 
+            this.lblHora.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblHora.Image = ((System.Drawing.Image)(resources.GetObject("lblHora.Image")));
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(65, 17);
+            this.lblHora.Text = "00:00:00";
+            // 
             // frmAnamnese
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,7 +542,7 @@
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1364, 762);
-            this.MinimumSize = new System.Drawing.Size(1364, 762);
+            this.MinimumSize = new System.Drawing.Size(1364, 726);
             this.Name = "frmAnamnese";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAnamnese";
@@ -499,6 +551,8 @@
             this.menuStrip2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -542,5 +596,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MaskedTextBox txtHoraAnamnese;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        public System.Windows.Forms.ToolStripStatusLabel lblUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel lblHora;
     }
 }

@@ -253,9 +253,15 @@ namespace ProjetoCrudPacientes
 
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmOpcoes frm = new frmOpcoes();
+            frm.lblUsuario.Text = lblUsuario.Text;
             this.Visible = false;
             frm.ShowDialog();
         }

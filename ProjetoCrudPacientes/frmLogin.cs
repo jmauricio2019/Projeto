@@ -7,7 +7,7 @@ namespace ProjetoCrudPacientes
 {
     public partial class frmLogin : Form
     {
-        string nome, senha, cargo;
+        string prontuario, senha;
         public frmLogin()
         {
             InitializeComponent();
@@ -16,56 +16,31 @@ namespace ProjetoCrudPacientes
         public void campoVazio()
         {
 
-            if (txtLogin.Text == "" && txtSenha.Text == "")
+            if (txtLogin.Text == "" || txtSenha.Text == "")
             {
-
+                MessageBox.Show(" Campo Obrigatório Vazio ");
+            }
+            else
+            {
+                usuario();
             }
         }
 
         public void usuario()
         {
-            nome = txtLogin.Text;
+            prontuario = txtLogin.Text;
             senha = txtSenha.Text;
-
-            /*try
-            {    //selecionar dados no banco de dados
-                // define a string de conexao com provedor caminho e nome do banco de dados
-                string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
-                //cria a conexão com o banco de dados
-                MySqlConnection con = new MySqlConnection(strProvider);
-                //define a instrução SQL
-                //abre a conexao
-                con.Open();
-                //if (txtCpf1.Enabled == true )
-                //{
-                MySqlCommand cmd = new MySqlCommand("select * from tb_colaborador where nome= @nome and senha = @senha" , con);
-
-                cmd.Parameters.AddWithValue("@nome", nome);
-                cmd.Parameters.AddWithValue("@senha", senha);
-                var resultado = cmd.ExecuteScalar();
-                if(resultado != null)
-                {
-                    frmOpcoes frm = new frmOpcoes();
-                    frm.lblUsuario.Text = txtLogin.Text;
-                    frm.ShowDialog();
-                }
-            
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Algo erro no banco " + erro);
-            }*/
             try
             {    //selecionar dados no banco de dados
                 MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
 
                 objcon.Open();
                 //busca pelo prontuario
-                MySqlCommand objCmd = new MySqlCommand("select  nome, senha from tb_colaborador where  nome= ?", objcon);
+                MySqlCommand objCmd = new MySqlCommand("select  prontuario,nome, senha from tb_colaborador where  prontuario= ?", objcon);
 
                 objCmd.Parameters.Clear();
 
-                objCmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtLogin.Text;
+                objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar).Value = txtLogin.Text;
                 
 
 
@@ -78,46 +53,37 @@ namespace ProjetoCrudPacientes
 
                 dr.Read();
 
-                String id = dr.GetString(0);
-                String sen = dr.GetString(1);
-                MessageBox.Show(id,sen);
+                String id = dr.GetString(0);               
+                string nome = dr.GetString(1);
+                String sen = dr.GetString(2);
 
-                if ( sen ==senha && id == nome)
+
+                if ( sen ==senha && id == prontuario)
                 {
                     frmOpcoes frm = new frmOpcoes();
-                    frm.lblUsuario.Text = txtLogin.Text;
+                    frm.lblUsuario.Text = nome;
                     frm.ShowDialog();
-
                 }
-               
-
-
+                else
+                {
+                    MessageBox.Show("Login ou Senha incorretos");
+                }
                 objcon.Close();
             }
            
             catch (Exception)
             {
-             
-                
+
+                MessageBox.Show("Login ou Senha incorretos");
             }
+            txtLogin.Text = "";
+            txtSenha.Text = "";
+
         }
         public void ValidaLogin()
         {
-            
-
             campoVazio();
-            usuario();
-            if ((txtLogin.Text == "admin") && (txtSenha.Text == "admin"))
-            {
-                frmOpcoes frm = new frmOpcoes();
-                frm.lblUsuario.Text = txtLogin.Text;
-                frm.ShowDialog();
-            }
-        
-            else
-            {
-                MessageBox.Show("Login e Senha não correspondem!!!");
-            }
+                    
         }
 
         private void btnSair_Click(object sender, EventArgs e)

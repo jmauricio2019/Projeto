@@ -14,7 +14,7 @@ namespace ProjetoCrudPacientes
    
     public partial class frmHistoricoAtendimento : Form
     {
-        string nome;
+     
         public frmHistoricoAtendimento()
         {
             InitializeComponent();

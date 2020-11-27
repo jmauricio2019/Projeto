@@ -36,6 +36,7 @@ namespace ProjetoCrudPacientes
         {
 
             frmOpcoes frm = new frmOpcoes();
+            frm.lblUsuario.Text = lblUsuario.Text;
             this.Visible = false;
             frm.ShowDialog();
         }
@@ -228,6 +229,8 @@ namespace ProjetoCrudPacientes
                 txtDataAtend.Text, txtmedico.Text, txtEspecialidade.Text, txtPesoKg.Text,
                 txtPressaoArterial.Text, txtGlicose.Text, txtTemperatura.Text,
                 txtSaturacao.Text, txtRelatoPaciente.Text, txtHoraTriagem.Text);
+            d.lblUsuario.Text = lblUsuario.Text;
+            
             this.Visible = false;
             d.ShowDialog();
         }

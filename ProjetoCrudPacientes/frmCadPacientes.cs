@@ -1058,6 +1058,7 @@ namespace ProjetoCrudPacientes
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmOpcoes frm = new frmOpcoes();
+            frm.lblUsuario.Text = lblUsuario.Text;
             this.Visible = false;
             frm.ShowDialog();
         }
@@ -1536,6 +1537,7 @@ namespace ProjetoCrudPacientes
         private void button1_Click(object sender, EventArgs e)
         {
             frmAgendar destino = new frmAgendar(txtNome.Text, txtProntuario.Text, txtDataNasc.Text, txtMae.Text);
+            destino.lblUsuario.Text = lblUsuario.Text;
             this.Visible = false;
             destino.ShowDialog();
         }
@@ -1563,11 +1565,6 @@ namespace ProjetoCrudPacientes
         {
             //lblHora.Text = DateTime.Now.ToLongTimeString();
             //lblHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
         }
 
     }
