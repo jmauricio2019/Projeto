@@ -26,7 +26,8 @@ namespace ProjetoCrudPacientes
         {
             nome = txtLogin.Text;
             senha = txtSenha.Text;
-            try
+
+            /*try
             {    //selecionar dados no banco de dados
                 // define a string de conexao com provedor caminho e nome do banco de dados
                 string strProvider = "server=localhost;port=3306;User Id=root;database=bd_crudcad;";
@@ -53,8 +54,52 @@ namespace ProjetoCrudPacientes
             catch (Exception erro)
             {
                 MessageBox.Show("Algo erro no banco " + erro);
+            }*/
+            try
+            {    //selecionar dados no banco de dados
+                MySqlConnection objcon = new MySqlConnection("server=localhost;port=3306;User Id=root; database=bd_crudcad; ");
+
+                objcon.Open();
+                //busca pelo prontuario
+                MySqlCommand objCmd = new MySqlCommand("select  nome, senha from tb_colaborador where  nome= ?", objcon);
+
+                objCmd.Parameters.Clear();
+
+                objCmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtLogin.Text;
+                
+
+
+                //comando para executar query
+                objCmd.CommandType = CommandType.Text;
+
+                //recebe conteudo do banco
+                MySqlDataReader dr;
+                dr = objCmd.ExecuteReader();
+
+                dr.Read();
+
+                String id = dr.GetString(0);
+                String sen = dr.GetString(1);
+                MessageBox.Show(id,sen);
+
+                if ( sen ==senha && id == nome)
+                {
+                    frmOpcoes frm = new frmOpcoes();
+                    frm.lblUsuario.Text = txtLogin.Text;
+                    frm.ShowDialog();
+
+                }
+               
+
+
+                objcon.Close();
             }
-        
+           
+            catch (Exception)
+            {
+             
+                
+            }
         }
         public void ValidaLogin()
         {

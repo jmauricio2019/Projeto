@@ -11,8 +11,10 @@ using MySql.Data.MySqlClient;
 
 namespace ProjetoCrudPacientes
 {
+   
     public partial class frmHistoricoAtendimento : Form
     {
+        string nome;
         public frmHistoricoAtendimento()
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace ProjetoCrudPacientes
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmOpcoes frm = new frmOpcoes();
+            frm.lblUsuario.Text = lblUsuario.Text;
             this.Visible = false;
             frm.ShowDialog();
         }

@@ -7,6 +7,7 @@ namespace ProjetoCrudPacientes
 {
     public partial class frmOpcoes : Form 
     {
+        string nome;
         public frmOpcoes()
         {
             InitializeComponent();
@@ -51,7 +52,7 @@ namespace ProjetoCrudPacientes
 
         private void frmOpcoes_Load(object sender, EventArgs e)
         {
-            string nome = lblUsuario.Text;
+            nome = lblUsuario.Text;
 
 
             try
@@ -80,6 +81,7 @@ namespace ProjetoCrudPacientes
                 {
                     button3.Visible = false;
                     button4.Visible = false;
+                    button1.Visible = false;
 
                 }
                 if (pront == "MÉDICO")
@@ -135,6 +137,7 @@ namespace ProjetoCrudPacientes
         private void button5_Click(object sender, EventArgs e)
         {
             frmHistoricoAtendimento frm = new frmHistoricoAtendimento();
+            frm.lblUsuario.Text = nome;
             this.Visible = false;
             frm.ShowDialog();
         }
