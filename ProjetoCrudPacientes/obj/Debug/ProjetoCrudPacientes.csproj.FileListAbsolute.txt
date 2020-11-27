@@ -234,3 +234,4 @@ C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\D
 C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmHistoricoAtendimento.resources
 C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmTriagem.resources
 C:\Users\josem\OneDrive\Documents\ProjetoCrud\Projeto\ProjetoCrudPacientes\obj\Debug\ProjetoCrudPacientes.frmVerificarAgenda.resources
+C:\Users\rapha\OneDrive\Área de Trabalho\LABORATORIO DE ENG DE SOFTWARE\Projeto\ProjetoCrudPacientes\bin\Debug\Reports.dll

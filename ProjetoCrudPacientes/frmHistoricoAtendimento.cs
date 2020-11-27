@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Root.Reports;
 
 namespace ProjetoCrudPacientes
 {
@@ -528,8 +529,116 @@ namespace ProjetoCrudPacientes
             txtProntuario1.Text = (" ");
         }
 
+
+        public void GerarPdf()
+        {
+            // Variavel do Nome e caminho do arquivo
+            string vArq = "";
+            // Abre janela para usuário escolher a pasta onde o arquivo será gerado
+
+            FolderBrowserDialog vSalvar = new FolderBrowserDialog();
+            // Verifica se o usuário clicou em ok ou cancelar na janela de seleção da pasta
+
+            if (vSalvar.ShowDialog() == DialogResult.Cancel)
+                return; // Cancela todo processo
+            // Insere na variavel o caminho selecionado pelo usuário e concatena com o nome do arquivo
+            vArq = vSalvar.SelectedPath + "\\" + txtNome.Text.Trim() + ".pdf";
+            try
+            {
+                // Cria um objeto PDF
+                Report vPdf = new Report(new PdfFormatter());
+
+                // Define a fonte que sera usada no relatório PDF
+                FontDef vDef = new FontDef(vPdf, FontDef.StandardFont.TimesRoman);
+
+
+
+                // Define o tamanho a fonte que sera usada no relatório PDF
+                FontProp vDrop = new FontProp(vDef, 10);//tamanho da fonte
+                FontProp vProp = new FontProp(vDef, 5);// tamanho da fonte
+                FontProp vTrop = new FontProp(vDef, 8);// tamanho da fonte
+                FontProp vGrop = new FontProp(vDef, 7);// tamanho da fonte
+
+
+                // Cria uma Nova Pagina
+                Page vPage = new Page(vPdf);
+
+                // Escreve no Arquivo
+                vPage.AddCB_MM(10, new RepString(vDrop, "FICHA DE ATENDIMENTO AMBULATORIAL - FAA")); // Centraliza
+                vPage.AddCB_MM(20, new RepString(vDrop, "UBS RITA ASSIS")); // Centraliza
+                vPage.AddCB_MM(25, new RepString(vProp, "RUA: AVENIDA SEM NOME")); // Centraliza
+                vPage.AddCB_MM(30, new RepString(vProp, "CONTATO: (00) 0000-0000")); // CentralizA
+                vPage.AddCB_MM(40, new RepString(vDrop, "IDENTIFICAÇÃO DO PACIENTE")); // Centraliza
+                vPage.AddCB_MM(32, new RepString(vDrop, "_____________________________________________________________________________")); // define lado + altura
+
+                vPage.AddCB_MM(20, 50, new RepString(vTrop, "ATENDIMENTO: ")); // define lado + altura
+                vPage.AddCB_MM(45, 50, new RepString(vGrop, txtDataAtend.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(15, 60, new RepString(vDrop, "NOME: ")); // define lado + altura
+                vPage.AddCB_MM(45, 60, new RepString(vGrop, txtNome.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(160, 60, new RepString(vTrop, "PRONTUARIO: ")); // define lado + altura
+                vPage.AddCB_MM(180, 60, new RepString(vGrop, txtProntuario.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(20, 70, new RepString(vTrop, "DATA NASC.: ")); // define lado + altura
+                vPage.AddCB_MM(40, 70, new RepString(vGrop, txtDataNasc.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(85, new RepString(vDrop, "DADOS DO ATENDIMENTO")); // Centraliza
+                vPage.AddCB_MM(88, new RepString(vDrop, "_____________________________________________________________________________")); // define lado + altura
+
+                vPage.AddCB_MM(20, 95, new RepString(vTrop, "MÉDICO: ")); // define lado + altura
+                vPage.AddCB_MM(40, 95, new RepString(vGrop, txtmedico.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(130, 95, new RepString(vTrop, "ESPECIALIDADE: ")); // define lado + altura
+                vPage.AddCB_MM(165, 95, new RepString(vGrop, txtEspecialidade.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(15, 110, new RepString(vTrop, "PESO: ")); // define lado + altura
+                vPage.AddCB_MM(30, 110, new RepString(vGrop, txtPesoKg.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(100, 110, new RepString(vTrop, "PRESSÃO ARTERIAL: ")); // define lado + altura
+                vPage.AddCB_MM(130, 110, new RepString(vGrop, txtPressaoArterial.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(160, 110, new RepString(vTrop, "GLISSEMIA: ")); // define lado + altura
+                vPage.AddCB_MM(180, 110, new RepString(vGrop, txtGlicose.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(25, 120, new RepString(vTrop, "TEMPERATURA: ")); // define lado + altura
+                vPage.AddCB_MM(48, 120, new RepString(vGrop, txtTemperatura.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(100, 120, new RepString(vTrop, "SATURAÇÃO: ")); // define lado + altura
+                vPage.AddCB_MM(120, 120, new RepString(vGrop, txtSaturacao.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(124, new RepString(vDrop, "_____________________________________________________________________________")); // define lado + altura
+                vPage.AddCB_MM(35, 135, new RepString(vTrop, "RELATO PACIENTE: ")); // define lado + altura
+                vPage.AddCB_MM(35, 140, new RepString(vGrop, txtRelatoPaciente.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(173, new RepString(vDrop, "_____________________________________________________________________________")); // define lado + altura
+                vPage.AddCB_MM(35, 180, new RepString(vTrop, "RELATORIO MÉDICO: ")); // define lado + altura
+                vPage.AddCB_MM(40, 185, new RepString(vGrop, txtRelatoMedico.Text)); // define lado + altura pega o texto do box
+
+                vPage.AddCB_MM(260, new RepString(vDrop, "_____________________________________________________________________________")); // define lado + altura
+                vPage.AddCB_MM(35, 275, new RepString(vProp, "________________________________")); // define lado + altura
+                vPage.AddCB_MM(35, 280, new RepString(vProp, "ASS. MÉDICO: ")); // define lado + altura
+                vPage.AddCB_MM(160, 275, new RepString(vProp, "________________________________")); // define lado + altura
+                vPage.AddCB_MM(160, 280, new RepString(vProp, "ASS. RESPONSÁVEL: ")); // define lado + altura
+
+
+               // vPage.AddCB_MM(15, 350, new RepString(vDrop, txtTextoArquivo2.Text)); // define lado + altura pega o texto do box
+                // vPage.AddCB_MM(15, 350, new RepString(vGrop, txtTextoArquivo2.Text)); // define lado + altura pega o texto do box
+
+                // Salvar Arquivo no disco
+                vPdf.Save(vArq);
+                MessageBox.Show("FAA Gerada com sucesso !", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao Gerar arquivo !!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            GerarPdf();
             limpardatagrewview();
             LimparBox();
         }
