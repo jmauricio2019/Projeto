@@ -25,7 +25,6 @@ namespace ProjetoCrudPacientes
                 usuario();
             }
         }
-
         public void usuario()
         {
             prontuario = txtLogin.Text;
@@ -42,8 +41,6 @@ namespace ProjetoCrudPacientes
 
                 objCmd.Parameters.Add("@prontuario", MySqlDbType.VarChar).Value = txtLogin.Text;
                 
-
-
                 //comando para executar query
                 objCmd.CommandType = CommandType.Text;
 
@@ -57,8 +54,7 @@ namespace ProjetoCrudPacientes
                 string nome = dr.GetString(1);
                 String sen = dr.GetString(2);
 
-
-                if ( sen ==senha && id == prontuario)
+                if ( sen ==senha && id == prontuario )
                 {
                     frmOpcoes frm = new frmOpcoes();
                     frm.lblUsuario.Text = nome;
@@ -73,12 +69,10 @@ namespace ProjetoCrudPacientes
            
             catch (Exception)
             {
-
                 MessageBox.Show("Login ou Senha incorretos");
             }
             txtLogin.Text = "";
             txtSenha.Text = "";
-
         }
         public void ValidaLogin()
         {

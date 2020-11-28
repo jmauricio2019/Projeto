@@ -956,7 +956,8 @@ namespace ProjetoCrudPacientes
                     objcon.Close();
 
                     //mensagem
-                    MessageBox.Show("Atualizado com Sucesso !!!");
+                    MessageBox.Show("Atualizado!!!");
+                    agendar2();
                     LimparBox();
 
                 }
@@ -1073,6 +1074,7 @@ namespace ProjetoCrudPacientes
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+ 
             if (txtProntuario.Text == " " || txtNome.Text == " " || txtDataNasc.Text == " " ||
                   txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
                   txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
@@ -1086,7 +1088,8 @@ namespace ProjetoCrudPacientes
                 //GerarProntuario();
                 letramaiusc();
                 Cadastrar();
-                limpardatagrewview();
+                agendar2();
+               // limpardatagrewview();
             }
 
         }
@@ -1379,6 +1382,7 @@ namespace ProjetoCrudPacientes
             if (e.KeyChar == 13)
             {
                 Cadastrar();
+                agendar2();
                 LimparBox();
                 btnSalvar.Enabled = false;
                 btnAtualizar.Enabled = false;
@@ -1534,6 +1538,15 @@ namespace ProjetoCrudPacientes
             txtDataNasc1.Enabled = true;
         }
 
+       
+
+        public void agendar2()
+        {
+            frmAgendar destino = new frmAgendar(txtNome.Text, txtProntuario.Text, txtDataNasc.Text, txtMae.Text);
+            destino.lblUsuario.Text = lblUsuario.Text;
+            this.Visible = false;
+            destino.ShowDialog();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             frmAgendar destino = new frmAgendar(txtNome.Text, txtProntuario.Text, txtDataNasc.Text, txtMae.Text);
