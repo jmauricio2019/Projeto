@@ -187,9 +187,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label5.Location = new System.Drawing.Point(265, 38);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(534, 75);
+            this.label5.Size = new System.Drawing.Size(427, 75);
             this.label5.TabIndex = 35;
-            this.label5.Text = "Store System Design";
+            this.label5.Text = "System Register";
             // 
             // timer1
             // 

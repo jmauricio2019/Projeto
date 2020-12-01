@@ -16,6 +16,15 @@ namespace ProjetoCrudPacientes
         public frmVerificarAgenda()
         {
             InitializeComponent();
+            txtNome.Enabled = false;
+            txtProntuario.Enabled = false;
+            txtDataNasc.Enabled = false; ;
+            txtMae.Enabled = false;
+            txtmedico.Enabled = false;
+            txtEspecialidade.Enabled = false;
+            txtCrm.Enabled = false;
+            txtHoraAtend.Enabled = false;
+            txtDataAtend.Enabled = false;
         }
         public void SelecionarDataGrewViewTodos()
         {

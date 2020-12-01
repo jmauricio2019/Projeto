@@ -35,7 +35,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtHoraAtend = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtDataAtend = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMae = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,16 +58,15 @@
             this.txtNome1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtDataNasc1 = new System.Windows.Forms.MaskedTextBox();
             this.tabeladeClientes = new System.Windows.Forms.DataGridView();
             this.btnBuscar1 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblHora = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtDataAtend = new System.Windows.Forms.DateTimePicker();
             this.groupBox2.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,12 +77,12 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox2.Controls.Add(this.txtDataAtend);
             this.groupBox2.Controls.Add(this.txtEspecialidade);
             this.groupBox2.Controls.Add(this.txtCrm);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtHoraAtend);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtDataAtend);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtMae);
             this.groupBox2.Controls.Add(this.label4);
@@ -141,6 +139,7 @@
             this.txtHoraAtend.Name = "txtHoraAtend";
             this.txtHoraAtend.Size = new System.Drawing.Size(62, 24);
             this.txtHoraAtend.TabIndex = 106;
+            this.txtHoraAtend.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtHoraAtend_MaskInputRejected);
             // 
             // label9
             // 
@@ -152,15 +151,6 @@
             this.label9.Size = new System.Drawing.Size(50, 22);
             this.label9.TabIndex = 105;
             this.label9.Text = "Hora";
-            // 
-            // txtDataAtend
-            // 
-            this.txtDataAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataAtend.Location = new System.Drawing.Point(136, 240);
-            this.txtDataAtend.Mask = "00/00/0000";
-            this.txtDataAtend.Name = "txtDataAtend";
-            this.txtDataAtend.Size = new System.Drawing.Size(101, 24);
-            this.txtDataAtend.TabIndex = 104;
             // 
             // label8
             // 
@@ -352,10 +342,8 @@
             this.groupBox1.Controls.Add(this.txtNome1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtDataNasc1);
             this.groupBox1.Controls.Add(this.tabeladeClientes);
             this.groupBox1.Controls.Add(this.btnBuscar1);
-            this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(17, 39);
             this.groupBox1.Name = "groupBox1";
@@ -379,7 +367,7 @@
             "OTORRINO",
             "PEDIATRIA",
             "PNEUMOLOGIA"});
-            this.comboBox2.Location = new System.Drawing.Point(457, 44);
+            this.comboBox2.Location = new System.Drawing.Point(136, 44);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(157, 26);
             this.comboBox2.TabIndex = 104;
@@ -398,7 +386,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(332, 45);
+            this.label11.Location = new System.Drawing.Point(11, 45);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(123, 22);
             this.label11.TabIndex = 102;
@@ -415,15 +403,6 @@
             this.label12.TabIndex = 101;
             this.label12.Text = "Médico";
             this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // txtDataNasc1
-            // 
-            this.txtDataNasc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataNasc1.Location = new System.Drawing.Point(147, 45);
-            this.txtDataNasc1.Mask = "00/00/0000";
-            this.txtDataNasc1.Name = "txtDataNasc1";
-            this.txtDataNasc1.Size = new System.Drawing.Size(101, 24);
-            this.txtDataNasc1.TabIndex = 65;
             // 
             // tabeladeClientes
             // 
@@ -451,17 +430,6 @@
             this.btnBuscar1.UseVisualStyleBackColor = false;
             this.btnBuscar1.Click += new System.EventHandler(this.btnBuscar1_Click);
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Poor Richard", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(21, 47);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(123, 22);
-            this.label19.TabIndex = 40;
-            this.label19.Text = "Data do Aten.";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -469,9 +437,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.label1.Location = new System.Drawing.Point(1177, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 41);
+            this.label1.Size = new System.Drawing.Size(133, 41);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Agenda";
+            this.label1.Text = "Médicos";
             // 
             // statusStrip1
             // 
@@ -517,6 +485,15 @@
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(65, 17);
             this.lblHora.Text = "00:00:00";
+            // 
+            // txtDataAtend
+            // 
+            this.txtDataAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtDataAtend.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDataAtend.Location = new System.Drawing.Point(135, 243);
+            this.txtDataAtend.Name = "txtDataAtend";
+            this.txtDataAtend.Size = new System.Drawing.Size(118, 24);
+            this.txtDataAtend.TabIndex = 123;
             // 
             // frmAgendar
             // 
@@ -567,12 +544,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.MaskedTextBox txtDataNasc1;
         private System.Windows.Forms.DataGridView tabeladeClientes;
         private System.Windows.Forms.Button btnBuscar1;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox txtDataAtend;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtMae;
         private System.Windows.Forms.Label label4;
@@ -590,5 +564,6 @@
         public System.Windows.Forms.ToolStripStatusLabel lblUsuario;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel lblHora;
+        private System.Windows.Forms.DateTimePicker txtDataAtend;
     }
 }

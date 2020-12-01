@@ -18,6 +18,12 @@ namespace ProjetoCrudPacientes
         public frmTriagem()
         {
             InitializeComponent();
+            txtNome.Enabled = false;
+            txtProntuario.Enabled = false;
+            txtDataNasc.Enabled = false; ;
+            txtmedico.Enabled = false;
+            txtEspecialidade.Enabled = false;
+            txtDataAtend.Enabled = false;
         }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -448,6 +454,8 @@ namespace ProjetoCrudPacientes
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
+            LimparBox();
+            limpardatagrewview();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

@@ -190,6 +190,7 @@
             this.tabeladeClientes.Size = new System.Drawing.Size(1293, 182);
             this.tabeladeClientes.TabIndex = 57;
             this.tabeladeClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellClick);
+            this.tabeladeClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabeladeClientes_CellContentClick);
             // 
             // btnBuscar1
             // 

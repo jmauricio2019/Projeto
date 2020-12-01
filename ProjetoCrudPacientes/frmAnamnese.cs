@@ -15,6 +15,8 @@ namespace ProjetoCrudPacientes
     {
         string cns, Cpff;
         int CNS, Prot, cpff, cnss;
+        private string nome;
+
         public frmAnamnese()
         {
             InitializeComponent();
@@ -184,6 +186,10 @@ namespace ProjetoCrudPacientes
         private void button1_Click(object sender, EventArgs e)
         {
             Cadastrar();
+            frmConsulta frm = new frmConsulta();
+            frm.lblUsuario.Text = nome;
+            this.Visible = false;
+            frm.ShowDialog();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

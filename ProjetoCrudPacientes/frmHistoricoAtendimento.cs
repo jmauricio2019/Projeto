@@ -642,5 +642,10 @@ namespace ProjetoCrudPacientes
             limpardatagrewview();
             LimparBox();
         }
+
+        private void tabeladeClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

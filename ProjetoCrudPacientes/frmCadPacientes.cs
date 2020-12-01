@@ -217,7 +217,7 @@ namespace ProjetoCrudPacientes
 
                         //fecha o banco de dados
                         objcon.Close();
-                        LimparBox();
+                        
                         btnSalvar.Enabled = false;
                         btnAtualizar.Enabled = false;
                         btnExcluir.Enabled = false;
@@ -957,8 +957,8 @@ namespace ProjetoCrudPacientes
 
                     //mensagem
                     MessageBox.Show("Atualizado!!!");
-                    agendar2();
-                    LimparBox();
+                    //agendar2();
+                    //LimparBox();
 
                 }
                 catch (Exception erro)
@@ -1084,18 +1084,82 @@ namespace ProjetoCrudPacientes
             }
             else
             {
+                if (DialogResult.Yes == MessageBox.Show("Deseja Cadastrar e Agendar Consulta?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                {
+                    //Sua rotina de exclusão
+                    letramaiusc();
+                    Cadastrar();
+                    agendar2();
+                    LimparBox();
+                    limpardatagrewview();
+                    //Confirmando exclusão para o usuário
+                    MessageBox.Show("Cadastro Salvo!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                else
+                {
+                    letramaiusc();
+                    Cadastrar();
+                    LimparBox();
+                    limpardatagrewview();
+                   // MessageBox.Show("Cadastro realizado!!!");
+                }
                 //VerificaCPF();
                 //GerarProntuario();
-                letramaiusc();
-                Cadastrar();
-                agendar2();
-               // limpardatagrewview();
+               // letramaiusc();
+                // Cadastrar();
+                // agendar2();
+               // LimparBox();
+                //limpardatagrewview();
             }
 
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+
+
+            if (txtProntuario.Text == " " || txtNome.Text == " " || txtDataNasc.Text == " " ||
+                  txtMae.Text == " " || txtTel1.Text == " " || txtCep.Text == " " || txtRua.Text == " " ||
+                  txtNum.Text == " " || txtBairro.Text == " " || txtCidade.Text == " " || txtUf.Text == " ")
+            {
+                MessageBox.Show("Os Campos: Prontuario, Nome, Data de Nascimento, Nome da Mãe\n Telefone 1" +
+                    "e o Endereço Completo Devem ser Preenchidos. ");
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show("Deseja Atualizar e Agendar Consulta?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                {
+                    //Sua rotina de exclusão
+                    letramaiusc();
+                    Atualizar();
+                    agendar2();
+                    LimparBox();
+                    limpardatagrewview();
+                    //Confirmando exclusão para o usuário
+                    MessageBox.Show("Cadastro Atualizado!!!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                else
+                {
+                    letramaiusc();
+                    Atualizar();
+                    LimparBox();
+                    limpardatagrewview();
+                    // MessageBox.Show("Cadastro realizado!!!");
+                }
+                //VerificaCPF();
+                //GerarProntuario();
+                // letramaiusc();
+                // Cadastrar();
+                // agendar2();
+                // LimparBox();
+                //limpardatagrewview();
+            }
+
+
+
+
             //VerificaCPF();
             letramaiusc();
             Atualizar();

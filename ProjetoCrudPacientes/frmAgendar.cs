@@ -15,6 +15,8 @@ namespace ProjetoCrudPacientes
     {
         string cns, Cpff;
         int CNS, Prot, cpff, cnss;
+        private string nome;
+
         public frmAgendar()
         {
             InitializeComponent();
@@ -232,6 +234,10 @@ namespace ProjetoCrudPacientes
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cadastrar();
+            frmCadPacientes frm = new frmCadPacientes();
+            frm.lblUsuario.Text = nome;
+            this.Visible = false;
+            frm.ShowDialog();
         }
 
         private void tabeladeClientes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -254,6 +260,11 @@ namespace ProjetoCrudPacientes
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoraAtend_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
